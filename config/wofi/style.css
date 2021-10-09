@@ -1,0 +1,51 @@
+.test-colors {
+  color: #927c8f;
+}
+
+window {
+  margin: 0px;
+  border: 1px solid #B1A5B5;
+  background-color: #B1A5B5;
+  border-radius: 5px;
+}
+
+#input {
+  margin: 5px;
+  border: none;
+  border-radius: 2px;
+  color: #ebdbb2; 
+  background-color: #928eaf;
+  font-size: 15px;
+}
+
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: #B1A5B5;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #B1A5B5;
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: #3c3836;
+  font-size: 15px;
+  font-family: "JetBrains Mono Nerd Font", mono;
+}
+
+#entry:selected {
+    border-radius: 2px;
+    color: #3c3836;
+    background-color: #C9B9C7;
+}
