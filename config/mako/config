@@ -1,12 +1,12 @@
 sort=-time
 layer=overlay
-background-color=#C9B9C7
-text-color=#89857A
+background-color=#19988b
+text-color=#fffde6
 width=300
 height=110
 border-size=2
-border-color=#C9B9C7
-border-radius=3
+border-color=#645287
+border-radius=0
 padding=10
 icons=0
 max-icon-size=64
@@ -14,15 +14,17 @@ default-timeout=5000
 ignore-timeout=1
 
 [urgency=low]
-background-color=#cccccc
-border-color=#cccccc
+background-color=#b9b5b8
+border-color=#b9b5b8
 
 [urgency=normal]
-border-color=#C9B9C7
+border-color=#fdcb23
+background-color=#fdcb23
+text-color=#645287
 
 [urgency=high]
-background-color=#e2a37e
-border-color=#e2a37e
+background-color=#dd464c
+border-color=#dd464c
 default-timeout=0
 
 [category=mpd]

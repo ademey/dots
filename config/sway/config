@@ -1,9 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -15,8 +9,8 @@ set $up i
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
-set $grimshot /home/anne/Dev/scripts/grimshot.sh
-set $wifi /home/anne/Dev/scripts/wofi-wifi-menu/wofi-wifi-menu.sh
+set $grimshot /home/anne/DEV/scripts/grimshot.sh
+set $wifi /home/anne/DEV/scripts/wofi-wifi-menu/wofi-wifi-menu.sh
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -28,7 +22,11 @@ set $menu wofi --show=drun --width=500 --height=300 | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # 5, 12, 47
-output * bg /home/anne/Pictures/wallpaper/abstractpack/niivu-abstractpack\ \(12\).jpg fill
+# output * bg /home/anne/Pictures/Desktops/objects_by_almcinnis_ddpsutu.png fill
+# output * bg /home/anne/Pictures/Desktops/Matrixxman_CinaWallpaper_02.jpg fill
+output * bg /home/anne/Pictures/Desktops/abstractpack/niivu-abstractpack\ \(37\).jpg fill
+
+
 #
 # Example configuration:
 #
@@ -65,29 +63,6 @@ for_window [title="Firefox — Sharing Indicator"] floating enable
 
 # A/V
 for_window [app_id=zoom] floating enable
-
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-input "1:1:AT_Translated_Set_2_keyboard" {
-   xkb_options ctrl:nocaps
-}
-
-input "1739:52619:SYNA8006:00_06CB:CD8B_Touchpad" {
-    middle_emulation disabled
-}
 
 ### Key bindings
 #
@@ -164,13 +139,15 @@ input "1739:52619:SYNA8006:00_06CB:CD8B_Touchpad" {
 #
 # Displays
 #
-set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
+# set $laptop eDP-1
+# bindswitch --reload --locked lid:on output $laptop disable
+# bindswitch --reload --locked lid:off output $laptop enable
 
-# output HDMI-A-1 pos 0 0 res 2560x1440
-output HDMI-A-1 pos 0 0 res 3840x1080
-output DP-2 pos 2560 0 res 2560x1440
+output DisplayPort-0 pos 1920 0 res 2560x1440
+output HDMI-A-0 pos 0 0 res 1920x1080
+
+# output HDMI-A-1 pos 0 0 res 3840x1080
+# output DP-2 pos 2560 0 res 2560x1440
 
 #
 # Workspaces:
@@ -266,8 +243,8 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+# bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+# bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 
 #
@@ -307,9 +284,15 @@ gaps inner 20
 default_border pixel 2
 
 # class                   border  backgr  text   indicator child brdr
-client.focused            #927c8f #B1A5B5 #ebdbb2 #ebdbb2 #B1A5B5
-client.unfocused          #ebdbb2 #ebdbb2 #89857A #ebdbb2 #ebdbb2
-client.focused_inactive   #B1A5B5 #B1A5B5 #ebdbb2 #ebdbb2 #ebdbb2
-client.urgent             #e2a37e #e2a37e #89857A #e2a37e #e2a37e
+client.focused            #19988b #645287 #fffde6 #dd464c #19988b
+client.unfocused          #392f4b #392f4b #b9b5b8 #392f4b #392f4b
+client.focused_inactive   #392f4b #392f4b #b9b5b8 #392f4b #392f4b
+client.urgent             #fdcb23 #fdcb23 #645287 #fdcb23 #fdcb23
+
+# Lavendar theme
+# client.focused            #927c8f #B1A5B5 #ebdbb2 #ebdbb2 #B1A5B5
+# client.unfocused          #ebdbb2 #ebdbb2 #89857A #ebdbb2 #ebdbb2
+# client.focused_inactive   #B1A5B5 #B1A5B5 #ebdbb2 #ebdbb2 #ebdbb2
+# client.urgent             #e2a37e #e2a37e #89857A #e2a37e #e2a37e
 
 # include /etc/sway/config.d/*
