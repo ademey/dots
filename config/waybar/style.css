@@ -24,6 +24,7 @@ __        __          _
 @define-color hop-teal-2 #59c9be;
 @define-color hop-teal-3 #0e4742;
 @define-color hop-blue #829bd6;
+@define-color hop-blue-2 #1290bf;
 @define-color hop-pink #f490c1;
 @define-color hop-red #dd464c;
 @define-color hop-red-2 #af393d;
@@ -42,7 +43,7 @@ __        __          _
 }
 
 window#waybar {
-  background: @hop-purple-3;
+  background: @hop-purple;
   color: @hop-light;
 }
 
@@ -70,7 +71,7 @@ window#waybar {
 
 #workspaces button.current_output.visible {
   color: @hop-light;
-  background: @hop-plum;
+  background: @hop-red-2;
 }
 
 #workspaces button.current_output.focused {

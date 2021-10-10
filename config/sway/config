@@ -23,8 +23,8 @@ set $menu wofi --show=drun --width=500 --height=300 | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # 5, 12, 47
 # output * bg /home/anne/Pictures/Desktops/objects_by_almcinnis_ddpsutu.png fill
-# output * bg /home/anne/Pictures/Desktops/Matrixxman_CinaWallpaper_02.jpg fill
-output * bg /home/anne/Pictures/Desktops/abstractpack/niivu-abstractpack\ \(37\).jpg fill
+output * bg /home/anne/Pictures/Desktops/Matrixxman_CinaWallpaper_02.jpg fill
+# output * bg /home/anne/Pictures/Desktops/abstractpack/niivu-abstractpack\ \(37\).jpg fill
 
 
 #
@@ -91,6 +91,7 @@ for_window [app_id=zoom] floating enable
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+p exec /home/anne/DEV/scripts/wofi-power.sh
 
     bindsym $mod+n exec nautilus
     bindsym $mod+C exec gnome-control-center
@@ -243,6 +244,12 @@ bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+
 # bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
