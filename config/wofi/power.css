@@ -1,0 +1,73 @@
+@define-color hop-purple #645287;
+@define-color hop-purple-2 #4a3f5e;
+@define-color hop-purple-3 #392f4b;
+@define-color hop-light #fffde6;
+@define-color hop-grey #b9b5b8;
+
+@define-color hop-urgent #fc332b;
+@define-color hop-alert #fdcb23;
+@define-color hop-error #f2480f;
+
+@define-color hop-teal #19988b;
+@define-color hop-teal-2 #59c9be;
+@define-color hop-teal-3 #0e4742;
+@define-color hop-blue #829bd6;
+@define-color hop-pink #f490c1;
+@define-color hop-red #dd464c;
+@define-color hop-red-2 #af393d;
+@define-color hop-red-3 #962a3e;
+@define-color hop-maroon #4a1c2e;
+@define-color hop-plum #7d3765;
+@define-color hop-orange #fd8b19;
+
+@define-color hop-dark-grey #322931;
+@define-color hop-black #171015;
+
+window {
+  margin: 0px;
+  border: 1px solid @hop-black;
+  background-color: @hop-black;
+  border-radius: 0;
+}
+
+#input {
+  background: pink;
+}
+
+#inner-box {
+  margin: 0px;
+  border: none;
+  background-color: @hop-dark-grey;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  padding: 0;
+  background-color: @hop-purple;
+}
+
+#scroll {
+  margin: 0px;
+  padding: 2px;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: @hop-light;
+  font-size: 40px;
+  background-color: @hop-teal;
+  font-family: "JetBrains Mono Nerd Font", mono;
+}
+
+#entry {
+  text-align: center;
+}
+
+#entry:selected {
+  border-radius: 0px;
+  color: @hop-light;
+  background-color: @hop-red;
+  text-align: center;
+}

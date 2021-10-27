@@ -5,9 +5,12 @@ window:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: JetBrains Mono Nerd Font
 
   size: 12
+
+# Colors (Gruvbox dark)
+# https://github.com/eendroroy/alacritty-theme/blob/master/themes/gruvbox_dark.yaml
 
 colors:
   # Default colors
