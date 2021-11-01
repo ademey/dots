@@ -1,0 +1,5 @@
+# class                   border  backgr  text   indicator child brdr
+client.focused            #19988b #645287 #fffde6 #dd464c #19988b
+client.unfocused          #392f4b #392f4b #b9b5b8 #392f4b #392f4b
+client.focused_inactive   #392f4b #392f4b #b9b5b8 #392f4b #392f4b
+client.urgent             #fdcb23 #fdcb23 #645287 #fdcb23 #fdcb23

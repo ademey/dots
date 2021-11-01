@@ -44,8 +44,8 @@ __        __          _
 @define-color ui-ws-inactive-bg @theme-purple-2;
 @define-color ui-urgent-color @theme-light;
 @define-color ui-urgent-bg @theme-alert;
-@define-color ui-mode-color @ui-bar-color;
-@define-color ui-mode-bg @theme-plum;
+@define-color ui-mode-color @theme-light;
+@define-color ui-mode-bg @theme-purple-3;
 @define-color ui-clock-color @ui-bar-color;
 @define-color ui-clock-bg @theme-yellow;
 

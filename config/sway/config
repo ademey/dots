@@ -29,7 +29,7 @@ set $menu wofi --show=drun --width=400 --height=300 | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # 5, 12, 47
 # output * bg /home/anne/Pictures/wallpaper/abstractpack/niivu-abstractpack\ \(5\).jpg fill
-output * bg /home/anne/Pictures/wallpaper/weeb/walkman.jpg fill
+output * bg /home/anne/Pictures/wallpaper/weeb/iamthebest.jpg fill
 #
 # Example configuration:
 #
@@ -294,9 +294,9 @@ gaps inner 20
 default_border pixel 2
 
 # class                   border  backgr  text   indicator child brdr
-client.focused            #19988b #645287 #fffde6 #dd464c #19988b
-client.unfocused          #392f4b #392f4b #b9b5b8 #392f4b #392f4b
-client.focused_inactive   #392f4b #392f4b #b9b5b8 #392f4b #392f4b
-client.urgent             #fdcb23 #fdcb23 #645287 #fdcb23 #fdcb23
+client.focused            #fffde6 #fffde6 #ae47e6 #FFA7C2 #fffde6
+client.unfocused          #b9b5b8 #b9b5b8 #392f4b #b9b5b8 #b9b5b8
+client.focused_inactive   #b9b5b8 #b9b5b8 #392f4b #b9b5b8 #b9b5b8
+client.urgent             #FFEBA2 #FFEBA2 #ae47e6 #FFEBA2 #FFEBA2
 
 include /etc/sway/config.d/*
