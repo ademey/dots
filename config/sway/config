@@ -28,7 +28,8 @@ set $menu wofi --show=drun --width=400 --height=300 | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # 5, 12, 47
-output * bg /home/anne/Pictures/wallpaper/abstractpack/niivu-abstractpack\ \(5\).jpg fill
+# output * bg /home/anne/Pictures/wallpaper/abstractpack/niivu-abstractpack\ \(5\).jpg fill
+output * bg /home/anne/Pictures/wallpaper/weeb/walkman.jpg fill
 #
 # Example configuration:
 #
@@ -40,11 +41,12 @@ output * bg /home/anne/Pictures/wallpaper/abstractpack/niivu-abstractpack\ \(5\)
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+    timeout 280 'notify-send "Swayidle" "Going to sleep soon"' \
+    timeout 300 'swaylock -f' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -80,20 +82,15 @@ for_window [app_id=zoom] floating enable
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-input "1:1:AT_Translated_Set_2_keyboard" {
-   xkb_options ctrl:nocaps
-}
-
-input "1739:52619:SYNA8006:00_06CB:CD8B_Touchpad" {
-    middle_emulation disabled
-}
-
 ### Key bindings
 #
 # Basics:
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start a browser
+    bindsym $mod+Shift+Return exec firefox
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -121,8 +118,8 @@ input "1739:52619:SYNA8006:00_06CB:CD8B_Touchpad" {
 
 
     bindsym $mod+n exec nautilus
-    bindsym $mod+C exec gnome-control-center
     bindsym $mod+Shift+n exec $wifi
+    
 
 #
 # Moving around:
@@ -167,13 +164,13 @@ input "1739:52619:SYNA8006:00_06CB:CD8B_Touchpad" {
 #
 # Displays
 #
-set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
+# set $laptop eDP-1
+# bindswitch --reload --locked lid:on output $laptop disable
+# bindswitch --reload --locked lid:off output $laptop enable
 
 # output HDMI-A-1 pos 0 0 res 2560x1440
-output HDMI-A-1 pos 0 0 res 3840x1080
-output DP-2 pos 2560 0 res 2560x1440
+output HDMI-A-1 pos 0 0 res 1920x1080
+output DP-2 pos 1920 0 res 2560x1440
 
 #
 # Workspaces:
@@ -288,23 +285,6 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
     
     # bindsym $mod+g       exec $term -e ~/bin/swayrec
 
-
-# bar {
-#     id right-bar
-#     output HDMI-A-1 
-#     swaybar_command waybar
-# }
-# 
-# bar {
-#     id left-bar
-#     output DP-2
-#     tray_output None
-# }
-# 
-# bar {
-#     id laptop-bar
-#     output eDP-1 
-# }
 
 bar {
     swaybar_command waybar

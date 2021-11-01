@@ -5,20 +5,20 @@ image=/home/anne/Pictures/wallpaper/abstractpack/niivu-abstractpack\ \(5\).jpg
 indicator-radius=130
 indicator-thickness=40
 
-key-hl-color=#ae47e6
+key-hl-color=#19988b
 
 separator-color=00000000
 
-inside-color=#CF8FF1
-inside-clear-color=#fffde6
+inside-color=#645287
+inside-clear-color=#b9b5b8
 inside-caps-lock-color=#fd8b19
-inside-ver-color=#79ecd7
+inside-ver-color=#19988b
 inside-wrong-color=#dd464c
 
-ring-color=#CF8FF1
-ring-clear-color=#fffde6
+ring-color=#645287
+ring-clear-color=#b9b5b8
 ring-caps-lock-color=231f20D9
-ring-ver-color=#79ecd7
+ring-ver-color=#19988b
 ring-wrong-color=#dd464c
 
 line-color=00000000
@@ -31,7 +31,7 @@ text-clear-color=ffd20400
 text-ver-color=d9d8d800
 text-wrong-color=ee2e2400
 
-bs-hl-color=#fffde6
+bs-hl-color=#b9b5b8
 caps-lock-key-hl-color=ffd204FF
 caps-lock-bs-hl-color=ee2e24FF
 disable-caps-lock-text

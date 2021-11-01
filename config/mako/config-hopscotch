@@ -1,26 +1,26 @@
 sort=-time
 layer=overlay
-background-color=#FFEBA2
-border-color=#FFEBA2
-text-color=#ae47e6
+background-color=#fdcb23
+border-color=#fdcb23
+text-color=#645287
 width=300
 height=110
 border-size=2
-border-radius=2
-padding=15
+border-radius=0
+padding=10
 icons=0
 max-icon-size=64
 default-timeout=5000
 ignore-timeout=1
 
 [urgency=low]
-background-color=#fffde6
-border-color=#fffde6
+background-color=#b9b5b8
+border-color=#b9b5b8
 
 [urgency=normal]
-background-color=#FFEBA2
-border-color=#FFEBA2
-# text-color=#fffde6
+background-color=#19988b
+border-color=#19988b
+text-color=#fffde6
 
 [urgency=high]
 background-color=#dd464c

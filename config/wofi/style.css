@@ -2,44 +2,61 @@
   color: #927c8f;
 }
 
-@define-color hop-purple #645287;
-@define-color hop-purple-2 #4a3f5e;
-@define-color hop-purple-3 #392f4b;
-@define-color hop-light #fffde6;
-@define-color hop-grey #b9b5b8;
+@define-color theme-purple #ae47e6;
+@define-color theme-purple-2 #CF8FF1;
+@define-color theme-purple-3 #392f4b;
+@define-color theme-light #fffde6;
+@define-color theme-grey #b9b5b8;
 
-@define-color hop-urgent #fc332b;
-@define-color hop-alert #fdcb23;
-@define-color hop-error #f2480f;
+@define-color theme-teal #79ecd7;
+@define-color theme-teal-2 #59c9be;
+@define-color theme-teal-3 #0e4742;
+@define-color theme-blue #829bd6;
+@define-color theme-pink #FFA7C2;
+@define-color theme-yellow #FFEBA2;
 
-@define-color hop-teal #19988b;
-@define-color hop-teal-2 #59c9be;
-@define-color hop-teal-3 #0e4742;
-@define-color hop-blue #829bd6;
-@define-color hop-pink #f490c1;
-@define-color hop-red #dd464c;
-@define-color hop-red-2 #af393d;
-@define-color hop-red-3 #962a3e;
-@define-color hop-maroon #4a1c2e;
-@define-color hop-plum #7d3765;
-@define-color hop-orange #fd8b19;
+@define-color theme-red #dd464c;
+@define-color theme-red-2 #af393d;
+@define-color theme-red-3 #962a3e;
+@define-color theme-maroon #4a1c2e;
+@define-color theme-plum #7d3765;
+@define-color theme-orange #fd8b19;
+
+@define-color theme-urgent #fc332b;
+@define-color theme-alert #fdcb23;
+@define-color theme-error #f2480f;
+
+
+@define-color ui-bar @theme-light;
+@define-color ui-bar-color @theme-purple;
+@define-color ui-ws-active-color @theme-light;
+@define-color ui-ws-active-bg @theme-teal;
+@define-color ui-ws-hover @theme-teal-2;
+@define-color ui-ws-inactive-color @theme-light;
+@define-color ui-ws-inactive-bg @theme-purple-2;
+@define-color ui-urgent-color @theme-light;
+@define-color ui-urgent-bg @theme-alert;
+@define-color ui-mode-color @ui-bar-color;
+@define-color ui-mode-bg @theme-plum;
+@define-color ui-clock-color @ui-bar-color;
+@define-color ui-clock-bg @theme-yellow;
 
 @define-color hop-dark-grey #322931;
 @define-color hop-black #171015;
 
 window {
   margin: 0px;
-  border: 1px solid @hop-black;
-  background-color: @hop-black;
+  border: 1px solid @theme-grey;
+  background-color: @theme-light;
   border-radius: 0;
 }
 
 #input {
   margin: 5px;
-  border: 1px solid @hop-alert;
+  border: 1px solid @theme-yellow;
   border-radius: 0px;
-  color: @hop-light;
-  background-color: @hop-dark-grey;
+  color: @theme-purple;
+  background-color: @theme-yellow;
   font-size: 16px;
   font-family: "JetBrains Mono Nerd Font", mono;
   padding: 5px;
@@ -48,13 +65,13 @@ window {
 #inner-box {
   margin: 5px;
   border: none;
-  background-color: @hop-dark-grey;
+  background-color: @theme-light;
 }
 
 #outer-box {
   margin: 5px;
   border: none;
-  background-color: @hop-dark-grey;
+  background-color: @theme-light;
 }
 
 #scroll {
@@ -64,13 +81,13 @@ window {
 #text {
   margin: 5px;
   border: none;
-  color: @hop-light;
+  color: @theme-purple;
   font-size: 14px;
   font-family: "JetBrains Mono Nerd Font", mono;
 }
 
 #entry:selected {
   border-radius: 0px;
-  color: @hop-light;
-  background-color: @hop-red;
+  color: @theme-purple;
+  background-color: @theme-pink;
 }

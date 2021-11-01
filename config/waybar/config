@@ -1,6 +1,6 @@
 {
     // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
@@ -8,29 +8,51 @@
     "modules-center": ["sway/window"],
     "modules-right": [
         "pulseaudio",
-        "network",
+        // "mpd",
+        // "network",
         "cpu",
         "memory",
         "temperature",
-        "backlight",
-        "battery",
+        "idle_inhibitor",
+        // "backlight",
+        // "battery",
         // "battery#bat2",
         "clock",
-        "tray"
+        "tray" 
     ],
 
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-        "format": "{name}: {icon}",
+        "format": "{name} {icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            //"4": "",
-            "5": "",
+            // "1": "ぬ",
+            // "2": "ふ",
+            // "3": "あ",
+            // "4": "う",
+            // "5": "え",
+            // "6": "お",
+            // "7": "や",
+            // "8": "ゆ",
+            // "9": "よ",
+            // "10": "わ",
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+
+            // "1": "",
+            // "2": "",
+            // "3": "",
+            // "4": "",
+            // "5": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -54,7 +76,7 @@
         },
         "random-icons": {
             "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
+            "on": " " 
         },
         "repeat-icons": {
             "on": " "
