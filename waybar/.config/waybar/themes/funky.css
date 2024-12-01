@@ -1,0 +1,25 @@
+@import "/home/anne/.cache/wal/colors-waybar.css";
+
+@define-color ui-bar @color7;
+@define-color ui-bar-color @background;
+
+@define-color ui-ws-bg @color5;
+@define-color ui-ws-color @background;
+
+@define-color ui-ws-active-bg @color1;
+@define-color ui-ws-active-color @backgound;
+
+@define-color ui-ws-hover-bg @color9;
+@define-color ui-ws-hover-color @background;
+
+@define-color ui-ws-inactive-bg @color9;
+@define-color ui-ws-inactive-color @color15;
+
+@define-color ui-urgent-bg @color2;
+@define-color ui-urgent-color @foreground;
+
+@define-color ui-clock-bg @color0;
+@define-color ui-clock-color @foreground;
+
+@define-color ui-modules-bg @background;
+@define-color ui-modules-color @foreground;

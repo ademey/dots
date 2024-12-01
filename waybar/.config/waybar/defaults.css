@@ -1,0 +1,45 @@
+* {
+    transition-property: none;
+    animation: none;
+    font-size: 14px;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    border-radius: 0px;
+    padding: 0px;
+  }
+  
+  #workspaces button {
+    transition: background-color 0.1s;
+    border: 0;
+    padding: 0 16px 0 8px;
+  }
+  
+  #workspaces button.active {
+    color: @color1;
+  }
+  
+  #workspaces button.focused {
+    border: 0;
+  }
+  
+  #workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    border: 0;
+  }
+  
+  label#idle_inhibitor.activated {
+    background: @color1;
+  }
+  
+  #tray {
+    padding: 0 8px;
+  }
+  
+  #clock {
+    padding: 0 8px;
+    margin: 0 0 0 10px;
+  }
+  
+  .module {
+    padding: 0 14px 0 8px;
+  }

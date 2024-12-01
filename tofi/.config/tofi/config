@@ -1,0 +1,105 @@
+#
+### Fonts
+#
+	font = "JetBrainsMono Nerd Font"
+	font-size = 12
+
+#
+### Text theming
+#
+
+	# Prompt text theme
+	# prompt-color = {background}
+	# prompt-background = {color1}
+	prompt-background-padding = 6
+	prompt-background-corner-radius = 0
+
+	# Placeholder text theme
+	# placeholder-color = {background}
+	# placeholder-background = {color7}
+	placeholder-background-padding = 0
+	placeholder-background-corner-radius = 0
+
+	# Input text theme
+	# input-color = {background}
+	# input-background = {foreground}
+	input-background-padding = 4
+	input-background-corner-radius = 0
+
+	# Default result text theme
+	# default-result-color = #FFFFFF
+	default-result-background = #00000000
+	default-result-background-padding = 3
+	default-result-background-corner-radius = 0
+
+	# Alternate (even-numbered) result text theme
+	#
+	# If unspecified, these all default to the corresponding
+	# default-result-* attribute.
+	#
+	# alternate-result-color = #FFFFFF
+	# alternate-result-background = #00000000
+	# alternate-result-background-padding = 0
+	# alternate-result-background-corner-radius = 0
+
+	# Selection text
+	# selection-color = {background}
+	# selection-background = {color7}
+	selection-background-padding = 3
+	selection-background-corner-radius = 2
+
+	# Matching portion of selection text
+	# selection-match-color = {color1}
+
+
+#
+### Text layout
+#
+	prompt-padding = 12
+	placeholder-text = ""
+	num-results = 0
+
+	# Spacing between results in pixels. Can be negative.
+	result-spacing = 10
+
+	# List results horizontally.
+	horizontal = true
+
+	# Minimum width of input in horizontal mode.
+	min-input-width = 0
+
+#
+### Window theming
+#
+	width = 100%
+    height = 40
+	outline-width = 4
+	border-width = 0
+	padding-top = 0
+	padding-bottom = 0
+	padding-left = 0
+	padding-right = 0
+	clip-to-padding = true
+	scale = true
+
+#
+### Window positioning
+#
+	output = ""
+	anchor = top-left
+	exclusive-zone = 0
+	# Window offset from edge of screen. Only has an effect when anchored
+	# to the relevant edge. Can be pixels or a percentage.
+	margin-top = 0
+	margin-bottom = 0
+	margin-left = 0
+	margin-right = 0
+
+#
+### Inclusion
+#
+	# Configs can be split between multiple files, and then included
+	# within each other.
+	include = /home/anne/.cache/wal/tofi
+
+

@@ -1,0 +1,59 @@
+
+window#waybar {
+  color: @ui-bar-color;
+  background: @ui-bar;
+}
+
+#tray {
+  padding: 0;
+}
+
+#workspaces {
+  padding: 4px;
+}
+
+
+#workspaces button {
+padding: 0 16px 0 8px;
+color: @ui-ws-color;
+background: @ui-ws-bg;
+margin: 0px 2px;
+border-radius: 3px;
+}
+
+/* 2nd screen active, not focuse */
+#workspaces button.visible {
+color: @ui-ws-inactive-color;
+background: @ui-ws-inactive-bg;
+}
+
+#workspaces button.active {
+color: @ui-ws-active-color;
+background: @ui-ws-active-bg;
+}
+
+#workspaces button.urgent {
+background: @ui-urgent-bg;
+color: @ui-urgent-color;
+}
+
+#workspaces button:hover {
+background: @ui-ws-hover-bg;
+color: @ui-ws-hover-color;
+}
+
+#tray {
+padding: 0 8px;
+}
+
+.module {
+
+  padding: 0 14px 0 8px;
+}
+
+#clock {
+  color: @ui-clock-color;
+  padding: 0 8px;
+  background: @ui-clock-bg;
+  margin: 0 0 0 10px;
+}

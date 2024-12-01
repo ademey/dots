@@ -1,0 +1,75 @@
+
+window#waybar {
+    color: @ui-bar-color;
+    background: @ui-bar;
+    border-bottom: 2px solid @color3;
+}
+  
+#tray {
+    padding: 0;
+}
+
+#workspaces {
+    padding: 0;
+    background: @color9;
+}
+
+.modules-center {
+    /* background-color: @ui-bar;
+    color: @ui-bar-color; */
+    border-bottom: 2px solid @color3;
+}
+
+.modules-left {
+    /* border: 2px solid gold; */
+    border-bottom: 2px solid @color3;
+    background: @foreground;
+}
+
+.modules-right {
+    color: @ui-modules-color;
+    background: @ui-modules-bg;
+    border-bottom: 2px solid @color3;
+}
+
+#workspaces button {
+  padding: 4px 16px 4px 8px;
+  color: @ui-bar;
+  background: transparent;
+  margin: 0px;
+  border-radius: 0px;
+}
+
+#workspaces button.visible {
+  color: @ui-ws-inactive-bg;
+}
+
+#workspaces button.active {
+  color: @background;
+}
+
+#workspaces button.urgent {
+  border-color: @ui-urgent-bg;
+  color: @ui-urgent-bg;
+}
+
+#workspaces button:hover {
+  background: @ui-ws-hover-bg;
+  color: @ui-ws-hover-color;
+}
+
+#tray {
+  padding: 0 8px;
+}
+
+.module {
+
+    padding: 0 14px 0 8px;
+}
+
+#clock {
+    color: @ui-clock-color;
+    padding: 0 8px;
+    background: @ui-clock-bg;
+    margin: 0 0 0 10px;
+}
