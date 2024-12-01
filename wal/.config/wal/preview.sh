@@ -24,7 +24,7 @@ color13=$(echo $theme | jq -r ".colors.color13")
 color14=$(echo $theme | jq -r ".colors.color14")
 color15=$(echo $theme | jq -r ".colors.color15")
 
-magick $image -resize 800x600 -size 400x400 xc:white \
+magick $image -resize 500 xc:white \
    -fill $color0 -draw "rectangle 0,0 50,50" \
    -fill $color1 -draw "rectangle 50,0 100,50" \
    -fill $color2 -draw "rectangle 100,0 150,50" \
