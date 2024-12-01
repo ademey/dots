@@ -1,0 +1,28 @@
+{
+    "checksum": "d8ce9d302747464250054f98f65bf218",
+    "wallpaper": "/home/anne/Wallpaper/weeb/6833572.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0e1b17",
+        "foreground": "#c2c6c5",
+        "cursor": "#c2c6c5"
+    },
+    "colors": {
+        "color0": "#0e1b17",
+        "color1": "#ec5c96",
+        "color2": "#18e0da",
+        "color3": "#ec568b",
+        "color4": "#f1819f",
+        "color5": "#f39e98",
+        "color6": "#f4a0cc",
+        "color7": "#c2c6c5",
+        "color8": "#5b706b",
+        "color9": "#ec5c96",
+        "color10": "#18e0da",
+        "color11": "#ec568b",
+        "color12": "#f1819f",
+        "color13": "#f39e98",
+        "color14": "#f4a0cc",
+        "color15": "#c2c6c5"
+    }
+}

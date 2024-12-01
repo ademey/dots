@@ -1,0 +1,28 @@
+{
+    "checksum": "ef250675c8151883100e6531893622c6",
+    "wallpaper": "/home/anne/Wallpaper/3_terrazzo.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1f0a1c",
+        "foreground": "#c7c1c6",
+        "cursor": "#c7c1c6"
+    },
+    "colors": {
+        "color0": "#1f0a1c",
+        "color1": "#2B60C8",
+        "color2": "#A2638A",
+        "color3": "#5E8CD4",
+        "color4": "#B29596",
+        "color5": "#CDA5A2",
+        "color6": "#BCBCC9",
+        "color7": "#c7c1c6",
+        "color8": "#705b6d",
+        "color9": "#2B60C8",
+        "color10": "#A2638A",
+        "color11": "#5E8CD4",
+        "color12": "#B29596",
+        "color13": "#CDA5A2",
+        "color14": "#BCBCC9",
+        "color15": "#c7c1c6"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "checksum": "e111a25a4219c087d4f4417d80748bfc",
+    "wallpaper": "/home/anne/Wallpaper/weeb/walkman.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#030214",
+        "foreground": "#c0bfc4",
+        "cursor": "#c0bfc4"
+    },
+    "colors": {
+        "color0": "#030214",
+        "color1": "#e61eba",
+        "color2": "#17b9d6",
+        "color3": "#41b5e9",
+        "color4": "#1ae5d2",
+        "color5": "#f182c3",
+        "color6": "#f49fdb",
+        "color7": "#c0bfc4",
+        "color8": "#575669",
+        "color9": "#e61eba",
+        "color10": "#17b9d6",
+        "color11": "#41b5e9",
+        "color12": "#1ae5d2",
+        "color13": "#f182c3",
+        "color14": "#f49fdb",
+        "color15": "#c0bfc4"
+    }
+}

@@ -1,0 +1,9 @@
+hide_search=true
+hide_scroll=true
+dynamic_lines=true
+    
+location=3
+width=200
+#valign=center
+#halign=center
+# orientation=horizontal
