@@ -1,9 +1,6 @@
 # Dots
 
-Configs for swaywm
-
-### Wifi Menu
-https://github.com/fourstepper/wofi-wifi-menu
+My dot files
 
 ### Screen Shots
 
