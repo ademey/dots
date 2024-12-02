@@ -9,6 +9,9 @@ op=$(find ${HOME}/Wallpaper -type f | tofi --prompt-text=" wal: " --config="${HO
 
 # Need to exit if some selection is skipped
 
+# -n skip wallpaper
+# -t skip tty
+# -e skip reload bar
 wal -n -t -e \
     --saturate 0.5 \
     --cols16 "darken" \
