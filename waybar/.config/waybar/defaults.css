@@ -27,19 +27,21 @@
     border: 0;
   }
   
+  label#custom-sunset.on,
   label#idle_inhibitor.activated {
-    background: @color1;
+    background: @color3;
   }
   
-  #tray {
+  /* #tray {
     padding: 0 8px;
-  }
+  } */
   
   #clock {
     padding: 0 8px;
-    margin: 0 0 0 10px;
+    /* margin: 0; */
+    /* margin: 0 0 0 10px; */
   }
-  
-  .module {
+
+  .modules-right .module {
     padding: 0 14px 0 8px;
   }

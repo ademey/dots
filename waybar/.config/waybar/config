@@ -9,6 +9,7 @@
     "modules-right": [
         //"custom/temp",
         // "custom/wf-recorder",
+        "custom/theme",
         "pulseaudio",
         // "mpd",
         "network",
@@ -17,6 +18,7 @@
         "temperature",
         "backlight",
         "idle_inhibitor",
+        "custom/sunset",
         "battery",
         // "battery#bat2",
         "clock",
@@ -152,17 +154,8 @@
             "default": ["", ""]
         },
         "scroll-step": 1,
-        "on-click": "pavucontrol",
+        "on-click": "notify-send 'not setup...'",
         "ignored-sinks": ["Easy Effects Sink"]
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
     },
     "custom/wf-recorder": {
 		"format": "{icon}",
@@ -172,5 +165,34 @@
 		"exec-if": "pgrep 'wf-recorder'",
 		"on-click": "exec $HOME/Dev/scripts/wl-record.sh",
 		"signal": 8
+	},
+    "custom/theme": {
+		"format": ": {0}",
+		"interval": 10,
+		"exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
+        // "restart-interval": 20,
+		// "tooltip": "{0}",
+		// "exec-if": "pgrep 'hyprsunset'",
+		"on-click": "exec \"${HOME}/.config/wal/theme.sh\"",
+        // "on-click-right": "pkil -RTMIN+8 hyprsunst",
+	},
+    // TODO: Needs to update UI on toggle
+    // Do something with tooltip
+    "custom/sunset": {
+		"format": "{icon}",
+		"interval": 10,
+        "return-type": "json",
+        "format-icons": {
+            "on":"󰤄",
+            "off":""
+        },
+        "tooltip": "{}",
+		"exec": "exec \"${HOME}/.config/waybar/sunset.sh\"",
+        // "restart-interval": 20,
+		// "tooltip": "false",
+		// "exec-if": "pgrep 'hyprsunset'",
+        // "exec-on-event": true,
+		"on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000",
+        "signal": 10
 	}
 }

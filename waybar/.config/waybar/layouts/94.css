@@ -62,14 +62,31 @@ window#waybar {
   padding: 0 8px;
 }
 
-.module {
+.modules-right {
+  padding: 0 0 0 10px;
+}
 
-    padding: 0 14px 0 8px;
+.modules-right .module {
+    /* padding: 0 14px 0 8px; */
+    background: @color3;
+    margin: 3px;
 }
 
 #clock {
     color: @ui-clock-color;
     padding: 0 8px;
     background: @ui-clock-bg;
-    margin: 0 0 0 10px;
+}
+
+label#idle_inhibitor,
+label#custom-sunset {
+  /* padding: 0px 10px; */
+  /* margin: 4px 0; */
+  background: @color2;
+  background: transparent;
+  /* border-radius: 10px; */
+}
+
+label#idle_inhibitor.activated {
+  background: @color1;
 }

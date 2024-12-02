@@ -16,6 +16,7 @@ bindkey '\e[F'  end-of-line
 bindkey '\e[3~' delete-char
 
 alias la='ls -la'
+alias code='codium'
 
 # END!
 eval "$(starship init zsh)"
