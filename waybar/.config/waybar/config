@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
+    "height": 40,
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
@@ -19,10 +19,10 @@
         "backlight",
         "idle_inhibitor",
         "custom/sunset",
-        "battery",
         // "battery#bat2",
         "clock",
-        "tray" 
+        "tray", 
+        "battery"
     ],
 
     // Modules configuration
@@ -167,8 +167,9 @@
 		"signal": 8
 	},
     "custom/theme": {
-		"format": ": {0}",
+		"format": "",
 		"interval": 10,
+        "tooltip": "{}",
 		"exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
         // "restart-interval": 20,
 		// "tooltip": "{0}",

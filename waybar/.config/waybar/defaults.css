@@ -3,13 +3,13 @@
     animation: none;
     font-size: 14px;
     font-family: "JetBrainsMono Nerd Font", monospace;
-    border-radius: 0px;
-    padding: 0px;
+    /* border-radius: 0px; */
+    /* padding: 0px; */
   }
   
   #workspaces button {
     transition: background-color 0.1s;
-    border: 0;
+    /* border: 0; */
     padding: 0 16px 0 8px;
   }
   
@@ -17,15 +17,15 @@
     color: @color1;
   }
   
-  #workspaces button.focused {
+  /* #workspaces button.focused {
     border: 0;
-  }
+  } */
   
-  #workspaces button:hover {
+  /* #workspaces button:hover {
     box-shadow: none;
     text-shadow: none;
     border: 0;
-  }
+  } */
   
   /* label#custom-sunset.on,
   label#idle_inhibitor.activated {
@@ -37,11 +37,11 @@
   } */
   
   #clock {
-    padding: 0 8px;
+    /* padding: 0 8px; */
     /* margin: 0; */
     /* margin: 0 0 0 10px; */
   }
 
-  .modules-right .module {
+  /* .modules-right .module {
     padding: 0 14px 0 8px;
-  }
+  } */
