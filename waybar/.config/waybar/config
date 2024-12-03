@@ -4,7 +4,7 @@
     "height": 40,
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap", "wlr/taskbar"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
         //"custom/temp",
@@ -192,8 +192,17 @@
         // "restart-interval": 20,
 		// "tooltip": "false",
 		// "exec-if": "pgrep 'hyprsunset'",
-        // "exec-on-event": true,
+        "exec-on-event": true,
 		"on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000",
         "signal": 10
-	}
+	},
+    "wlr/taskbar": {
+        "format": "{icon} {title:.10}",
+        "icon-size": 16,
+        "spacing": 3,
+        "on-click-middle": "close",
+        "tooltip-format": "{title}",
+        "ignore-list": [],
+        "on-click": "activate"
+    },
 }

@@ -5,19 +5,19 @@ op=$( echo -e "Screen\nArea\nWindow\nCopyScreen\nCopyArea\nCopyWindow\nPickColor
 
 case $op in 
         screen)
-                exec hyprshot -m output -m active -o $XDG_SCREENSHOTS_DIR
+                exec hyprshot -m output -m active -o "${HOME}/Pictures/screenshots"
                 ;;
         area)
-		exec hyprshot -m region -o $XDG_SCREENSHOTS_DIR
+		exec hyprshot -m region -o "${HOME}/Pictures/screenshots" -z
                 ;;
         window)
-                exec hyprshot -m window -o $XDG_SCREENSHOTS_DIR
+                exec hyprshot -m window -o "${HOME}/Pictures/screenshots"
                 ;;
         copyscreen)
                 exec hyprshot -m output -m active --clipboard-only
                 ;;
         copyarea)
-		exec hyprshot -m region --clipboard-only
+		exec hyprshot -m region --clipboard-only -z
                 ;;
         copywindow)
                 exec hyprshot -m window --clipboard-only

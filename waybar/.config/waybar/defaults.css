@@ -6,11 +6,14 @@
     /* border-radius: 0px; */
     /* padding: 0px; */
   }
+
+  /* * { all: unset; } */
   
   #workspaces button {
     transition: background-color 0.1s;
     /* border: 0; */
     padding: 0 16px 0 8px;
+    border-radius: 0;
   }
   
   #workspaces button.active {
@@ -36,12 +39,12 @@
     padding: 0 8px;
   } */
   
-  #clock {
-    /* padding: 0 8px; */
+#clock {
+    padding: 0 8px;
     /* margin: 0; */
     /* margin: 0 0 0 10px; */
-  }
+}
 
-  /* .modules-right .module {
+.modules-right .module {
     padding: 0 14px 0 8px;
-  } */
+}
