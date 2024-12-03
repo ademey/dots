@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# TODO: Add cache path if it doesnt exist
+ 
 
 theme=$(<$HOME/.cache/wal/colors.json)
 background=$(echo $theme | jq -r ".special.background")
