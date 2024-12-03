@@ -78,15 +78,15 @@ window#waybar {
     background: @ui-clock-bg;
 }
 
-label#idle_inhibitor,
-label#custom-sunset {
+#idle_inhibitor,
+#custom-sunset {
   /* padding: 0px 10px; */
   /* margin: 4px 0; */
-  background: @color2;
   background: transparent;
   /* border-radius: 10px; */
 }
 
-label#idle_inhibitor.activated {
-  background: @color1;
+#idle_inhibitor.activated,
+#custom-sunset.on {
+  color: @color3;
 }

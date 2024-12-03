@@ -27,10 +27,10 @@
     border: 0;
   }
   
-  label#custom-sunset.on,
+  /* label#custom-sunset.on,
   label#idle_inhibitor.activated {
     background: @color3;
-  }
+  } */
   
   /* #tray {
     padding: 0 8px;
