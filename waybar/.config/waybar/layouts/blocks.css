@@ -1,54 +1,51 @@
 
 window#waybar {
-    background: @ui-bar;
-    color: @ui-bar-color;
+    background: @background;
+    color: @foreground;
 }
-  
+
 #tray {
-    padding: 0;
+  padding: 0;
 }
 
 #workspaces {
-    padding: 0;
+  padding: 0;
 }
+
 
 .modules-left {
     /* border: 2px solid gold; */
 }
 
 #workspaces button {
-  color: @ui-ws-color;
-  background: @ui-ws-bg;
+  color: @background;
+  background: @color3;
 }
 
-/* 2nd screen active, not focuse */
+/* 2nd screen active, not focused */
 #workspaces button.visible {
-  color: @ui-ws-inactive-color;
-  background: @ui-ws-inactive-bg;
+  color: @background;
+  background: @color1;
 }
 
+#workspaces button:hover,
 #workspaces button.active {
-  color: @ui-ws-active-color;
-  background: @ui-ws-active-bg;
+  color: @bacground;
+  background: @color1;
 }
 
 #workspaces button.urgent {
-  background: @ui-urgent-bg;
-  color: @ui-urgent-color;
-}
-
-#workspaces button:hover {
-  background: @ui-ws-hover-bg;
-  color: @ui-ws-hover-color;
+  background: @color6;
+  color: @background;
 }
 
 
 .module {
-    color: @ui-bar-color;
+    color: @foreground;
 }
 
 #clock {
-    color: @ui-clock-color;
-    background: @ui-clock-bg;
+    color: @background;
+    background: @color5;
 }
   

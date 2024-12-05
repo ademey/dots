@@ -1,54 +1,39 @@
 * {
-    all: unset;
-    /* transition-property: none; */
-    animation: none;
-    font-size: 14px;
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    /* border-radius: 0px; */
-    /* padding: 0px; */
-  }
-
-  
-  #workspaces button {
-    transition: background-color 0.1s;
-    /* border: 0; */
-    padding: 0 16px 0 8px;
-    border-radius: 0;
-  }
-  
-  #workspaces button.active {
-   /* color: @color1; */
-  }
-
-#taskbar button {
-  padding: 0 8px;
+  all: unset;
+  animation: none;
+  font-size: 14px;
 }
+
+window#waybar {
+  color: black;
+  background: white;
+}
+
   
-  /* #workspaces button.focused {
-    border: 0;
-  } */
-  
-  /* #workspaces button:hover {
-    box-shadow: none;
-    text-shadow: none;
-    border: 0;
-  } */
-  
-  /* label#custom-sunset.on,
-  label#idle_inhibitor.activated {
-    background: @color3;
-  } */
-  
-  /* #tray {
-    padding: 0 8px;
-  } */
-  
-#clock {
-    padding: 0 8px;
-    /* margin: 0; */
-    /* margin: 0 0 0 10px; */
+#workspaces button {
+  color: #999999;
+  transition: all 0.1s;
+  /* space for icons */
+  padding: 0 16px 0 8px;
+  border-radius: 0;
+}
+
+#workspaces button.active,
+#workspaces button:hover {
+  color: black;
 }
 
 .modules-right .module {
     padding: 0 14px 0 8px;
 }
+
+#taskbar button {
+  padding: 0 8px;
+  border-radius: 0;
+}
+
+#clock {
+    padding: 0 8px;
+}
+
+
