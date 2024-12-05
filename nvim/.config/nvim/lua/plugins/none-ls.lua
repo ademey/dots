@@ -15,6 +15,6 @@ return {
       }
     })
 
-    vim.keymap.set("n", "<C-S-f>", vim.lsp.buf.format, {})
+    vim.keymap.set("n", "<C-m>", vim.lsp.buf.format, {})
   end
 }

@@ -1,0 +1,56 @@
+@import "/home/anne/.cache/wal/colors-waybar.css";
+
+window#waybar {
+    color: @foreground;
+    background: @background;
+}
+  
+#workspaces,
+#tray {
+    padding: 0;
+}
+
+#workspaces button {
+  padding: 0 16px 0 8px;
+  color: @color8;
+  border-bottom: 2px solid @color3;
+  border-radius: 0px;
+  background: transparent;
+}
+
+/* 2nd screen active, not focuse */
+#workspaces button.visible {
+  color: @color7;
+  border-color: @color1;
+}
+
+#workspaces button.active {
+  color: @color1;
+  border-color: @color1;
+}
+
+#workspaces button.urgent {
+  border-color: @color4;
+  color: @color4;
+}
+
+#workspaces button:hover {
+  border-color: @color1;
+  color: @color1;
+}
+
+#taskbar {
+  color: @foreground;
+}
+
+#taskbar button {
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: @foreground;
+}
+
+#taskbar button:hover {
+  border-bottom: 2px solid @color3;
+  background: transparent; 
+}
+

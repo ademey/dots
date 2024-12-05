@@ -4,7 +4,7 @@
     "height": 40,
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap", "wlr/taskbar"],
+    "modules-left": ["hyprland/workspaces",  "wlr/taskbar", "hyprland/submap"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
         //"custom/temp",

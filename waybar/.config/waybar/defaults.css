@@ -1,5 +1,6 @@
 * {
-    transition-property: none;
+    all: unset;
+    /* transition-property: none; */
     animation: none;
     font-size: 14px;
     font-family: "JetBrainsMono Nerd Font", monospace;
@@ -7,7 +8,6 @@
     /* padding: 0px; */
   }
 
-  /* * { all: unset; } */
   
   #workspaces button {
     transition: background-color 0.1s;
@@ -17,8 +17,12 @@
   }
   
   #workspaces button.active {
-    color: @color1;
+   /* color: @color1; */
   }
+
+#taskbar button {
+  padding: 0 8px;
+}
   
   /* #workspaces button.focused {
     border: 0;
