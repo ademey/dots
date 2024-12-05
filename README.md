@@ -1,6 +1,15 @@
 # Dots
 
-My dot files
+My dot files.
+
+Use gnu `stow` to manage configs
+
+```
+stow waybar
+stow -d tmux
+```
+
+
 
 ### Screen Shots
 
