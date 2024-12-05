@@ -1,0 +1,182 @@
+{
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "󰆂",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "󰭡",
+            "9": "󰭢",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " " 
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}",
+        "format": "{:%d %b %I:%M}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{capacity}% {icon}",
+        // "format-good": "", // An empty format will hide the module
+        "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        // "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{essid} {signalStrength}% ",
+        // "format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀",
+        "format-ethernet": "󰈀",
+        "format-linked": "{ifname} (No IP) ⚠",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "notify-send 'not setup...'",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+    "custom/wf-recorder": {
+		"format": "{icon}",
+		"interval": "once",
+		"exec": "echo ''",
+		"tooltip": "false",
+		"exec-if": "pgrep 'wf-recorder'",
+		"on-click": "exec $HOME/Dev/scripts/wl-record.sh",
+		"signal": 8
+	},
+    "custom/theme": {
+		"format": "",
+		"interval": 10,
+        "tooltip": "{}",
+		"exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
+        // "restart-interval": 20,
+		// "tooltip": "{0}",
+		// "exec-if": "pgrep 'hyprsunset'",
+		"on-click": "exec \"${HOME}/.config/wal/theme.sh\"",
+        // "on-click-right": "pkil -RTMIN+8 hyprsunst",
+	},
+    // TODO: Needs to update UI on toggle
+    // Do something with tooltip
+    "custom/sunset": {
+		"format": "{icon}",
+		"interval": 10,
+        "return-type": "json",
+        "format-icons": {
+            "on":"󰤄",
+            "off":""
+        },
+        "tooltip": "{}",
+		"exec": "exec \"${HOME}/.config/waybar/sunset.sh\"",
+        // "restart-interval": 20,
+		// "tooltip": "false",
+		// "exec-if": "pgrep 'hyprsunset'",
+        "exec-on-event": true,
+		"on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000",
+        "signal": 10
+	},
+    "wlr/taskbar": {
+        "format": "{icon} {title:.10}",
+        "icon-size": 16,
+        "spacing": 3,
+        "on-click-middle": "close",
+        "tooltip-format": "{title}",
+        "ignore-list": [],
+        "on-click": "activate"
+    },
+}
+}

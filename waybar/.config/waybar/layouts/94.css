@@ -2,9 +2,9 @@
 window#waybar {
     color: @foreground;
     background: @background;
-    border-bottom: 3px solid @color5;
+    border-bottom: 3px solid @color1;
 }
-  
+
 #tray {
     padding: 0;
 }
@@ -12,7 +12,7 @@ window#waybar {
 #workspaces {
     padding: 0;
     background: @color9;
-    border-bottom: 3px solid @color5;
+    border-bottom: 3px solid @color1;
 }
 
 
@@ -22,10 +22,14 @@ window#waybar {
   background: @color5;
   margin: 0px;
   border-radius: 0px;
+  border: 2px solid transparent;
+  border-bottom: 0;
 }
 
 #workspaces button.visible {
   color: @background;
+  border: 2px solid @color1;
+  border-bottom: 0;
 }
 
 #workspaces button.active,
@@ -49,7 +53,7 @@ window#waybar {
 
 .modules-right .module {
     background: @color3;
-    margin: 8px 2px;
+    margin: 5px 2px 8px 2px;
 }
 
 #clock {

@@ -12,7 +12,7 @@ window#waybar {
   
 #workspaces button {
   color: #999999;
-  transition: all 0.1s;
+  transition: all 0.5s;
   /* space for icons */
   padding: 0 16px 0 8px;
   border-radius: 0;

@@ -8,14 +8,16 @@ op=$(find $wallpapers -type f | sed -e "s|$wallpapers||" | tofi --prompt-text=" 
 # op2=$( echo -e "lighten\ndarken" | tofi --prompt-text=" temp: " )
 # op3=$( echo -e "1\n2\n3\n4\n5\n6\n7\n8\n9" | tofi --prompt-text=" saturate: " )
 
-# Need to exit if some selection is skipped
 
 # -n skip wallpaper
 # -t skip tty
 # -e skip reload bar
-wal -n -t -e \
+if [ $op ]; then
+  wal -n -t -e \
     --saturate 0.5 \
     --cols16 "darken" \
     -i "$wallpapers/$op" -o "${HOME}/.config/wal/post-theme.sh"
 
-    
+else
+    echo "canceled"
+fi   
