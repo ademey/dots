@@ -2,7 +2,7 @@
 window#waybar {
     color: @foreground;
     background: @background;
-    border-bottom: 2px solid @color5;
+    border-bottom: 3px solid @color5;
 }
   
 #tray {
@@ -12,13 +12,14 @@ window#waybar {
 #workspaces {
     padding: 0;
     background: @color9;
+    border-bottom: 3px solid @color5;
 }
 
 
 #workspaces button {
   padding: 4px 16px 4px 8px;
   color: @background;
-  background: @color1;
+  background: @color5;
   margin: 0px;
   border-radius: 0px;
 }
@@ -30,17 +31,13 @@ window#waybar {
 #workspaces button.active,
 #workspaces button:hover {
   color: @background;
-  background: @color2;
+  background: @color1;
 }
 
 #workspaces button.urgent {
   background-color: @color4;
 }
 
-#workspaces button:hover {
-  background: @ui-ws-hover-bg;
-  color: @ui-ws-hover-color;
-}
 
 #tray {
   padding: 0 8px;
@@ -51,23 +48,20 @@ window#waybar {
 }
 
 .modules-right .module {
-    /* padding: 0 14px 0 8px; */
     background: @color3;
-    margin: 3px;
+    margin: 8px 2px;
 }
 
 #clock {
-    color: @ui-clock-color;
+    color: @background;
+    background: @color1;
     padding: 0 8px;
-    background: @ui-clock-bg;
+    margin: 0;
 }
 
 #idle_inhibitor,
 #custom-sunset {
-  /* padding: 0px 10px; */
-  /* margin: 4px 0; */
   background: transparent;
-  /* border-radius: 10px; */
 }
 
 #idle_inhibitor.activated,
