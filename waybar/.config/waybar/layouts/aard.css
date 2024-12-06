@@ -25,17 +25,17 @@ window#waybar {
 
 #workspaces button.active {
   color: @color1;
-  border-color: @color1;
+  border-color: @color4;
 }
 
 #workspaces button.urgent {
-  border-color: @color4;
-  color: @color4;
+  border-color: @color6;
+  color: @color6;
 }
 
 #workspaces button:hover {
-  border-color: @color1;
   color: @color1;
+  border-color: @color4;
 }
 
 #taskbar {

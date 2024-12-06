@@ -139,36 +139,31 @@
 		"on-click": "exec $HOME/Dev/scripts/wl-record.sh",
 		"signal": 8
 	},
-    "custom/theme": {
+  "custom/theme": {
 		"format": "",
 		"interval": 10,
-        "tooltip": "{}",
+    "tooltip": "{0}",
 		"exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
-        // "restart-interval": 20,
-		// "tooltip": "{0}",
-		// "exec-if": "pgrep 'hyprsunset'",
 		"on-click": "exec \"${HOME}/.config/wal/theme.sh\"",
-        // "on-click-right": "pkil -RTMIN+8 hyprsunst",
 	},
     // TODO: Needs to update UI on toggle
     // Do something with tooltip
-    "custom/sunset": {
+  "custom/sunset": {
 		"format": "{icon}",
 		"interval": 10,
         "return-type": "json",
         "format-icons": {
             "on":"󰤄",
             "off":""
-        },
-        "tooltip": "{}",
+    },
+    "tooltip": "{}",
 		"exec": "exec \"${HOME}/.config/waybar/sunset.sh\"",
         // "restart-interval": 20,
 		// "tooltip": "false",
 		// "exec-if": "pgrep 'hyprsunset'",
-        "exec-on-event": true,
-		"on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000",
-        "signal": 10
-	},
+      "exec-on-event": "true",
+		  "on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000"
+	  },
     "wlr/taskbar": {
         "format": "{icon} {title:.10}",
         "icon-size": 16,
@@ -178,5 +173,5 @@
         "ignore-list": [],
         "on-click": "activate"
     },
-}
+  }
 }

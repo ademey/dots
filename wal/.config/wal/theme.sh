@@ -12,8 +12,9 @@ op=$(find $wallpapers -type f | sed -e "s|$wallpapers||" | tofi --prompt-text=" 
 # -n skip wallpaper
 # -t skip tty
 # -e skip reload bar
+# -s skip terminals
 if [ $op ]; then
-  wal -n -t -e \
+  wal -n -t -e -s\
     --saturate 0.5 \
     --cols16 "darken" \
     -i "$wallpapers/$op" -o "${HOME}/.config/wal/post-theme.sh"

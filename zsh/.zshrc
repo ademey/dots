@@ -15,20 +15,23 @@ bindkey '\e[H'  beginning-of-line
 bindkey '\e[F'  end-of-line
 bindkey '\e[3~' delete-char
 
-alias la='ls -la'
-alias ll='ls -la'
+alias ls='eza --all --icons --git --group-directories-first'
+alias la='eza --all --long --icons --git --group-directories-first --no-user --no-time --no-filesize --no-permissions'
+alias ll='eza --all --long --icons --git --group-directories-first --show-symlinks'
+alias lt='eza --tree --level=2 ~/.config'
 alias cat='bat'
 alias code='codium'
-alias vim='nvim'
-alias vi='nvim'
 
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_CTRL_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 eval "$(fzf --zsh)"
 
+export batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
 eval "$(thefuck --alias)"
 eval "$(thefuck --alias fk)"
-
 
 # END!
 eval "$(starship init zsh)"
