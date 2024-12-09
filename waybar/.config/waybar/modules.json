@@ -139,12 +139,12 @@
 		"on-click": "exec $HOME/Dev/scripts/wl-record.sh",
 		"signal": 8
 	},
-  "custom/theme": {
+    "custom/theme": {
 		"format": "",
 		"interval": 10,
     "tooltip": "{0}",
 		"exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
-		"on-click": "exec \"${HOME}/.config/wal/theme.sh\"",
+		"on-click": "exec \"${HOME}/.config/wal/theme.sh\""
 	},
     // TODO: Needs to update UI on toggle
     // Do something with tooltip

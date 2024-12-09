@@ -21,6 +21,7 @@ alias ll='eza --all --long --icons --git --group-directories-first --show-symlin
 alias lt='eza --tree --level=2 ~/.config'
 alias cat='bat'
 alias code='codium'
+alias vim='nvim'
 
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_CTRL_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
@@ -35,6 +36,7 @@ eval "$(thefuck --alias fk)"
 
 # END!
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
