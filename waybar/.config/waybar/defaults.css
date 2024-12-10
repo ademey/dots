@@ -1,9 +1,12 @@
 * {
   all: unset;
   animation: none;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "JetBrainsMono Nerd Font";
 }
-
+toolip {
+  background: black;
+}
 window#waybar {
   color: black;
   background: white;
