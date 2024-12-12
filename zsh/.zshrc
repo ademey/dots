@@ -18,7 +18,7 @@ bindkey '\e[3~' delete-char
 alias ls='eza --all --icons --git --group-directories-first'
 alias la='eza --all --long --icons --git --group-directories-first --no-user --no-time --no-filesize --no-permissions'
 alias ll='eza --all --long --icons --git --group-directories-first --show-symlinks'
-alias lt='eza --tree --level=2 ~/.config'
+alias lt='eza --tree --level=2'
 alias cat='bat'
 alias code='codium'
 alias vim='nvim'
