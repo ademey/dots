@@ -23,6 +23,13 @@ alias cat='bat'
 alias code='codium'
 alias vim='nvim'
 
+# Scripts
+# TODO: Move scripts somewhere common
+alias muis="/home/anne/.dotfiles/muis.sh"
+
+# Defaults
+export EDITOR='nvim'
+
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_CTRL_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 eval "$(fzf --zsh)"
