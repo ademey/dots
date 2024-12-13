@@ -26,6 +26,7 @@ alias vim='nvim'
 # Scripts
 # TODO: Move scripts somewhere common
 alias muis="/home/anne/.dotfiles/muis.sh"
+alias gm="/home/anne/Notes/gm.sh"
 
 # Defaults
 export EDITOR='nvim'
@@ -38,10 +39,11 @@ export batdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
 
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias fk)"
+# eval "$(thefuck --alias)"
+# eval "$(thefuck --alias fk)"
 
 # END!
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
