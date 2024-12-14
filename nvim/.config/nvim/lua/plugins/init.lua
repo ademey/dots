@@ -17,17 +17,17 @@ return {
     opts = {
       ensure_installed = {
         "lua-language-server", "stylua",
-        "html-lsp", "css-lsp", "prettier"
-      }
+        "html-lsp", "css-lsp", "prettier",
+        "vscode-css-language-server" }
     }
   },
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc",
+        "html", "css"
+      },
+    },
   },
 }
