@@ -3,7 +3,7 @@ prompt-background = {color1}
 
 placeholder-color = {background}
 placeholder-background = {color7}
-	
+
 input-color = {background}
 input-background = {foreground}
 

@@ -54,9 +54,10 @@ function display() {
 	if [ $line ]; then
 		sleep 0.1 # Delay pasting so the text-entry can come active
 		wl-copy "${line[0]}"
+    echo "${line[0]}"
     # notify-send "emoji exit0:" "${line[0]}"
   else
-		echo "canceld"
+		echo "canceled"
 	fi
 }
 

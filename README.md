@@ -20,3 +20,7 @@ Requirements:
 - `wl-copy`: clipboard utility
 - `jq`: json utility to parse swaymsg output
 - `notify-send`: to show notifications
+
+### Notes
+
+`wofi` configs not used in rice
