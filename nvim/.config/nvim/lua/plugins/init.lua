@@ -23,6 +23,7 @@ return {
         "prettier",
         "ts_ls", -- works but not cus included here
         "tailwindcss-language-server",
+        "eslint-lsp",
       },
     },
   },
@@ -30,22 +31,29 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim",
         "lua",
         "vimdoc",
         "html",
         "css",
+        "javascript",
+        "typescript",
         "tsx",
         "json",
-        "toml",
       },
     },
   },
   {
     "windwp/nvim-ts-autotag",
-    opts = {
-      enable_close = true,
-      enable_rename = true,
+    ft = {
+      "html",
+      "javascript",
+      "javascriptreact",
+      "jsx",
+      "tsx",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "xml",
     },
     config = function()
       require("nvim-ts-autotag").setup()
