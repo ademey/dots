@@ -25,8 +25,9 @@ alias vim='nvim'
 
 # Scripts
 # TODO: Move scripts somewhere common
-alias muis="/home/anne/.dotfiles/muis.sh"
+alias muis="/home/anne/bin/muis.sh"
 alias gm="/home/anne/Notes/gm.sh"
+alias repos="/home/anne/bin/repos.sh ~/.dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
 
 # Defaults
 export EDITOR='nvim'
@@ -43,6 +44,8 @@ export batdiff() {
 # eval "$(thefuck --alias fk)"
 
 # END!
+
+export PATH=/home/anne/bin:$PATH
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
