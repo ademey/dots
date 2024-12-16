@@ -7,7 +7,7 @@ local lspconfig = require "lspconfig"
 local servers = { "html", "cssls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
-nvlsp.defaults()
+-- nvlsp.defaults()
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
