@@ -18,7 +18,8 @@ return {
       ensure_installed = {
         "lua-language-server", "stylua",
         "html-lsp", "css-lsp", "prettier",
-        "vscode-css-language-server" }
+        "beautysh"
+      }
     }
   },
   {
@@ -30,4 +31,10 @@ return {
       },
     },
   },
+  {
+    "lovesegfault/beautysh",
+    config = function()
+      require "configs.beautysh"
+    end,
+  }
 }
