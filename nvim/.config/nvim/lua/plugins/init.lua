@@ -32,6 +32,7 @@ return {
     opts = {
       ensure_installed = {
         "lua",
+        "vim",
         "vimdoc",
         "html",
         "css",
@@ -39,6 +40,10 @@ return {
         "typescript",
         "tsx",
         "json",
+        "dockerfile",
+        "bash",
+        "markdown",
+        "svelte",
       },
     },
   },
@@ -58,6 +63,10 @@ return {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
+  },
+  {
+    "ThePrimeagen/vim-be-good",
+    lazy = false,
   },
   -- {
   --   "shaun-mathew/Chameleon.nvim",
