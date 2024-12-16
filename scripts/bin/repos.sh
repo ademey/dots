@@ -5,7 +5,8 @@ dir="$1"
 # No directory has been provided, use current
 if [ -z "$dir" ]
 then
-    dir="`pwd`"
+    echo "No dir provided"
+    exit 0
 fi
 
 # Make sure directory ends with "/"
@@ -16,11 +17,13 @@ else
     dir="$dir*"
 fi
 
-# Loop all sub-directories
-for f in $dir
+# Loop all given dirs
+for f in $@
 do
     # Only interested in directories
     [ -d "${f}" ] || continue
+
+
 
     echo -en "\033[0;35m"
     echo "${f}"
@@ -31,7 +34,8 @@ do
     then
         mod=0
         cd $f
-
+        # echo "${f}: $(git status --porcelain)"
+        # continue
         # Check for modified files
         if [ $(git status | grep modified -c) -ne 0 ]
         then
