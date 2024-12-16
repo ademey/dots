@@ -18,7 +18,7 @@ M.nvdash = {
   load_on_startup = true,
 }
 -- https://www.reddit.com/r/neovim/comments/1fqole3/comment/lpvenci/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-
+-- TODO: Test deleting this config
 M.mason = {
   pkgs = {
     "lua-language-server",
