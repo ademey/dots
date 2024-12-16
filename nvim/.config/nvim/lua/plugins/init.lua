@@ -22,6 +22,7 @@ return {
         "css-lsp", -- workd
         "prettier",
         "ts_ls", -- works but not cus included here
+        "tailwindcss-language-server",
       },
     },
   },
@@ -37,7 +38,6 @@ return {
         "tsx",
         "json",
         "toml",
-        "tailwindcss-language-server",
       },
     },
   },
