@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -19,8 +19,9 @@ return {
         "lua-language-server", -- works
         "stylua", -- works
         "html-lsp",
-        "css-lsp", -- might work
+        "css-lsp", -- workd
         "prettier",
+        "ts_ls", -- works but not cus included here
       },
     },
   },
@@ -33,9 +34,30 @@ return {
         "vimdoc",
         "html",
         "css",
+        "tsx",
+        "json",
+        "toml",
+        "tailwindcss-language-server",
       },
     },
   },
+  {
+    "windwp/nvim-ts-autotag",
+    opts = {
+      enable_close = true,
+      enable_rename = true,
+    },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  -- {
+  --   "shaun-mathew/Chameleon.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require("chameleon").setup()
+  --   end,
+  -- },
   -- {
   --   "lovesegfault/beautysh",
   --   config = function()
