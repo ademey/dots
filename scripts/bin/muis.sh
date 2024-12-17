@@ -30,9 +30,12 @@ fi
 default=$(echo $page_data | pup '.content' | sed -e 's|href="/|href="http://www.ensie.nl/|')
 found=$(echo $default | pup '[itemprop="articleSection"]')
 if [ -n "${found}" ]; then
-    # Write the data if we found a definition
+    # Write the data if we found a definition and we didnt already save
+    if [ ! -f $target_file ]; then
+        echo $page_data > $target_file
+    fi
+
     echo ""
-    echo $page_data > $target_file
     echo $found | lynx -dump -stdin
 else
     echo $default | lynx -dump -stdin
