@@ -26,8 +26,9 @@ alias vim='nvim'
 # Scripts
 # TODO: Move scripts somewhere common
 alias muis="/home/anne/bin/muis.sh"
+alias wille="/home/anne/bin/wille.sh"
 alias gm="/home/anne/bin/gm.sh"
-alias repos="/home/anne/bin/repos.sh ~/.dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
+alias repos="/home/anne/bin/repos.sh ~/dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
 
 # Defaults
 export EDITOR='nvim'
