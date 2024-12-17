@@ -17,7 +17,7 @@ if [ $op ]; then
   wal -n -t -e -s\
     --saturate 0.5 \
     --cols16 "darken" \
-    -i "$wallpapers/$op" -o "${HOME}/.config/wal/post-theme.sh"
+    -i "$wallpapers/$op" -o "${HOME}/bin/post-theme.sh"
 
 else
     echo "canceled"
