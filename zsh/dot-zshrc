@@ -22,6 +22,7 @@ alias lt='eza --tree --level=2'
 alias cat='bat'
 alias code='codium'
 alias vim='nvim'
+alias zgit='lazygit'
 
 # Scripts
 # TODO: Move scripts somewhere common
