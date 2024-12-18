@@ -28,11 +28,19 @@ end
 local M = {}
 
 M.base46 = {
-  theme = "chadracula",
+  theme = "gatekeeper",
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+  },
+}
+
+M.ui = {
+  statusline = {
+    enabled = true,
+    theme = "minimal",
+    separator_style = "block",
   },
 }
 
