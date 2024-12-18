@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
-
 # woordenboek-van-populair-taalgebruik
 # wiktionary
 # anw
 # scheldwoordenboek
 dict="muiswerk"
+render_md=1
+render_opts=("lynx", "md")
 
-while getopts ":d:" opt; do
+
+while getopts "rd:" opt; do
     case $opt in
         d)
             dict=$OPTARG
+            ;;
+        r)  render_md=0 >&2
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -47,7 +51,7 @@ if [ -f $target_file ]; then
     echo "🧀 Laden vanuit cache"
     page_data=$(cat $target_file)
 else
-    echo "⌛ Bezig met downloaden"
+    echo "🔎 Ogenblikje geduld"
     page_data=$(curl -s $dict_url/$dict/$search_word)
 fi
 
@@ -62,10 +66,18 @@ if [ -n "${found}" ]; then
     fi
 
     echo ""
-    echo $found | lynx -dump -stdin
-    # echo $found | html2md -i | glow -l
+
+    if [ $render_md -eq 1 ]; then
+        echo $found | html2md -i | glow -p
+    else
+        echo $found | lynx -dump -stdin
+    fi
 else
-    echo $default | lynx -dump -stdin
+    # Outputs the not found message from ensie
+    # Should be configured to use markdown if
+    # that is selected to render
+    # echo $default | lynx -dump -stdin
+    echo "😿 Er is niets gevonden"
 fi
 
 
