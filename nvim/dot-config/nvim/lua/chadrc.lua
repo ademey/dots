@@ -2,6 +2,28 @@
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
 -- Please read that file to know all available options :(
 
+-- see if the file exists
+local function file_exists(file)
+  local f = io.open(file, "rb")
+  if f then
+    f:close()
+  end
+  return f ~= nil
+end
+
+-- get all lines from a file, returns an empty
+-- list/table if the file does not exist
+local function lines_from(file)
+  if not file_exists(file) then
+    return {}
+  end
+  local lines = {}
+  for line in io.lines(file) do
+    lines[#lines + 1] = line
+  end
+  return lines
+end
+
 ---@type ChadrcConfig
 local M = {}
 
@@ -16,19 +38,15 @@ M.base46 = {
 
 M.nvdash = {
   load_on_startup = true,
-  header = {
-    "      .-'~~~-.           ",
-    "    .'o  oOOOo`.         ",
-    "   :~~~-.oOo   o`.       ",
-    "    `. @ ~-.  oOOo.      ",
-    "      `.; / ~.  OO:      ",
-    "      .'  ;-- `.o.'      ",
-    "     ,'  ; ~~--'~        ",
-    "     ;  ;                ",
-    "___\\;_\\//___[|]________",
-    "                         ",
-  },
-
+  header = function()
+    -- local pic = lines_from "/home/anne/Notes/today.md"
+    local pic = lines_from "/home/anne/Notes/ascii/mushroom-2.ascii"
+    -- local img = {}
+    -- for k, v in pairs(pic) do
+    --   img[k] = v
+    -- end
+    return pic
+  end,
   buttons = {
     { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
     { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
@@ -36,20 +54,35 @@ M.nvdash = {
     { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
     { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
 
-    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+    { txt = ".", hl = "NvDashFooter", no_gap = true, rep = true },
 
     {
       txt = function()
         local stats = require("lazy").stats()
         local ms = math.floor(stats.startuptime) .. " ms"
-        -- return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
-        return "Mag ik je virtueel beffen?"
+        return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
       end,
       hl = "NvDashFooter",
       no_gap = true,
     },
 
-    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+    {
+      txt = function()
+        local handle = io.popen "echo 'Do a bash thing'"
+        local result = handle:read "*a"
+        handle:close()
+        return result
+      end,
+      hl = "NvDashFooter",
+      no_gap = true,
+    },
+
+    {
+      txt = ".",
+      hl = "NvDashFooter",
+      no_gap = false,
+      rep = true,
+    },
   },
 }
 
