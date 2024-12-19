@@ -13,6 +13,8 @@ stow -d tmux
 
 ### Screen Shots
 
+![rice](images/rice.png)
+
 Requirements:
 - `grim`: screenshot utility for wayland
 - `slurp`: to select an area
@@ -21,6 +23,4 @@ Requirements:
 - `jq`: json utility to parse swaymsg output
 - `notify-send`: to show notifications
 
-### Notes
 
-`wofi` configs not used in rice
