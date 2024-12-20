@@ -1,0 +1,28 @@
+{
+    "checksum": "65d36e8ae892efa2559cdd33ae122451",
+    "wallpaper": "/home/anne/Wallpaper/objects_by_almcinnis_ddpsutu.png",
+    "alpha": "100",
+    "special": {
+        "background": "#242124",
+        "foreground": "#c8c7c8",
+        "cursor": "#c8c7c8"
+    },
+    "colors": {
+        "color0": "#242124",
+        "color1": "#908b30",
+        "color2": "#4c297d",
+        "color3": "#432c83",
+        "color4": "#7e2a7d",
+        "color5": "#883297",
+        "color6": "#7138a8",
+        "color7": "#a096a0",
+        "color8": "#7a637a",
+        "color9": "#c0b742",
+        "color10": "#6638a8",
+        "color11": "#5a3ab1",
+        "color12": "#aa38a7",
+        "color13": "#b24bc3",
+        "color14": "#9762ca",
+        "color15": "#c8c7c8"
+    }
+}

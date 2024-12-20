@@ -17,7 +17,7 @@ export SWWW_TRANSITION_FPS=60
 export SWWW_TRANSITION_STEP=2
 
 # This controls (in seconds) when to switch to the next image
-INTERVAL=10
+INTERVAL=60
 
 while true; do
     find -L "$1" -type f \
@@ -26,7 +26,7 @@ while true; do
     done \
         | sort -n | cut -d':' -f2- \
         | while read -r img; do
-        swww img --transition-type random "$img"
+        swww img --transition-type grow "$img"
         sleep $INTERVAL
     done
 done

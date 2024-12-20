@@ -1,0 +1,28 @@
+{
+    "checksum": "45fd97e34d2105074b12f6191e54277f",
+    "wallpaper": "/home/anne/Wallpaper/Matrixxman_CinaWallpaper_04.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#28211b",
+        "foreground": "#c9c7c6",
+        "cursor": "#c9c7c6"
+    },
+    "colors": {
+        "color0": "#28211b",
+        "color1": "#2e478c",
+        "color2": "#93306f",
+        "color3": "#b13b58",
+        "color4": "#308791",
+        "color5": "#359b9f",
+        "color6": "#9c349c",
+        "color7": "#a09b96",
+        "color8": "#796d63",
+        "color9": "#3e63bb",
+        "color10": "#c14597",
+        "color11": "#ce6c84",
+        "color12": "#42b6c0",
+        "color13": "#56c2c6",
+        "color14": "#c552c5",
+        "color15": "#c9c7c6"
+    }
+}
