@@ -1,0 +1,5 @@
+[[manager.prepend_keymap]]
+on   = "!"
+run  = 'shell "$SHELL" --block --interactive'
+desc = "Open shell here"
+

@@ -1,0 +1,4 @@
+[flavor]
+use = "dracula"
+# For upcoming Yazi 0.4 (nightly version):
+# use = "catppuccin-macchiato"
