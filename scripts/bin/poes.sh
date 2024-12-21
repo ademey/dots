@@ -20,9 +20,53 @@ function get_hex() {
     echo $c
 }
 
-template_file=~/bin/poes-kitty.tmpl
-out_file=~/.config/kitty/theme.conf
+# template_file=~/bin/poes-kitty.tmpl
+# out_file=~/.config/kitty/theme.conf
 
+template_file=~/bin/poes-wal.tmpl
+out_file=~/.config/wal/colorschemes/dark/custom.json
+
+#####
+# base 20
+#####
+
+
+export white=$(get_hex 'white')
+export darker_black=$(get_hex 'darker_black')
+export black=$(get_hex 'black')
+export black2=$(get_hex 'black2')
+export one_bg=$(get_hex 'one_bg')
+export one_bg2=$(get_hex 'one_bg2')
+export one_bg3=$(get_hex 'one_bg3')
+export grey=$(get_hex 'grey')
+export grey_fg=$(get_hex 'grey_fg')
+export grey_fg2=$(get_hex 'grey_fg2')
+export light_grey=$(get_hex 'light_grey')
+export red=$(get_hex 'red')
+export baby_pink=$(get_hex 'baby_pink')
+export pink=$(get_hex 'pink')
+export line=$(get_hex 'line')
+export green=$(get_hex 'green')
+export vibrant_green=$(get_hex 'vibrant_green')
+export nord_blue=$(get_hex 'nord_blue')
+export blue=$(get_hex 'blue')
+export yellow=$(get_hex 'yellow')
+export sun=$(get_hex 'sun')
+export purple=$(get_hex 'purple')
+export dark_purple=$(get_hex 'dark_purple')
+export teal=$(get_hex 'teal')
+export orange=$(get_hex 'orange')
+export cyan=$(get_hex 'cyan')
+export statusline_bg=$(get_hex 'statusline_bg')
+export lightbg=$(get_hex 'lightbg')
+export pmenu_bg=$(get_hex 'pmenu_bg')
+export folder_bg=$(get_hex 'folder_bg')
+export lavender=$(get_hex 'lavender')
+
+
+
+#####
+#####
 export background=$(get_hex "black")
 export foreground=$(get_hex 'white')
 export cursor=$(get_hex 'baby_pink')
@@ -49,14 +93,14 @@ export color15=$(get_hex 'grey_fg')
 # $1: write to file `eval_template 1`
 function eval_template() {
 
-    if [ $1 -eq 1 ]; then
-        envsubst < $template_file > $out_file
+    if [ $2 -eq 1 ]; then
+        envsubst < $1 > $out_file
     else
-        envsubst < $template_file
+        envsubst < $1
     fi
 }
 
-eval_template 1
+eval_template $template_file 1
 
 exit 0
 
