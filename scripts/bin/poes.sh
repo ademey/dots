@@ -2,54 +2,70 @@
 
 # Dumb way get the colors from NVChad themes and generate
 
-data_home=~/.local/share/nvim/lazy/base46/lua/base46/themes
 theme_name=$1
-config_lua=~/.config/nvim/lua/chadrc.lua
-
-
-target_file="${data_home}/$theme_name.lua"
-target_data=""
+theme_dir=~/.local/share/nvim/lazy/base46/lua/base46/themes
+theme_lua="${theme_dir}/$theme_name.lua"
 
 echo "🐱 Setting Kitty theme ($theme_name)"
 
-if [ -f $target_file ]; then
-    echo "Setting direct theme"
-else
-    if [ -f $config_lua ]; then
-        # This isnt working with -
-        saved_theme=$(grep -oP 'theme\s*=\s*"([^"]+)"' $config_lua | sed 's/theme\s*=\s*"\([^"]*\)"/\1/' | head -n 1)
-        # saved_theme=$(grep -Eo "theme = .(\w+)(-\w+)" $config_lua | sed -e 's|theme = "||' | head -n 1)
-        # saved_theme=$(grep -Eo "theme = .(\w+)" $config_lua)
-        if [ -n $saved_theme ]; then
-            theme_name=$saved_theme
-            target_file="${data_home}/$theme_name.lua"
-            echo "Using stored theme $theme_name"
-        fi
 
-    fi
-fi
-
-
-if [ ! -f $target_file ]; then
+if [ ! -f $theme_lua ]; then
     echo "😿 Theme [$theme_name] not found"
     exit 0
 fi
 
-target_data=$(cat $target_file)
-
 function get_hex() {
     # TODO: regex could be better
-    c=$(grep -E "\s$@ = " $target_file | grep -Eo "(#[A-Za-z0-9]+)" | head -n 1)
+    c=$(grep -E "\s$@ = " $theme_lua | grep -Eo "(#[A-Za-z0-9]+)" | head -n 1)
     echo $c
 }
 
+template_file=~/bin/poes-kitty.tmpl
+out_file=~/.config/kitty/theme.conf
 
+export background=$(get_hex "black")
+export foreground=$(get_hex 'white')
+export cursor=$(get_hex 'baby_pink')
+export selection_background=$(get_hex 'sun')
+export selection_foreground=$(get_hex 'black')
+export color0=$(get_hex 'darker_black')
+export color8=$(get_hex 'darker_black')
+export color1=$(get_hex 'red')
+export color9=$(get_hex 'red')
+export color2=$(get_hex 'green')
+export color10=$(get_hex 'vibrant_green')
+export color3=$(get_hex 'yellow')
+export color11=$(get_hex 'yellow')
+export color4=$(get_hex 'purple')
+export color12=$(get_hex 'purple')
+export color5=$(get_hex 'pink')
+export color13=$(get_hex 'pink')
+export color6=$(get_hex 'cyan')
+export color14=$(get_hex 'cyan')
+export color7=$(get_hex 'grey')
+export color15=$(get_hex 'grey_fg')
+
+
+# $1: write to file `eval_template 1`
+function eval_template() {
+
+    if [ $1 -eq 1 ]; then
+        envsubst < $template_file > $out_file
+    else
+        envsubst < $template_file
+    fi
+}
+
+eval_template 1
+
+exit 0
 
 echo "
 background $(get_hex "black")
 foreground $(get_hex 'white')
 cursor $(get_hex 'baby_pink')
 selection_background $(get_hex 'sun')
+selection_foreground $(get_hex 'black')
 color0 $(get_hex 'darker_black')
 color8 $(get_hex 'darker_black')
 color1 $(get_hex 'red')
@@ -66,10 +82,9 @@ color6 $(get_hex 'cyan')
 color14 $(get_hex 'cyan')
 color7 $(get_hex 'grey')
 color15 $(get_hex 'grey_fg')
-selection_foreground $(get_hex 'black')
 " > ~/.config/kitty/theme.conf
 
-kitty @ load-config ~/.config/kitty/kitty.conf
+# kitty @ load-config ~/.config/kitty/kitty.conf
 
 
 # echo "
