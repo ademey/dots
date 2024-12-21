@@ -20,11 +20,11 @@ function get_hex() {
     echo $c
 }
 
-# template_file=~/bin/poes-kitty.tmpl
-# out_file=~/.config/kitty/theme.conf
+template_file=~/bin/poes-kitty.tmpl
+out_file=~/.config/kitty/theme.conf
 
-template_file=~/bin/poes-wal.tmpl
-out_file=~/.config/wal/colorschemes/dark/custom.json
+# template_file=~/bin/poes-wal.tmpl
+# out_file=~/.config/wal/colorschemes/dark/custom.json
 
 #####
 # base 20
@@ -128,7 +128,7 @@ color7 $(get_hex 'grey')
 color15 $(get_hex 'grey_fg')
 " > ~/.config/kitty/theme.conf
 
-# kitty @ load-config ~/.config/kitty/kitty.conf
+kitty @ load-config ~/.config/kitty/kitty.conf
 
 
 # echo "
