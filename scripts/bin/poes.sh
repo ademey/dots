@@ -17,7 +17,8 @@ if [ -f $target_file ]; then
 else
     if [ -f $config_lua ]; then
         # This isnt working with -
-        saved_theme=$(grep -Eo "theme = .(\w+)(-\w+)" $config_lua | sed -e 's|theme = "||' | head -n 1)
+        saved_theme=$(grep -oP 'theme\s*=\s*"([^"]+)"' $config_lua | sed 's/theme\s*=\s*"\([^"]*\)"/\1/' | head -n 1)
+        # saved_theme=$(grep -Eo "theme = .(\w+)(-\w+)" $config_lua | sed -e 's|theme = "||' | head -n 1)
         # saved_theme=$(grep -Eo "theme = .(\w+)" $config_lua)
         if [ -n $saved_theme ]; then
             theme_name=$saved_theme
@@ -68,41 +69,43 @@ color15 $(get_hex 'grey_fg')
 selection_foreground $(get_hex 'black')
 " > ~/.config/kitty/theme.conf
 
-echo "
+kitty @ load-config ~/.config/kitty/kitty.conf
 
-set -ogq @thm_bg \"$(get_hex 'black')\"
-set -ogq @thm_fg \"$(get_hex 'white')\"
 
-# Colors
-set -ogq @thm_rosewater \"$(get_hex 'baby_pink')\"
-set -ogq @thm_flamingo \"$(get_hex 'pink')\"
-set -ogq @thm_pink \"$(get_hex 'pink')\"
-set -ogq @thm_mauve \"$(get_hex 'dark_purple')\"
-set -ogq @thm_red \"$(get_hex 'red')\"
-set -ogq @thm_maroon \"$(get_hex 'red')\"
-set -ogq @thm_peach \"$(get_hex 'orange')\"
-set -ogq @thm_yellow \"$(get_hex 'sun')\"
-set -ogq @thm_green \"$(get_hex 'green')\"
-set -ogq @thm_teal \"$(get_hex 'teal')\"
-set -ogq @thm_sky \"$(get_hex 'cyan')\"
-set -ogq @thm_sapphire \"$(get_hex 'nord_blue')\"
-set -ogq @thm_blue \"$(get_hex 'blue')\"
-set -ogq @thm_lavender \"$(get_hex 'purple')\"
-
-# Surfaces and overlays
-set -ogq @thm_subtext_1 \"$(get_hex 'light_grey')\"
-set -ogq @thm_subtext_0 \"$(get_hex 'light_grey')\"
-set -ogq @thm_overlay_2 \"$(get_hex 'grey_fg2')\"
-set -ogq @thm_overlay_1 \"$(get_hex 'grey_fg')\"
-set -ogq @thm_overlay_0 \"$(get_hex 'grey')\"
-set -ogq @thm_surface_2 \"$(get_hex 'one_bg3')\"
-set -ogq @thm_surface_1 \"$(get_hex 'one_bg2')\"
-set -ogq @thm_surface_0 \"$(get_hex 'one_bg')\"
-set -ogq @thm_mantle \"$(get_hex 'black2')\"
-set -ogq @thm_crust \"$(get_hex 'black')\"
-" > ~/.config/tmux/plugins/catppuccin/tmux/themes/catppuccin_poes_tmux.conf
-
-# kitty @ load-config ~/.config/kitty/kitty.conf
+# echo "
+#
+# set -ogq @thm_bg \"$(get_hex 'black')\"
+# set -ogq @thm_fg \"$(get_hex 'white')\"
+#
+# # Colors
+# set -ogq @thm_rosewater \"$(get_hex 'baby_pink')\"
+# set -ogq @thm_flamingo \"$(get_hex 'pink')\"
+# set -ogq @thm_pink \"$(get_hex 'pink')\"
+# set -ogq @thm_mauve \"$(get_hex 'dark_purple')\"
+# set -ogq @thm_red \"$(get_hex 'red')\"
+# set -ogq @thm_maroon \"$(get_hex 'red')\"
+# set -ogq @thm_peach \"$(get_hex 'orange')\"
+# set -ogq @thm_yellow \"$(get_hex 'sun')\"
+# set -ogq @thm_green \"$(get_hex 'green')\"
+# set -ogq @thm_teal \"$(get_hex 'teal')\"
+# set -ogq @thm_sky \"$(get_hex 'cyan')\"
+# set -ogq @thm_sapphire \"$(get_hex 'nord_blue')\"
+# set -ogq @thm_blue \"$(get_hex 'blue')\"
+# set -ogq @thm_lavender \"$(get_hex 'purple')\"
+#
+# # Surfaces and overlays
+# set -ogq @thm_subtext_1 \"$(get_hex 'light_grey')\"
+# set -ogq @thm_subtext_0 \"$(get_hex 'light_grey')\"
+# set -ogq @thm_overlay_2 \"$(get_hex 'grey_fg2')\"
+# set -ogq @thm_overlay_1 \"$(get_hex 'grey_fg')\"
+# set -ogq @thm_overlay_0 \"$(get_hex 'grey')\"
+# set -ogq @thm_surface_2 \"$(get_hex 'one_bg3')\"
+# set -ogq @thm_surface_1 \"$(get_hex 'one_bg2')\"
+# set -ogq @thm_surface_0 \"$(get_hex 'one_bg')\"
+# set -ogq @thm_mantle \"$(get_hex 'black2')\"
+# set -ogq @thm_crust \"$(get_hex 'black')\"
+# " > ~/.config/tmux/plugins/catppuccin/tmux/themes/catppuccin_poes_tmux.conf
+#
 
 # echo "done"
 
