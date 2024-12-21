@@ -3,26 +3,26 @@
     "wallpaper": "/home/anne/Wallpaper/Matrixxman_CinaWallpaper_04.jpg",
     "alpha": "100",
     "special": {
-        "background": "#101010",
-        "foreground": "#cccdd1",
-        "cursor": "#ff86b7"
+        "background": "#191724",
+        "foreground": "#e0def4",
+        "cursor": "#f5799c"
     },
     "colors": {
-        "color0": "#101010",
-        "color1": "#ff1a67",
-        "color2": "#00e756",
-        "color3": "#fff024",
-        "color4": "#a79ac0",
-        "color5": "#ff77a8",
-        "color6": "#29adff",
-        "color7": "#363636",
-        "color8": "#0a0a0a",
-        "color9": "#ff1a67",
-        "color10": "#10f766",
-        "color11": "#fff024",
-        "color12": "#a79ac0",
-        "color13": "#ff77a8",
-        "color14": "#29adff",
-        "color15": "#3d3d3d"
+        "color0": "#191724",
+        "color1": "#eb6f92",
+        "color2": "#ABE9B3",
+        "color3": "#f6c177",
+        "color4": "#c4a7e7",
+        "color5": "#ff83a6",
+        "color6": "#a3d6df",
+        "color7": "#3f3d4a",
+        "color8": "#13111e",
+        "color9": "#eb6f92",
+        "color10": "#b5f3bd",
+        "color11": "#f6c177",
+        "color12": "#c4a7e7",
+        "color13": "#ff83a6",
+        "color14": "#a3d6df",
+        "color15": "#474552"
     }
 }
