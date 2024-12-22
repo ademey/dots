@@ -8,12 +8,12 @@ render_md=1
 render_opts=("lynx", "md")
 
 
-while getopts "rd:" opt; do
+awhile getopts "rd:" opt; do
     case $opt in
         d)
             dict=$OPTARG
             ;;
-        r)  render_md=0 >&2
+        r)  render_md=0
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
