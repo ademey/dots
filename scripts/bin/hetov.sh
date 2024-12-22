@@ -24,10 +24,6 @@ map_id=""
 echo "🚋 Het OV"
 echo "---------"
 
-if [ -z "$CTA_KEY" ]; then
-    echo "🗝 API key missing"
-    exit 1
-fi
 
 while getopts 'rls:' opt; do
     case "$opt" in
@@ -40,6 +36,14 @@ while getopts 'rls:' opt; do
         l)
     esac
 done
+
+if [ -z "$CTA_KEY" ]; then
+    if [ $refresh -eq 1 ]; then
+        echo "🗝 API key missing"
+        exit 1
+    fi
+fi
+
 
 if [ ! -d $hetov_data_home ]; then
     echo "Setting up"
@@ -109,13 +113,15 @@ function pick_stop() {
     # echo "Select a Staion"
     # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | .stop_name" $stops_data | sort | gum choose --header "Station:" --height 10)
     # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | [.map_id, .station_name] | @csv" $stops_data | sort | uniq | gum choose --header "Station:" --height 10)
-    stop_name=$(jq -r ".[] | [.map_id, .station_descriptive_name] | @csv" $stops_data | sort | uniq | awk -F "," '{print $2 " " $1}' | sort | sed 's|"||g' | gum filter --header "Station:" --height 10)
+    stop_name=$(jq -r ".[] | [.map_id, .station_descriptive_name] | @csv" $stops_data | sort | uniq | awk -F "," '{print $2 " " $1}' | sort | sed 's|"||g' | gum filter --placeholder "Station" --height 10)
     selected_map_id=$(echo $stop_name | awk -F ' ' '{print $NF}')
     # echo $(jq -r ".[] | select(.map_id == \"$selected_map_id\") | .map_id" $stops_data)
     # echo "> $stop_name > $stop_id"
     echo $selected_map_id
 }
 
+# TODO: Get emoji for line color
+# function get_color
 
 
 
@@ -133,7 +139,7 @@ if [ ! -n "$map_id" ]; then
 fi
 
 
-selected_stop=$(jq -r ".[] | select(.map_id == \"$map_id\")" $stops_data)
+selected_stop=$(jq -c ".[] | select(.map_id == \"$map_id\")" $stops_data | head -n 1)
 station_name=$(val "$selected_stop" '.station_descriptive_name')
 # map_id=$(val "$selected_stop" '.map_id')
 
@@ -152,7 +158,7 @@ since_refresh=$(relative $refresh_time)
 # echo $(val "$selected_stop" '.blue')
 
 echo ""
-printf "%-25s -- %15s\n" "$station_name" "$since_refresh"
+printf "%-30s  %8s\n" "$station_name" "$since_refresh"
 echo "------------------------------------------"
 
 cat "$arrivals" | jq -c '.ctatt | .eta[]' | while IFS= read -r item; do
@@ -166,7 +172,7 @@ cat "$arrivals" | jq -c '.ctatt | .eta[]' | while IFS= read -r item; do
     scheduled=$(val "$item" '.isSch')
     delayed=$(val "$item" '.isDly')
     fault=$(val "$item" '.isFlt')
-    printf "%-25s %-8s %-1s %-1s %-1s\n" "$destNm" "$(relative $arrT)" "$(flagged $approaching '🔜' '.')" "$(flagged $delayed '⚠' '.')" "$(flagged $scheduled '🗓' '.')"
+    printf "%-20s %1s %1s %1s %10s\n" "$destNm" "$(flagged $approaching '🚃' ' ')" "$(flagged $delayed '⚠' ' ')" "$(flagged $scheduled '🗓' ' ')" "$(relative $arrT)"
 
 done
 

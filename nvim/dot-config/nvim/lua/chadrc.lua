@@ -74,16 +74,16 @@ M.nvdash = {
       no_gap = true,
     },
 
-    {
-      txt = function()
-        local handle = io.popen "echo 'Do a bash thing'"
-        local result = handle:read "*a"
-        handle:close()
-        return result
-      end,
-      hl = "NvDashFooter",
-      no_gap = true,
-    },
+    -- {
+    --   txt = function()
+    --     local handle = io.popen "echo 'H'"
+    --     local result = handle:read "*a"
+    --     handle:close()
+    --     return result
+    --   end,
+    --   hl = "NvDashFooter",
+    --   no_gap = true,
+    -- },
 
     {
       txt = ".",
