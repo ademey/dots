@@ -4,18 +4,22 @@
 #
 # export CTA_KEY=$(pass api/cta | head -n 1)
 tmp_dir=$HOME/.cache/hetov
-in_data=~/cta.json
-key=$CTA_KEY
+stops_data="$tmp_dir/stops.json"
+arrivals="$tmp_dir/arrivals.json"
+
+api_url=http://lapi.transitchicago.com/api/1.0
+
 refresh=0
 
-station="40590" # Damen
 station="40570" # California
+stop_id="30112"
+
 
 # echo "$(cat ~/Notes/ascii/cta.ascii)"
-echo "🚋 Het OV"
+echo "🚋🚇 Het OV"
 
 if [ -z "$CTA_KEY" ]; then
-    echo "API key missing"
+    echo "🗝 API key missing"
     exit 1
 fi
 
@@ -30,93 +34,92 @@ while getopts 'rs:' opt; do
     esac
 done
 
+if [ ! -f $stops_data ]; then
+    echo '📦 Loding "L" database'
+    curl -s "https://data.cityofchicago.org/resource/8pix-ypme.json" > $stops_data
+fi
 
-api_url=http://lapi.transitchicago.com/api/1.0
+
 # base_url=http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=$CTA_KEY
 
-if [ $refresh -eq 1 ]; then
-    echo "Fetching data"
-    req="$api_url/ttarrivals.aspx?mapid=40590&max=5&outputType=JSON&key=$CTA_KEY"
-    curl -s $req > "$tmp_dir/arrivals.json"
-fi
 # data=$(jq -c '.ctatt.eta[] | { staNm, destNm, prdt }' "$tmp_dir/arrivals.json")
 
 # echo $(ascii-image-converter ~/Pictures/cta.png -C -b --dither --threshold 150 -W 20)
-echo ""
-jq -c '.ctatt.eta[0].staNm' "$tmp_dir/arrivals.json"
 
+function relative() {
+    local last_unix="$(date --date="$1" +%s)"    # convert date to unix timestamp
+    local now_unix="$(date +'%s')"
 
-function prettytime() {
+    local delta=$(( $last_unix - $now_unix ))
 
-
-    # Your CST datetime string
-    cst_date=$(TZ="America/Chicago" date -d "$1" +"%Y-%m-%dT%H:%M:%S CST")
-
-    # Get the current date and time in the same time zone (CST)
-    now=$(TZ="America/Chicago" date +"%Y-%m-%dT%H:%M:%S")
-    if [ -n "$2" ]; then
-        echo "using provided $2"
-        now=$(TZ="America/Chicago" date -d "$2" +"%Y-%m-%dT%H:%M:%S CST")
-    fi
-    # Convert both dates to Unix timestamps
-    cst_timestamp=$(TZ="America/Chicago" date -d "$1" +%s)
-    now_timestamp=$(TZ="America/Chicago" date +%s)
-
-    # Calculate the difference in seconds
-    time_diff=$((cst_timestamp - now_timestamp))
-
-    # Determine the relative time (past or future)
-    if ((time_diff == 0)); then
-        echo "Just now"
-    elif ((time_diff < 0)); then
-        time_diff=$(( -time_diff ))  # Make the time difference positive for past cases
-        if ((time_diff < 60)); then
-            echo "$time_diff seconds ago"
-        elif ((time_diff < 3600)); then
-            minutes=$((time_diff / 60))
-            echo "$minutes minutes ago"
-        elif ((time_diff < 86400)); then
-            hours=$((time_diff / 3600))
-            echo "$hours hours ago"
-        elif ((time_diff < 2592000)); then
-            days=$((time_diff / 86400))
-            echo "$days days ago"
-        else
-            months=$((time_diff / 2592000))
-            echo "$months months ago"
-        fi
-    else
-        # If the time difference is positive, it is in the future
-        if ((time_diff < 60)); then
-            echo "$time_diff seconds from now"
-        elif ((time_diff < 3600)); then
-            minutes=$((time_diff / 60))
-            echo "$minutes minutes from now"
-        elif ((time_diff < 86400)); then
-            hours=$((time_diff / 3600))
-            echo "$hours hours from now"
-        elif ((time_diff < 2592000)); then
-            days=$((time_diff / 86400))
-            echo "$days days from now"
-        else
-            months=$((time_diff / 2592000))
-            echo "$months months from now"
-        fi
+    if (( $delta < 60 ))
+    then
+        echo "$delta sec"
+        return
+    elif ((delta < 2700))  # 45 * 60
+    then
+        echo "$(( $delta / 60 )) min";
     fi
 }
 
+# $1 jq object string
+# $2 jq selector
+function val() {
+    echo $1 | jq -r $2
+}
+
+function flagged() {
+    if [ "$1" -eq "1" ]; then
+        echo "$2"
+    else
+        echo "$3"
+    fi
+}
+
+selected_stop=$(jq -r ".[] | select(.stop_id == \"$stop_id\")" $stops_data)
+
+if [ ! -n "$selected_stop" ]; then
+    echo "No stop data for stop id: $stop_id"
+    exit 1
+fi
+
+station_name=$(val "$selected_stop" '.station_name')
+station_id=$(val "$selected_stop" '.map_id')
 
 
-cat "$tmp_dir/arrivals.json" | jq -c '.ctatt.eta[]' | while IFS= read -r item; do
+if [ $refresh -eq 1 ]; then
+    req="$api_url/ttarrivals.aspx?mapid=$station_id&max=5&outputType=JSON&key=$CTA_KEY"
+    echo "Fetching data: $req"
+    curl -s $req > $arrivals
+fi
+
+refresh_time=$(jq -r '.ctatt.tmst' $arrivals)
+since_refresh=$(relative $refresh_time)
+
+echo ""
+# echo "$station_name             ($since_refresh)"
+printf "%-25s -- %15s\n" "$station_name" "$since_refresh"
+echo "------------------------------------------"
+
+
+# function status
+
+cat "$arrivals" | jq -c '.ctatt.eta[]' | while IFS= read -r item; do
     # Extract individual properties from each item
-    staNm=$(echo "$item" | jq -r '.staNm')
-    destNm=$(echo "$item" | jq -r '.destNm')
-    prdt=$(echo "$item" | jq -r '.prdt')
-    arrT=$(echo "$item" | jq -r '.arrT')
+    staNm=$(val "$item" '.staNm')
+    destNm=$(val "$item" '.destNm')
+    prdt=$(val "$item" '.prdt')
+    arrT=$(val "$item" '.arrT')
 
+    approaching=$(val "$item" '.isApp')
+    scheduled=$(val "$item" '.isSch')
+    delayed=$(val "$item" '.isDly')
+    fault=$(val "$item" '.isFlt')
+    # printf "app: %-1s" "$(flagged $approaching '🚇' ' ')"
     # Convert the original datetime to CST (America/Chicago) and append the time zone
+    printf "%-25s %-8s %-1s %-1s %-1s\n" "$destNm" "$(relative $arrT)" "$(flagged $approaching '🔜' '.')" "$(flagged $delayed '⚠' '.')" "$(flagged $scheduled '🗓' '.')"
+    # echo "$destNm: $(prettytime $arrT) []"
 
-    echo "$destNm: $(prettytime $arrT)"
     # echo "$item"
 done
 
