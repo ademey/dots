@@ -49,6 +49,7 @@ export batdiff() {
 # END!
 
 export PATH=/home/anne/bin:$PATH
+export PATH=/home/anne/.cargo/bin:$PATH
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"

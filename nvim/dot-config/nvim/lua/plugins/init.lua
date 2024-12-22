@@ -24,6 +24,7 @@ return {
         "ts_ls", -- works but not cus included here
         "tailwindcss-language-server",
         "eslint-lsp",
+        "rust-analyzer",
       },
     },
   },

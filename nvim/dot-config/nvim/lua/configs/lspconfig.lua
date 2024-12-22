@@ -2,6 +2,7 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
+local util = require "lspconfig/util"
 
 -- EXAMPLE
 local servers = { "html", "cssls", "tailwindcss", "eslint" }
@@ -23,4 +24,19 @@ lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
+}
+
+lspconfig.rust_analyzer.setup {
+  on_attach = nvlsp.on_attach,
+  -- on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "rust" },
+  root_dir = util.root_pattern "Cargo.toml",
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
 }
