@@ -4,6 +4,7 @@
 #
 # export CTA_KEY=$(pass api/cta | head -n 1)
 tmp_dir=$HOME/.cache/hetov
+settings="$tmp_dir/settings"
 stops_data="$tmp_dir/stops.json"
 arrivals="$tmp_dir/arrivals.json"
 
@@ -11,9 +12,11 @@ api_url=http://lapi.transitchicago.com/api/1.0
 
 refresh=0
 
-station="40570" # California
-stop_id="30112"
-
+# Stations have multiple stops
+# station="40570" # California
+# stop_id="30112"
+stop_id=""
+map_id=""
 
 # echo "$(cat ~/Notes/ascii/cta.ascii)"
 echo "🚋🚇 Het OV"
@@ -23,28 +26,34 @@ if [ -z "$CTA_KEY" ]; then
     exit 1
 fi
 
-while getopts 'rs:' opt; do
+while getopts 'rls:' opt; do
     case "$opt" in
         s)
-            station=$OPTARG
+            stop_id=$OPTARG
             ;;
         r)
             refresh=1
             ;;
+        l)
     esac
 done
 
 if [ ! -f $stops_data ]; then
     echo '📦 Loding "L" database'
+    # https://data.cityofchicago.org/Transportation/CTA-System-Information-List-of-L-Stops/8pix-ypme/about_data
     curl -s "https://data.cityofchicago.org/resource/8pix-ypme.json" > $stops_data
 fi
 
+if [ ! -n "$stop_id" ]; then
+    # echo "Select a Line"
+    line_name=$(gum choose --header "Line:" --height 15 "red" "blue" "g" "brn" "p" "pexp" "y" "pnk" "o")
 
-# base_url=http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=$CTA_KEY
+    # echo "Select a Staion"
+    stop_name=$(jq -r ".[] | select(.\"$line_name\" == true) | .stop_name" $stops_data | sort | gum choose --header "Station:" --height 15)
+    stop_id=$(jq -r ".[] | select(.stop_name == \"$stop_name\") | .stop_id" $stops_data)
+    echo "> $stop_name > $stop_id"
+fi
 
-# data=$(jq -c '.ctatt.eta[] | { staNm, destNm, prdt }' "$tmp_dir/arrivals.json")
-
-# echo $(ascii-image-converter ~/Pictures/cta.png -C -b --dither --threshold 150 -W 20)
 
 function relative() {
     local last_unix="$(date --date="$1" +%s)"    # convert date to unix timestamp
@@ -68,6 +77,9 @@ function val() {
     echo $1 | jq -r $2
 }
 
+# $1 0 or 1 value
+# $2 output of true
+# $3 output of false
 function flagged() {
     if [ "$1" -eq "1" ]; then
         echo "$2"
@@ -83,28 +95,29 @@ if [ ! -n "$selected_stop" ]; then
     exit 1
 fi
 
-station_name=$(val "$selected_stop" '.station_name')
-station_id=$(val "$selected_stop" '.map_id')
+station_name=$(val "$selected_stop" '.station_descriptive_name')
+map_id=$(val "$selected_stop" '.map_id')
 
 
 if [ $refresh -eq 1 ]; then
-    req="$api_url/ttarrivals.aspx?mapid=$station_id&max=5&outputType=JSON&key=$CTA_KEY"
-    echo "Fetching data: $req"
+    req="$api_url/ttarrivals.aspx?mapid=$map_id&max=10&outputType=JSON&key=$CTA_KEY"
+    # echo "Fetching data: $req"
     curl -s $req > $arrivals
 fi
 
 refresh_time=$(jq -r '.ctatt.tmst' $arrivals)
 since_refresh=$(relative $refresh_time)
 
+# echo $(val "$selected_stop" '.blue')
+
 echo ""
-# echo "$station_name             ($since_refresh)"
 printf "%-25s -- %15s\n" "$station_name" "$since_refresh"
 echo "------------------------------------------"
 
 
-# function status
 
-cat "$arrivals" | jq -c '.ctatt.eta[]' | while IFS= read -r item; do
+
+cat "$arrivals" | jq -c '.ctatt | .eta[]' | while IFS= read -r item; do
     # Extract individual properties from each item
     staNm=$(val "$item" '.staNm')
     destNm=$(val "$item" '.destNm')
@@ -115,29 +128,9 @@ cat "$arrivals" | jq -c '.ctatt.eta[]' | while IFS= read -r item; do
     scheduled=$(val "$item" '.isSch')
     delayed=$(val "$item" '.isDly')
     fault=$(val "$item" '.isFlt')
-    # printf "app: %-1s" "$(flagged $approaching '🚇' ' ')"
-    # Convert the original datetime to CST (America/Chicago) and append the time zone
     printf "%-25s %-8s %-1s %-1s %-1s\n" "$destNm" "$(relative $arrT)" "$(flagged $approaching '🔜' '.')" "$(flagged $delayed '⚠' '.')" "$(flagged $scheduled '🗓' '.')"
-    # echo "$destNm: $(prettytime $arrT) []"
 
-    # echo "$item"
 done
 
 
 exit 0
-# if [ $1 -eq 'arrivals' ]; then
-#     req="$api_url/ttarrivals.aspx?mapid=40570&max=5&outputType=JSON&key=$CTA_KEY"
-#     curl $req > "$tmp_dir/arrivals.json"
-#     jq -r '.ctatt.eta[] | { staNm, destNm, prdt }' "$tmp_dir/arrivals.json"
-# fi
-# if [ $1 == 'positions' ]; then
-#     req="$api_url/ttpositions.aspx?rt=blue&outputType=JSON&key=$CTA_KEY"
-#     curl $req > "$tmp_dir/positions.json"
-#     # jq -r '.ctatt' "$tmp_dir/positions.json"
-# fi
-# data=$(cat "$tmp_dir/response.json")
-
-# echo $data > "$tmp_dir/response.json"
-#
-
-
