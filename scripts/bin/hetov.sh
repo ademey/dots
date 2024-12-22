@@ -10,6 +10,7 @@ hetov_data_home=${XDG_DATA_HOME:-~/.local/share}/hetov
 stops_data="$hetov_data_home/stops.json"
 arrivals="$hetov_data_home/arrivals.json"
 arrivals_dir="$hetov_data_home/arrivals"
+history="$hetov_data_home/history.txt"
 
 api_url=http://lapi.transitchicago.com/api/1.0
 
@@ -113,7 +114,8 @@ function pick_stop() {
     # echo "Select a Staion"
     # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | .stop_name" $stops_data | sort | gum choose --header "Station:" --height 10)
     # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | [.map_id, .station_name] | @csv" $stops_data | sort | uniq | gum choose --header "Station:" --height 10)
-    stop_name=$(jq -r ".[] | [.map_id, .station_descriptive_name] | @csv" $stops_data | sort | uniq | awk -F "," '{print $2 " " $1}' | sort | sed 's|"||g' | gum filter --placeholder "Station" --height 10)
+    stop_name=$(jq -r ".[] | [.map_id, .station_descriptive_name] | @csv" $stops_data | sort | uniq | awk -F "," '{print $2 " " $1}' | sort | sed 's|"||g' | gum filter --placeholder "Station" --value "$(cat $history)" --height 10)
+    echo $stop_name > $history
     selected_map_id=$(echo $stop_name | awk -F ' ' '{print $NF}')
     # echo $(jq -r ".[] | select(.map_id == \"$selected_map_id\") | .map_id" $stops_data)
     # echo "> $stop_name > $stop_id"
