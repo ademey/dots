@@ -15,6 +15,7 @@ history="$hetov_data_home/history.txt"
 api_url=http://lapi.transitchicago.com/api/1.0
 
 refresh=1
+loop=0
 
 # Stations have multiple stops
 # stop_id="30112" # California
@@ -22,6 +23,7 @@ stop_id=""
 map_id=""
 
 # echo "$(cat ~/Notes/ascii/cta.ascii)"
+clear
 echo "🚋 Het OV"
 echo "---------"
 
@@ -35,6 +37,8 @@ while getopts 'rls:' opt; do
             refresh=0
             ;;
         l)
+            loop=1
+            ;;
     esac
 done
 
@@ -105,8 +109,6 @@ function flagged() {
 
 function pick_stop() {
     # echo "Select a Line"
-    real_names=("Red", "Blue", "Green", "Brown", "Purple", "Purple Exp", "Yellow", "Pink", "Orange")
-    codes=("red", "blue", "g", "brn", "p", "pexp", "y", "pnk", "o")
     # awk -F ',' '{printf "%-10s %-4s\n", $1, $2}'
     # line_name=$(cat "$hetov_data_home/lines.csv" | gum choose --header "Line:" --height 10)
     # line_code=$(echo $line_name | awk -F ',' '{print $NF}')
@@ -114,8 +116,19 @@ function pick_stop() {
     # echo "Select a Staion"
     # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | .stop_name" $stops_data | sort | gum choose --header "Station:" --height 10)
     # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | [.map_id, .station_name] | @csv" $stops_data | sort | uniq | gum choose --header "Station:" --height 10)
-    stop_name=$(jq -r ".[] | [.map_id, .station_descriptive_name] | @csv" $stops_data | sort | uniq | awk -F "," '{print $2 " " $1}' | sort | sed 's|"||g' | gum filter --placeholder "Station" --value "$(cat $history)" --height 10)
-    echo $stop_name > $history
+
+    if [ -f $history ]; then
+        main_opt=$(gum choose "Search" "History")
+
+        if [ "$main_opt" == "History" ]; then
+            from_hist=$(cat $history | gum choose)
+            echo $from_hist | awk -F ' ' '{print $NF}'
+            exit 0
+        fi
+    fi
+
+    stop_name=$(jq -r ".[] | [.map_id, .station_descriptive_name] | @csv" $stops_data | sort | uniq | awk -F "," '{print $2 " " $1}' | sort | sed 's|"||g' | gum filter --placeholder "Station" --height 10)
+    echo $stop_name >> $history
     selected_map_id=$(echo $stop_name | awk -F ' ' '{print $NF}')
     # echo $(jq -r ".[] | select(.map_id == \"$selected_map_id\") | .map_id" $stops_data)
     # echo "> $stop_name > $stop_id"
@@ -146,37 +159,54 @@ station_name=$(val "$selected_stop" '.station_descriptive_name')
 # map_id=$(val "$selected_stop" '.map_id')
 
 
-if [ $refresh -eq 1 ]; then
-    req="$api_url/ttarrivals.aspx?mapid=$map_id&max=10&outputType=JSON&key=$CTA_KEY"
-    # echo "Fetching data: $req"
-    gum spin --spinner dot -- sleep 1 && curl -s $req > $arrivals
+function render() {
+
+    if [ $refresh -eq 1 ]; then
+        req="$api_url/ttarrivals.aspx?mapid=$map_id&max=10&outputType=JSON&key=$CTA_KEY"
+        # echo "Fetching data: $req"
+        gum spin --spinner dot -- sleep 1 && curl -s $req > $arrivals
+    else
+        echo "Using cache"
+    fi
+
+    refresh_time=$(jq -r '.ctatt.tmst' $arrivals)
+    since_refresh=$(relative $refresh_time)
+
+    # echo $(val "$selected_stop" '.blue')
+    clear
+    echo ""
+    printf "%-30s  %8s\n" "$station_name" "$since_refresh"
+    echo "------------------------------------------"
+
+    cat "$arrivals" | jq -c '.ctatt | .eta[]' | while IFS= read -r item; do
+        # Extract individual properties from each item
+        staNm=$(val "$item" '.staNm')
+        destNm=$(val "$item" '.destNm')
+        prdt=$(val "$item" '.prdt')
+        arrT=$(val "$item" '.arrT')
+
+        approaching=$(val "$item" '.isApp')
+        scheduled=$(val "$item" '.isSch')
+        delayed=$(val "$item" '.isDly')
+        fault=$(val "$item" '.isFlt')
+        printf "%-20s %1s %1s %1s %10s\n" "$destNm" "$(flagged $approaching '🚃' ' ')" "$(flagged $delayed '⚠' ' ')" "$(flagged $scheduled '🗓' ' ')" "$(relative $arrT)"
+
+    done
+
+
+}
+
+
+interval=30
+max_run=300
+loop_start=$(date)
+
+if [ $loop -eq 0 ]; then
+    render
+    exit 0
 else
-    echo "Using cache"
+    while true; do
+        render
+        sleep $interval
+    done
 fi
-
-refresh_time=$(jq -r '.ctatt.tmst' $arrivals)
-since_refresh=$(relative $refresh_time)
-
-# echo $(val "$selected_stop" '.blue')
-
-echo ""
-printf "%-30s  %8s\n" "$station_name" "$since_refresh"
-echo "------------------------------------------"
-
-cat "$arrivals" | jq -c '.ctatt | .eta[]' | while IFS= read -r item; do
-    # Extract individual properties from each item
-    staNm=$(val "$item" '.staNm')
-    destNm=$(val "$item" '.destNm')
-    prdt=$(val "$item" '.prdt')
-    arrT=$(val "$item" '.arrT')
-
-    approaching=$(val "$item" '.isApp')
-    scheduled=$(val "$item" '.isSch')
-    delayed=$(val "$item" '.isDly')
-    fault=$(val "$item" '.isFlt')
-    printf "%-20s %1s %1s %1s %10s\n" "$destNm" "$(flagged $approaching '🚃' ' ')" "$(flagged $delayed '⚠' ' ')" "$(flagged $scheduled '🗓' ' ')" "$(relative $arrT)"
-
-done
-
-
-exit 0

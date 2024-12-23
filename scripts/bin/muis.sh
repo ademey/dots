@@ -8,7 +8,7 @@ render_md=1
 render_opts=("lynx", "md")
 
 
-awhile getopts "rd:" opt; do
+while getopts "rd:" opt; do
     case $opt in
         d)
             dict=$OPTARG
