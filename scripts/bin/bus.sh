@@ -102,27 +102,51 @@ function selectroute() {
 }
 
 function selectdir() {
+    local dir_file="$routes_dir/$1-dir.json"
     # ata.cityofchicago.org/Transportation/CTA-System-Information-List-of-L-Stops/8pix-ypme/about_data
-    local directions=$(gum spin --spinner dot --title "Getting directions for $1" -- sleep 1 && curl -s "$directions_endpoint&rt=$1")
-    echo $directions | jq -r '."bustime-response".directions[].dir' | gum choose
+    if [ ! -f $dir_file ]; then
+        gum spin --spinner dot --title "Getting directions for $1" -- sleep 1 && curl -s "$directions_endpoint&rt=$1" > $dir_file
+    fi
+    echo $dir_file
+    # | jq -r '."bustime-response".directions[].dir' | gum choose
 }
+
 function selectstop() {
     if [ ! -f "$routes_dir/$1-$2.json" ]; then
         # ata.cityofchicago.org/Transportation/CTA-System-Information-List-of-L-Stops/8pix-ypme/about_data
         gum spin --spinner dot --title "Getting stops for $1" -- sleep 1 && curl -s "$stops_endpoint&rt=$1&dir=$2" > "$routes_dir/$1-$2.json"
     fi
-    local stop_name=$(jq -r '."bustime-response".stops[] | [.stpnm, stpid]' "$routes_dir/$1-$2.json" | gum filter --height 15)
-    local route_num=$(echo $stop_name | awk -F ' ' '{print $1}')
+    local stop_name=$(jq -r '."bustime-response".stops[] | [.stpnm, .stpid] | @csv' "$routes_dir/$1-$2.json" | sed 's|"||g' | sed 's|,| |g' | gum filter --height 15)
+    local stop_id=$(echo $stop_name | awk -F ' ' '{print $NF}')
     echo $route_num
 }
 
 function getpredictions() {
 
-    local selected_stop=$(gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > $bus_prediction_data)
+    gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > $bus_prediction_data
     # local stop_id=$(echo $selected_stop | awk -F ' ' '{print $1}')
 }
-# TODO: Get emoji for line color
-# function get_color
+
+function render() {
+
+    clear
+    echo "$stop_id"
+    printf "%-30s  %8s\n" "$route_num" "$route_direction"
+    echo "------------------------------------------"
+
+    cat $bus_prediction_data | jq -c '."bustime-response".prd[]' | while IFS= read -r item; do
+        # Extract individual properties from each item
+        tmstmp=$(val "$item" '.tmstmp')
+        des=$(val "$item" '.des')
+        rt=$(val "$item" '.rt')
+        prdctdn=$(val "$item" '.prdctdn')
+        printf "%-20s %2d\n" "$des" "$prdctn"
+
+    done
+
+
+}
+
 
 
 
@@ -130,6 +154,9 @@ route_num=$(selectroute)
 route_direction=$(selectdir $route_num)
 echo "> Route $route_num $route_direction"
 
-route_stop=$(selectstop $route_num $route_direction)
+# route_stop=$(selectstop $route_num $route_direction)
 
-getpredictions
+# getpredictions $route_stop
+# render
+
+exit 1
