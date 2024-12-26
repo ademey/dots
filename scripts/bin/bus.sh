@@ -107,8 +107,7 @@ function selectdir() {
     if [ ! -f $dir_file ]; then
         gum spin --spinner dot --title "Getting directions for $1" -- sleep 1 && curl -s "$directions_endpoint&rt=$1" > $dir_file
     fi
-    echo $dir_file
-    # | jq -r '."bustime-response".directions[].dir' | gum choose
+    cat $dir_file | jq -r '."bustime-response".directions[].dir' | gum choose
 }
 
 function selectstop() {
@@ -123,7 +122,7 @@ function selectstop() {
 
 function getpredictions() {
 
-    gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > $bus_prediction_data
+    local $selected_stop=$(gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > $bus_prediction_data)
     # local stop_id=$(echo $selected_stop | awk -F ' ' '{print $1}')
 }
 
@@ -134,17 +133,15 @@ function render() {
     printf "%-30s  %8s\n" "$route_num" "$route_direction"
     echo "------------------------------------------"
 
-    cat $bus_prediction_data | jq -c '."bustime-response".prd[]' | while IFS= read -r item; do
+    jq -c '."bustime-response".prd[]' $bus_prediction_data | while IFS= read -r item; do
         # Extract individual properties from each item
         tmstmp=$(val "$item" '.tmstmp')
         des=$(val "$item" '.des')
         rt=$(val "$item" '.rt')
         prdctdn=$(val "$item" '.prdctdn')
-        printf "%-20s %2d\n" "$des" "$prdctn"
+        printf "%-20s %2d\n" "$des" "$prdctdn"
 
     done
-
-
 }
 
 
@@ -154,9 +151,9 @@ route_num=$(selectroute)
 route_direction=$(selectdir $route_num)
 echo "> Route $route_num $route_direction"
 
-# route_stop=$(selectstop $route_num $route_direction)
+route_stop=$(selectstop $route_num $route_direction)
 
-# getpredictions $route_stop
-# render
+getpredictions $route_stop
+render
 
-exit 1
+exit 0
