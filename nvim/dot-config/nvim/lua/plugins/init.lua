@@ -25,6 +25,7 @@ return {
         "tailwindcss-language-server",
         "eslint-lsp",
         "rust-analyzer",
+        "beautysh",
       },
     },
   },
@@ -76,10 +77,10 @@ return {
   --     require("chameleon").setup()
   --   end,
   -- },
-  -- {
-  --   "lovesegfault/beautysh",
-  --   config = function()
-  --     require "configs.beautysh"
-  --   end,
-  -- }
+  {
+    "lovesegfault/beautysh",
+    config = function()
+      require "configs.beautysh"
+    end,
+  },
 }

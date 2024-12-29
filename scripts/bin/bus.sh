@@ -10,7 +10,10 @@ hetov_data_home=${XDG_DATA_HOME:-~/.local/share}/hetov
 bus_routes_data="$hetov_data_home/bus-routes.json"
 bus_prediction_data="$hetov_data_home/bus-prediction.json"
 # Each routes stops get stored here when first requested
+# Also it's directional info is saved as a separate file
 routes_dir="$hetov_data_home/routes"
+# Each prediction request gets saved by it's stop id 
+stops_dir="$hetov_data_home/bus-stops"
 
 # routes_endpoint=http://lapi.transitchicago.com/api/1.0
 # curl "http://www.ctabustracker.com/bustime/api/v2/getroutes?key=$BUS_KEY&format=json" > routes.json
@@ -19,12 +22,10 @@ stops_endpoint="http://www.ctabustracker.com/bustime/api/v2/getstops?key=$BUS_KE
 directions_endpoint="http://www.ctabustracker.com/bustime/api/v2/getdirections?key=$BUS_KEY&format=json"
 predictions_endpoint="http://www.ctabustracker.com/bustime/api/v2/getpredictions?key=$BUS_KEY&format=json"
 refresh=1
+loop=0
 
 # Stations have multiple stops
 # stop_id="30112" # California
-stop_id=""
-map_id=""
-route_num=""
 # echo "$(cat ~/Notes/ascii/cta.ascii)"
 echo "🚋 Het OV"
 echo "---------"
@@ -39,6 +40,8 @@ while getopts 'rls:' opt; do
             refresh=0
             ;;
         l)
+            loop=1
+            ;;
     esac
 done
 
@@ -51,7 +54,14 @@ fi
 if [ ! -d $hetov_data_home ]; then
     echo "Setting up"
     mkdir -p $hetov_data_home
-    mkdir $routes_dir
+fi
+
+if [ ! -d $routes_dir ]; then
+    mkdir -p $routes_dir
+fi
+
+if [ ! -d $stops_dir ]; then
+    mkdir -p $stops_dir
 fi
 
 if [ ! -f $bus_routes_data ]; then
@@ -107,8 +117,9 @@ function selectdir() {
     if [ ! -f $dir_file ]; then
         gum spin --spinner dot --title "Getting directions for $1" -- sleep 1 && curl -s "$directions_endpoint&rt=$1" > $dir_file
     fi
-    echo $dir_file
-    # | jq -r '."bustime-response".directions[].dir' | gum choose
+    # echo $dir_file
+    local direction=$(jq -r '."bustime-response".directions[].dir' $dir_file | gum choose)
+    echo $direction
 }
 
 function selectstop() {
@@ -118,45 +129,67 @@ function selectstop() {
     fi
     local stop_name=$(jq -r '."bustime-response".stops[] | [.stpnm, .stpid] | @csv' "$routes_dir/$1-$2.json" | sed 's|"||g' | sed 's|,| |g' | gum filter --height 15)
     local stop_id=$(echo $stop_name | awk -F ' ' '{print $NF}')
-    echo $route_num
+    echo $stop_id
 }
 
 function getpredictions() {
 
-    gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > $bus_prediction_data
+    gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > "$stops_dir/$route_num-$1.json"
     # local stop_id=$(echo $selected_stop | awk -F ' ' '{print $1}')
 }
 
 function render() {
-
+    local stop_data=$(jq --arg "stpid" $route_stop '."bustime-response".stops[] | select(.stpid == $stpid )' "$routes_dir/$route_num-$route_direction.json")
     clear
-    echo "$stop_id"
-    printf "%-30s  %8s\n" "$route_num" "$route_direction"
+    local stop_name=$(val "$stop_data" ".stpnm")
+    local prediction_file="$stops_dir/$route_num-$route_stop.json"
+    printf "%-30s  %10s\n" "$stop_name" "$route_direction"
     echo "------------------------------------------"
 
-    cat $bus_prediction_data | jq -c '."bustime-response".prd[]' | while IFS= read -r item; do
+    cat $prediction_file | jq -c '."bustime-response".prd[]' | while IFS= read -r item; do
         # Extract individual properties from each item
         tmstmp=$(val "$item" '.tmstmp')
-        des=$(val "$item" '.des')
-        rt=$(val "$item" '.rt')
-        prdctdn=$(val "$item" '.prdctdn')
-        printf "%-20s %2d\n" "$des" "$prdctn"
+        des=$(val "$item" '.des') # Destination
+        rt=$(val "$item" '.rt') # Route
+        prdctdn=$(val "$item" '.prdctdn') # Predicted time to arriaval (minutes)
+        vid=$(val "$item" '.vid') # Bus ID
+        if [ "$prdctdn" == "DUE" ]; then
+
+          printf "(%2d) %-2333%4s (%4d)\n" "$rt" "$des" "$prdctdn" "$vid"
+        else
+          printf "(%2d) %-23s %2d min (%4d)\n" "$rt" "$des" "$prdctdn" "$vid"
+        fi
 
     done
-
-
 }
 
 
 
 
 route_num=$(selectroute)
+echo "> Route $route_num"
 route_direction=$(selectdir $route_num)
-echo "> Route $route_num $route_direction"
-
-# route_stop=$(selectstop $route_num $route_direction)
-
+echo "> Direction $route_direction"
+route_stop=$(selectstop $route_num $route_direction)
+echo "> Stop Id $route_stop"
 # getpredictions $route_stop
 # render
 
-exit 1
+
+interval=30
+max_run=300
+loop_start=$(date)
+
+if [ $loop -eq 0 ]; then
+    getpredictions $route_stop
+    render
+    exit 0
+else
+    while true; do      
+    # clear
+        getpredictions $route_stop
+        render
+        sleep $interval
+    done
+fi
+

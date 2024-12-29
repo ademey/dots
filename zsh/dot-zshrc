@@ -24,6 +24,8 @@ alias code='codium'
 alias vim='nvim'
 alias zgit='lazygit'
 
+alias nyevlc='vlc --no-video-deco --no-embedded-video'
+
 # Scripts
 # TODO: Move scripts somewhere common
 alias muis="/home/anne/bin/muis.sh"
@@ -32,8 +34,9 @@ alias gm="/home/anne/bin/gm.sh"
 alias repos="/home/anne/bin/repos.sh ~/dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
 alias poes="/home/anne/bin/poes.sh"
 
-alias authov='pass -c api/cta && export CTA_KEY=$(wl-paste)'
-alias authbus='pass -c api/bus && export BUS_KEY=$(wl-paste)'
+# alias authov='pass -c api/cta && export CTA_KEY=$(wl-paste)'
+alias authov='export CTA_KEY=$(pass api/cta | head -n 1)'
+alias authbus='export BUS_KEY=$(pass api/bus | head -n 1)'
 # Defaults
 export EDITOR='nvim'
 
@@ -52,6 +55,9 @@ export batdiff() {
 
 export PATH=/home/anne/bin:$PATH
 export PATH=/home/anne/.cargo/bin:$PATH
+
+GOPATH=$HOME/go
+PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
