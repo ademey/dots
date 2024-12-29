@@ -5,8 +5,6 @@
 # pass -c api/cta && export CTA_KEY=$(wl-paste)
 hetov_data_home=${XDG_DATA_HOME:-~/.local/share}/hetov
 
-# hetov_data_home=$HOME/.cache/hetov
-# settings="$hetov_data_home/settings"
 stops_data="$hetov_data_home/stops.json"
 arrivals="$hetov_data_home/arrivals.json"
 arrivals_dir="$hetov_data_home/arrivals"
@@ -44,7 +42,7 @@ done
 
 if [ -z "$CTA_KEY" ]; then
     if [ $refresh -eq 1 ]; then
-        echo "🗝 API key missing"
+        echo "🔒 API key missing"
         exit 1
     fi
 fi
@@ -61,7 +59,6 @@ if [ ! -f $stops_data ]; then
 
 
 fi
-
 
 function setup_lines() {
     real_names=("Blue" "Green" "Brown" "Purple" "Purple Exp" "Yellow" "Pink" "Orange")
@@ -108,15 +105,6 @@ function flagged() {
 }
 
 function pick_stop() {
-    # echo "Select a Line"
-    # awk -F ',' '{printf "%-10s %-4s\n", $1, $2}'
-    # line_name=$(cat "$hetov_data_home/lines.csv" | gum choose --header "Line:" --height 10)
-    # line_code=$(echo $line_name | awk -F ',' '{print $NF}')
-
-    # echo "Select a Staion"
-    # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | .stop_name" $stops_data | sort | gum choose --header "Station:" --height 10)
-    # stop_name=$(jq -r ".[] | select(.\"$line_code\" == true) | [.map_id, .station_name] | @csv" $stops_data | sort | uniq | gum choose --header "Station:" --height 10)
-
     if [ -f $history ]; then
         main_opt=$(gum choose "Search" "History")
 
@@ -189,15 +177,15 @@ function render() {
         scheduled=$(val "$item" '.isSch')
         delayed=$(val "$item" '.isDly')
         fault=$(val "$item" '.isFlt')
-        printf "%-20s %1s %1s %1s %10s\n" "$destNm" "$(flagged $approaching '🚃' ' ')" "$(flagged $delayed '⚠' ' ')" "$(flagged $scheduled '🗓' ' ')" "$(relative $arrT)"
+        estimate=$(flagged $approaching "Due" "$(relative $arrT)")
+        printf "%-20s %1s %1s %10s\n" "$destNm" "$(flagged $delayed '⚠' ' ')" "$(flagged $scheduled '🗓' ' ')" "$estimate"
 
     done
-
-
 }
 
 
-interval=30
+interval=1
+refresh_interval=10
 max_run=300
 loop_start=$(date)
 

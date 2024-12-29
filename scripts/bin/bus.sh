@@ -117,9 +117,7 @@ function selectdir() {
     if [ ! -f $dir_file ]; then
         gum spin --spinner dot --title "Getting directions for $1" -- sleep 1 && curl -s "$directions_endpoint&rt=$1" > $dir_file
     fi
-    # echo $dir_file
-    local direction=$(jq -r '."bustime-response".directions[].dir' $dir_file | gum choose)
-    echo $direction
+    cat $dir_file | jq -r '."bustime-response".directions[].dir' | gum choose
 }
 
 function selectstop() {
@@ -134,7 +132,7 @@ function selectstop() {
 
 function getpredictions() {
 
-    gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > "$stops_dir/$route_num-$1.json"
+    local $selected_stop=$(gum spin --spinner dot --title "Loading preditions" -- sleep 1 && curl -s "$predictions_endpoint&stpid=$1" > $bus_prediction_data)
     # local stop_id=$(echo $selected_stop | awk -F ' ' '{print $1}')
 }
 
@@ -169,27 +167,11 @@ function render() {
 route_num=$(selectroute)
 echo "> Route $route_num"
 route_direction=$(selectdir $route_num)
-echo "> Direction $route_direction"
+echo "> Route $route_num $route_direction"
+
 route_stop=$(selectstop $route_num $route_direction)
-echo "> Stop Id $route_stop"
-# getpredictions $route_stop
-# render
 
+getpredictions $route_stop
+render
 
-interval=30
-max_run=300
-loop_start=$(date)
-
-if [ $loop -eq 0 ]; then
-    getpredictions $route_stop
-    render
-    exit 0
-else
-    while true; do      
-    # clear
-        getpredictions $route_stop
-        render
-        sleep $interval
-    done
-fi
-
+exit 0
