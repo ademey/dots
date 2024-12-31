@@ -44,6 +44,7 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 | SUPER SHIFT | P | Power menu | Tofi |
 | SUPER SHIFT | X | Screenshot menu | Tofi |
 | SUPER SHIFT | E | Emoji picker | Tofi |
+| SUPER | M | Launch Spotify player | ncspot |
 | SUPER ALT | M | Launch lowfi music player | lowfi |
 | SUPER ALT | U | System update | pacman |
 
@@ -60,6 +61,7 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 | SUPER | L Mouse | Move window |
 | SUPER | R Mouse | Resize window |
 
+
 *Movement*
 
 | Modifiers | Key | Description |
@@ -69,6 +71,7 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 | SUPER SHIFT | H/J/K/L | Move window |
 | SUPER SHIFT | Arrow | Move window |
 | CTRL SUPER SHIFT | H/L | Move workspace monitor |
+| SUPER | Tab | Cycle window focus |
 
 *Workspaces*
 
@@ -76,7 +79,7 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 | --------- | --- | ----------- |
 | SUPER | {1...0} | Goto workspace |
 | SUPER SHIFT | {1...0} | Move to workspace |
-| SUPER SHIFT ALT | W | Toggle workspace floating |
+| SUPER ALT SHIFT | W | Toggle workspace floating |
 | SUPER | Mouse Wheel | Cycle workspaces |
 | SUPER | S | View scratchpad |
 | SUPER SHIFT | S | Send to scratchpad |
