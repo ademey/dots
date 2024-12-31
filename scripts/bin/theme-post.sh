@@ -1,23 +1,30 @@
 #!/usr/bin/env bash
 
-IMG="$(< "${HOME}/.cache/wal/wal")"
+# Run after setting pywal theme
+
+# Load the image name last used by pywal
+image="$(< "${HOME}/.cache/wal/wal")"
+# Or provide an image path
+if [ $1 ]; then
+  image=$1
+fi
 
 # Generated through pywal templates
 ln -s "${HOME}/.cache/wal/hyprlock.conf" "${HOME}/.config/hypr/hyprlock.conf"
 ln -s "${HOME}/.cache/wal/mako" "${HOME}/.config/mako/config"
-# Not using this right now
-# ln -s "${HOME}/.cache/wal/hyprpaper.conf" "${HOME}/.config/hypr/hyprpaper.conf"
 
+
+# Hyprpaper
+# ln -s "${HOME}/.cache/wal/hyprpaper.conf" "${HOME}/.config/hypr/hyprpaper.conf"
 # hyprctl hyprpaper preload $IMG
 # hyprctl hyprpaper wallpaper ", $IMG"
 
-swww img --transition-type random $IMG
+swww img --transition-type random $image
 pkill waybar && hyprctl dispatch exec waybar
-makoctl reload
 
 # Would be cool to do other effects
-magick $IMG -blur 0x15 "${HOME}/.cache/hyprlock/background.png"
-
+magick $image -blur 0x15 "${HOME}/.cache/hyprlock/background.png"
+makoctl reload
 # Generates an image with the background and colors
 # bash "${HOME}/.config/wal/preview.sh"
 
