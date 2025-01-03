@@ -1,0 +1,16 @@
+
+font-family = "JetBrainsMono Nerd Font"
+theme = rose-pine
+font-size = 10
+
+scrollback-limit = 10_000
+
+clipboard-read = allow
+clipboard-paste-protection = false
+
+
+window-theme = ghostty
+gtk-tabs-location = hidden
+window-decoration = false
+resize-overlay = never
+shell-integration = zsh

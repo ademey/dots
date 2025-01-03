@@ -4,15 +4,22 @@
   font-size: 16px;
   font-family: "JetBrainsMono Nerd Font";
 }
-toolip {
-  background: black;
+tooltip {
+  border: white;
+  background: rgba(0, 0, 0, 0.8);
+  margin: 0;
+  padding: 0;
 }
+
+tooltip label {
+  padding: 4px;
+}
+
 window#waybar {
   color: black;
   background: white;
 }
 
-  
 #workspaces button {
   color: #999999;
   transition: all 0.5s;
@@ -27,7 +34,7 @@ window#waybar {
 }
 
 .modules-right .module {
-    padding: 0 14px 0 8px;
+  padding: 0 14px 0 8px;
 }
 
 #taskbar button {
@@ -36,7 +43,5 @@ window#waybar {
 }
 
 #clock {
-    padding: 0 8px;
+  padding: 0 8px;
 }
-
-

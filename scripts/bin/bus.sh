@@ -140,7 +140,8 @@ function render() {
     local stop_data=$(jq --arg "stpid" $route_stop '."bustime-response".stops[] | select(.stpid == $stpid )' "$routes_dir/$route_num-$route_direction.json")
     clear
     local stop_name=$(val "$stop_data" ".stpnm")
-    local prediction_file="$stops_dir/$route_num-$route_stop.json"
+    # local prediction_file="$stops_dir/$route_num-$route_stop.json"
+    local prediction_file=$bus_prediction_data
     printf "%-30s  %10s\n" "$stop_name" "$route_direction"
     echo "------------------------------------------"
 
