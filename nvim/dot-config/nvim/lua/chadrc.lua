@@ -28,7 +28,7 @@ end
 local M = {}
 
 M.base46 = {
-  theme = "rosepine",
+  theme = "oceanic-next",
 
   hl_override = {
     Comment = { italic = true },
