@@ -7,7 +7,7 @@ background=$(echo $theme | jq -r ".special.background")
 foreground=$(echo $theme | jq -r ".special.foreground")
 cursor=$(echo $theme | jq -r ".special.cursor")
 # Needs to handle escapes
-image=$(echo $theme | jq -r ".wallpaper")
+image=$(<$HOME/.cache/wal/wal)
 
 color0=$(echo $theme | jq -r ".colors.color0")
 color1=$(echo $theme | jq -r ".colors.color1")

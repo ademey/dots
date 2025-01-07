@@ -1,55 +1,49 @@
-
 window#waybar {
-    color: @foreground;
-    background: @background;
+  color: @foreground;
+  background: @background;
 }
-  
+
 #workspaces,
 #tray {
-    padding: 0;
+  padding: 0;
 }
 
 #workspaces button {
-  padding: 0 16px 0 8px;
+  padding: 8px 16px 8px 8px;
   color: @color8;
-  border-bottom: 2px solid @color3;
+  border-bottom: 2px solid @cyan;
   border-radius: 0px;
   background: transparent;
 }
 
 /* 2nd screen active, not focuse */
 #workspaces button.visible {
-  color: @color7;
-  border-color: @color1;
+  color: @magenta;
+  border-color: @magenta;
 }
 
-#workspaces button.active {
-  color: @color1;
-  border-color: @color4;
+#workspaces button.active,
+#workspaces button:hover {
+  color: @magenta;
+  border-color: @magenta;
 }
 
 #workspaces button.urgent {
-  border-color: @color6;
-  color: @color6;
-}
-
-#workspaces button:hover {
-  color: @color1;
-  border-color: @color4;
+  border-color: @red;
+  color: @red;
 }
 
 #taskbar {
   color: @foreground;
 }
 
-#taskbar button {
-  border-bottom: 2px solid transparent;
-  border-radius: 0;
-  color: @foreground;
-}
-
-#taskbar button:hover {
-  border-bottom: 2px solid @color3;
-  background: transparent; 
-}
-
+/*#taskbar button {*/
+/*  border-bottom: 2px solid transparent;*/
+/*  border-radius: 0;*/
+/*  color: @foreground;*/
+/*}*/
+/**/
+/*#taskbar button:hover {*/
+/*  border-bottom: 2px solid @color3;*/
+/*  background: transparent; */
+/*}*/

@@ -1,25 +1,2 @@
-@import "/home/anne/.cache/wal/colors-waybar.css";
+/* Default color theme. Will inherit from defaults.css */
 
-@define-color ui-bar @background;
-@define-color ui-bar-color @foreground;
-
-@define-color ui-ws-bg @color8;
-@define-color ui-ws-color @background;
-
-@define-color ui-ws-active-bg @color1;
-@define-color ui-ws-active-color @background;
-
-@define-color ui-ws-hover-bg @color9;
-@define-color ui-ws-hover-color @background;
-
-@define-color ui-ws-inactive-bg @color9;
-@define-color ui-ws-inactive-color @background;
-
-@define-color ui-urgent-bg @color4;
-@define-color ui-urgent-color @background;
-
-@define-color ui-clock-color @background;
-@define-color ui-clock-bg @color8;
-
-@define-color ui-modules-bg @background;
-@define-color ui-modules-color @foreground;
