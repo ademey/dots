@@ -1,0 +1,23 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "include": [
+      "~/.config/waybar/modules.json"
+    ],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window", "hyprland/submap"],
+    "modules-right": [
+        // "custom/theme",
+        "pulseaudio",
+        "network",
+        "backlight",
+        "idle_inhibitor",
+        "custom/sunset",
+        "clock",
+        "tray", 
+        "battery"
+    ],
+}
