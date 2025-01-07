@@ -26,5 +26,5 @@ pkill waybar && hyprctl dispatch exec waybar
 magick $image -blur 0x15 "${HOME}/.cache/hyprlock/background.png"
 makoctl reload
 # Generates an image with the background and colors
-# bash "${HOME}/.config/wal/preview.sh"
+bash "${HOME}/bin/preview.sh"
 

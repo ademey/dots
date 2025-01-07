@@ -1,25 +1,23 @@
-
 window#waybar {
-    color: @foreground;
-    background: @background;
-    border-bottom: 3px solid @color1;
+  color: @foreground;
+  background: @background;
+  border-bottom: 3px solid @blue;
 }
 
 #tray {
-    padding: 0;
+  padding: 0;
 }
 
 #workspaces {
-    padding: 0;
-    background: @color9;
-    border-bottom: 3px solid @color1;
+  padding: 0;
+  background: @cyan;
+  border-bottom: 3px solid @blue;
 }
-
 
 #workspaces button {
   padding: 4px 16px 4px 8px;
   color: @background;
-  background: @color5;
+  background: @yellow;
   margin: 0px;
   border-radius: 0px;
   border: 2px solid transparent;
@@ -28,20 +26,19 @@ window#waybar {
 
 #workspaces button.visible {
   color: @background;
-  border: 2px solid @color1;
+  border: 2px solid @blue;
   border-bottom: 0;
 }
 
 #workspaces button.active,
 #workspaces button:hover {
   color: @background;
-  background: @color1;
+  background: @blue;
 }
 
 #workspaces button.urgent {
-  background-color: @color4;
+  background-color: @red;
 }
-
 
 #tray {
   padding: 0 8px;
@@ -52,15 +49,15 @@ window#waybar {
 }
 
 .modules-right .module {
-    background: @color3;
-    margin: 5px 2px 8px 2px;
+  background: @red;
+  margin: 5px 2px 8px 2px;
 }
 
 #clock {
-    color: @background;
-    background: @color1;
-    padding: 0 8px;
-    margin: 0;
+  color: @background;
+  background: @blue;
+  padding: 0 8px;
+  margin: 0;
 }
 
 #idle_inhibitor,
@@ -70,5 +67,5 @@ window#waybar {
 
 #idle_inhibitor.activated,
 #custom-sunset.on {
-  color: @color3;
+  color: @red;
 }

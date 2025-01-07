@@ -1,5 +1,5 @@
 window#waybar {
-  background: @background;
+  background: transparent;
   color: @foreground;
 }
 
@@ -11,8 +11,17 @@ window#waybar {
   padding: 0;
 }
 
-.modules-left {
+#window {
+  padding: 0 20px;
+}
+
+.modules-center {
+  background: @background;
+}
+
+.modules-right {
   /* border: 2px solid gold; */
+  background: @background;
 }
 
 #workspaces button {

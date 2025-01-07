@@ -1,26 +1,19 @@
-@import "/home/anne/.cache/wal/colors-waybar.css";
+/* Cycle all color names one place, except red */
 
-@define-color ui-bar @color1;
-@define-color ui-bar-color @background;
+@define-color red @color1;
+@define-color dark-red @color9;
 
-@define-color ui-ws-bg @color1;
-@define-color ui-ws-color @foreground;
+@define-color green @color3;
+@define-color dark-green @color11;
 
-@define-color ui-ws-active-bg @color4;
-@define-color ui-ws-active-color @foreground;
+@define-color yellow @color4;
+@define-color dark-yellow @color12;
 
-@define-color ui-ws-hover-bg @color12;
-@define-color ui-ws-hover-color @background;
+@define-color blue @color5;
+@define-color dark-blue @color13;
 
-@define-color ui-ws-inactive-bg @color12;
-@define-color ui-ws-inactive-color @ui-ws-color;
+@define-color magenta @color6;
+@define-color dark-magenta @color14;
 
-@define-color ui-urgent-bg @color5;
-@define-color ui-urgent-color @foreground;
-
-@define-color ui-clock-bg @color2;
-@define-color ui-clock-color @backgound;
-
-@define-color ui-modules-bg @background;
-@define-color ui-modules-color @foreground;
-
+@define-color cyan @color2;
+@define-color dark-cyan @color10;
