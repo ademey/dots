@@ -1,6 +1,10 @@
+
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+
 if status is-interactive
   alias zgit='lazygit'
-  alias cat='bat'
+  #alias cat='bat'
 
   alias ls='eza --all --icons --git --group-directories-first'
   alias ll='eza --all --long --icons --git --group-directories-first --show-symlinks'
@@ -8,9 +12,9 @@ if status is-interactive
   alias repos="/home/anne/bin/repos.sh ~/dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
 
   function fish_greeting
-    #set_color yellow;
+    set_color (random choice yellow red blue green cyan magenta);
     #echo "><_>"
-    cat -pp (random choice ~/dotfiles/ascii/fish/**.ascii)
+    /bin/cat (random choice ~/dotfiles/ascii/fish/**.ascii)
   end
 
   # Commands to run in interactive sessions can go here

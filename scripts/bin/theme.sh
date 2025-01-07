@@ -25,7 +25,7 @@ fi
 # -s skip terminals
 # -p "current" - Saves theme to current.json 
 if [ $op ]; then
-    wal -n -t -e -s \
+    wal -n -t -e \
         --saturate 0.5 \
         --cols16 "darken" \
         -p "current" \

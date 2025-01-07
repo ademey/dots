@@ -1,28 +1,28 @@
 {
-    "checksum": "45fd97e34d2105074b12f6191e54277f",
-    "wallpaper": "/home/anne/Wallpaper/Matrixxman_CinaWallpaper_04.jpg",
+    "checksum": "0dfcc55339361972d1f156e987ce15fa",
+    "wallpaper": "/home/anne/Wallpaper/glitch/12.jpg",
     "alpha": "100",
     "special": {
-        "background": "#28211b",
-        "foreground": "#c9c7c6",
-        "cursor": "#c9c7c6"
+        "background": "#0a0a0a",
+        "foreground": "#c1c1c1",
+        "cursor": "#c1c1c1"
     },
     "colors": {
-        "color0": "#28211b",
-        "color1": "#2e478c",
-        "color2": "#93306f",
-        "color3": "#b13b58",
-        "color4": "#308791",
-        "color5": "#359b9f",
-        "color6": "#9c349c",
-        "color7": "#a09b96",
-        "color8": "#796d63",
-        "color9": "#3e63bb",
-        "color10": "#c14597",
-        "color11": "#ce6c84",
-        "color12": "#42b6c0",
-        "color13": "#56c2c6",
-        "color14": "#c552c5",
-        "color15": "#c9c7c6"
+        "color0": "#0a0a0a",
+        "color1": "#371812",
+        "color2": "#173b13",
+        "color3": "#3a3c14",
+        "color4": "#102233",
+        "color5": "#14173d",
+        "color6": "#481c54",
+        "color7": "#958a8a",
+        "color8": "#685555",
+        "color9": "#4b2118",
+        "color10": "#1e501a",
+        "color11": "#4e511b",
+        "color12": "#162e44",
+        "color13": "#1b1f52",
+        "color14": "#622570",
+        "color15": "#c1c1c1"
     }
 }
