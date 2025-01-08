@@ -12,6 +12,7 @@ c_config=$( cat "$HOME/.cache/waybar/config-name" )
 c_theme=$( cat "$HOME/.cache/waybar/theme-name" )
 c_layout=$( cat "$HOME/.cache/waybar/layout-name" )
 
+pos=$(printf "top\nbottom\nleft\nright" | tofi --prompt-text=" position: ")
 op=$( find ~/.config/waybar/configs/ -type l,f | xargs -i{} basename {} | tofi --prompt-text=" ($c_config) config: " )
 op2=$( find ~/.config/waybar/themes/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_theme) theme: " )
 op3=$( find ~/.config/waybar/layouts/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_layout) layout: " )
@@ -22,7 +23,7 @@ if [ $op ]; then
     echo $op > "$HOME/.cache/waybar/config-name"
     echo $op2 > "$HOME/.cache/waybar/theme-name"
     echo $op3 > "$HOME/.cache/waybar/layout-name"
-
+    printf '{ "position": "%s" }' $pos > "$HOME/.cache/waybar/position.json"
     # cp "$HOME/.config/waybar/themes/$op.css" "$HOME/.cache/waybar/theme.css"
     unlink ~/.config/waybar/config
     ln -s ~/dotfiles/waybar/dot-config/waybar/configs/$op ~/.config/waybar/config
