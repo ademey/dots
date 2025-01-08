@@ -1,10 +1,10 @@
 {
     "layer": "top",
-    "position": "top",
     "height": 40,
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "include": [
+      "~/.cache/waybar/position.json",
       "~/.config/waybar/modules.json"
     ],
     "modules-left": ["hyprland/workspaces",  "hyprland/submap"],
