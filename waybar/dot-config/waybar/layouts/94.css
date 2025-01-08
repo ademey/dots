@@ -69,3 +69,9 @@ window#waybar {
 #custom-sunset.on {
   color: @red;
 }
+
+#submap {
+  background: @magent;
+  color: @background;
+  padding: 0 10px;
+}

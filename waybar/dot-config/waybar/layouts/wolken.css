@@ -16,9 +16,11 @@ window#waybar {
 }
 
 .modules-center {
-  background: @background;
 }
 
+#window {
+  background: @background;
+}
 .modules-right {
   /* border: 2px solid gold; */
   background: @background;

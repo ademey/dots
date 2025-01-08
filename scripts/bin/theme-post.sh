@@ -12,7 +12,7 @@ fi
 # Generated through pywal templates
 ln -s "${HOME}/.cache/wal/hyprlock.conf" "${HOME}/.config/hypr/hyprlock.conf"
 ln -s "${HOME}/.cache/wal/mako" "${HOME}/.config/mako/config"
-
+cp "${HOME}/.cache/wal/colors-kitty.conf" "${HOME}/.config/kitty/theme.conf"
 
 # Hyprpaper
 # ln -s "${HOME}/.cache/wal/hyprpaper.conf" "${HOME}/.config/hypr/hyprpaper.conf"

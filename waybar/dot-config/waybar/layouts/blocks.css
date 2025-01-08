@@ -45,3 +45,9 @@ window#waybar {
   color: @background;
   background: @yellow;
 }
+
+#submap {
+  background: @yellow;
+  color: @background;
+  padding: 0 10px;
+}

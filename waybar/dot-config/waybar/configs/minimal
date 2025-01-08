@@ -14,10 +14,10 @@
         "pulseaudio",
         "network",
         "backlight",
+        "battery",
         "idle_inhibitor",
         "custom/sunset",
         "clock",
-        "tray", 
-        "battery"
+        "tray"
     ],
 }
