@@ -1,58 +1,26 @@
+@import "/home/anne/.config/waybar/layouts/blocks.css";
+
 window#waybar {
   background: transparent;
   color: @foreground;
 }
 
-#tray {
-  padding: 0;
-}
-
-#workspaces {
-  padding: 0;
-}
-
 #window {
+  background: @background;
   padding: 0 20px;
 }
 
-.modules-center {
-}
-
-#window {
-  background: @background;
-}
-.modules-right {
-  /* border: 2px solid gold; */
-  background: @background;
-}
-
-#workspaces button {
-  color: @background;
-  background: @magenta;
-}
-
-/* 2nd screen active, not focused */
-#workspaces button.visible {
-  color: @background;
-  background: @cyan;
-}
-
-#workspaces button:hover,
 #workspaces button.active {
-  color: @background;
-  background: @cyan;
+  padding: 0 32px 0 24px;
+  /*default*/
+  /*padding: 0 16px 0 8px;*/
 }
 
-#workspaces button.urgent {
-  background: @red;
-  color: @background;
+#workspaces {
+  border-radius: 4px;
+  /*border: 2px solid green;*/
 }
 
-.module {
-  color: @foreground;
-}
-
-#clock {
-  color: @background;
-  background: @yellow;
+#waybar.bottom {
+  border-top: 2px solid @yellow;
 }

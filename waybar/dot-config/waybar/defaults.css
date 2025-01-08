@@ -40,6 +40,10 @@ window#waybar {
   background: white;
 }
 
+#window {
+  padding: 0 10px;
+}
+
 #workspaces button {
   color: #999999;
   transition: all 0.5s;
