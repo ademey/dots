@@ -33,14 +33,21 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%d %b %I:%M}"
+        "format": "{:%d %b %I:%M}",
+        "interval": 1,
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "format": {
+                "today": "<b>{}</b>"
+            }
+        },
+        "actions": {
+            "on-click-right": "shift_down",
+            "on-click": "shift_up"
+        }
     },
     "cpu": {
         "format": "{usage}% ",
@@ -50,41 +57,62 @@
         "format": "{}% "
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["󰃞", "󰃟", "󰃠"]
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ]
     },
     "battery": {
+        "interval":1,
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
-            "critical": 15
+            "critical": 20
         },
-        "format": "{icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{capacity}% {icon}",
-        // "format-good": "", // An empty format will hide the module
-        "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󰂄 ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰁻",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+        ],
+    },   
+    "bluetooth": {
+        "format-on": "󰂯",
+        "format-off": "BT-off",
+        "format-disabled": "󰂲",
+        "format-connected-battery": "{device_battery_percentage}% 󰂯",
+        "format-alt": "{device_alias} 󰂯",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+        "on-click-right": "blueman-manager",
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        // "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-wifi": "{essid} {signalStrength}% ",
-        // "format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀",
-        "format-ethernet": "󰈀",
-        "format-linked": "{ifname} (No IP) ⚠",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format-disconnected": "Error",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} 🖧 ",
+        "on-click": "kitty nmtui"
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
@@ -98,46 +126,54 @@
             "phone-muted": "",
             "portable": "",
             "car": "",
-            "default": ["", ""]
+            "default": [
+                "",
+                ""
+            ]
         },
         "scroll-step": 1,
         "on-click": "notify-send 'not setup...'",
-        "ignored-sinks": ["Easy Effects Sink"]
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
     },
     "custom/wf-recorder": {
-		"format": "{icon}",
-		"interval": "once",
-		"exec": "echo ''",
-		"tooltip": "false",
-		"exec-if": "pgrep 'wf-recorder'",
-		"on-click": "exec $HOME/Dev/scripts/wl-record.sh",
-		"signal": 8
-	},
+        "format": "{icon}",
+        "interval": "once",
+        "exec": "echo ''",
+        "tooltip": "false",
+        "exec-if": "pgrep 'wf-recorder'",
+        "on-click": "exec $HOME/Dev/scripts/wl-record.sh",
+        "signal": 8
+    },
     "custom/theme": {
-		"format": "",
-		"interval": 10,
-    "tooltip": "{0}",
-		"exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
-		"on-click": "exec \"${HOME}/.config/wal/theme.sh\""
-	},
-    // TODO: Needs to update UI on toggle
-    // Do something with tooltip
-  "custom/sunset": {
-		"format": "{icon}",
-		"interval": 10,
+        "format": "",
+        "interval": 10,
+        "tooltip": "{0}",
+        "exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
+        "on-click": "exec \"${HOME}/.config/wal/theme.sh\""
+    },
+    "custom/sunset": {
+        "format": "{icon}",
+        "interval": 10,
         "return-type": "json",
         "format-icons": {
-            "on":"󰤄",
-            "off":""
+            "on": "󰤄",
+            "off": ""
+        },
+        "tooltip": "{}",
+        "exec": "exec \"${HOME}/.config/waybar/sunset.sh\"",
+        "exec-on-event": "true",
+        "on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000"
     },
-    "tooltip": "{}",
-		"exec": "exec \"${HOME}/.config/waybar/sunset.sh\"",
-        // "restart-interval": 20,
-		// "tooltip": "false",
-		// "exec-if": "pgrep 'hyprsunset'",
-      "exec-on-event": "true",
-		  "on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000"
-	  },
+    "custom/expand": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/endpoint":{
+        "format": "|",
+        "tooltip": false
+    },
     "wlr/taskbar": {
         "format": "{icon} {title:.10}",
         "icon-size": 16,
@@ -146,6 +182,5 @@
         "tooltip-format": "{title}",
         "ignore-list": [],
         "on-click": "activate"
-    },
-  }
+    }
 }

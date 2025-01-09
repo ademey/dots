@@ -2,8 +2,6 @@
     "layer": "top",
     "height": 40,
     "margin": 6,
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
     "include": [
       "~/.cache/waybar/position.json",
       "~/.config/waybar/modules.json"
@@ -12,13 +10,23 @@
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         // "custom/theme",
+        "group/expand",
         "pulseaudio",
         "network",
         "backlight",
-        "battery",
         "idle_inhibitor",
         "custom/sunset",
         "clock",
+        "battery",
         "tray"
     ],
+    "group/expand": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-to-left": true,
+            "click-to-reveal": true
+        },
+        "modules": ["custom/expand", "cpu","memory","temperature","custom/endpoint"],
+    },
 }
