@@ -59,7 +59,7 @@ export PATH=/home/anne/.cargo/bin:$PATH
 GOPATH=$HOME/go
 PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
