@@ -21,6 +21,25 @@ window#waybar {
   /*border: 2px solid green;*/
 }
 
-#waybar.bottom {
-  border-top: 2px solid @yellow;
+/*.modules-right .module {
+  background: @red;
+  margin: 5px 2px 8px 2px;
+}*/
+.modules-right {
+  background: @color0;
+}
+
+#clock {
+  margin: 0;
+}
+
+#idle_inhibitor,
+#custom-sunset {
+  background: transparent;
+  /*color: @yellow;*/
+}
+
+#idle_inhibitor.activated,
+#custom-sunset.on {
+  color: @red;
 }
