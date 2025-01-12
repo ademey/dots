@@ -31,6 +31,8 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 
 ### Keybinds
 
+##
+
 *Launchers*
 
 | Modifiers | Key | Description | App |
@@ -39,6 +41,7 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 | SUPER | E | Launch file manager | Yazi |
 | SUPER ALT | E | Launch graphical file manager | Dolphin |
 | SUPER | B | Launch browser | Firefox |
+| SUPER ALT | B | Launch alternate browser | Qutebrowser |
 | SUPER | SPACE | App launcher | Tofi |
 | SUPER SHIFT | Q | Kill active | |
 | SUPER SHIFT | P | Power menu | Tofi |
