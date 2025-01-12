@@ -4,7 +4,7 @@ set -gx VISUAL nvim
 
 if status is-interactive
   alias zgit='lazygit'
-  #alias cat='bat'
+  alias cat='bat'
 
   alias ls='eza --all --icons --git --group-directories-first'
   alias ll='eza --all --long --icons --git --group-directories-first --show-symlinks'

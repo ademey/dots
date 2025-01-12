@@ -30,7 +30,8 @@ if [ $op ]; then
     cp "$HOME/.config/waybar/themes/$op2.css" "$HOME/.cache/waybar/theme.css"
     cp "$HOME/.config/waybar/layouts/$op3.css" "$HOME/.cache/waybar/layout.css"
     pkill waybar & hyprctl dispatch exec waybar
-else
+
+   else
     echo "canceled"
 fi
 

@@ -28,3 +28,8 @@ makoctl reload
 # Generates an image with the background and colors
 bash "${HOME}/bin/preview.sh"
 
+ if [ -f ~/packages/StartTree/generate.py ]; then 
+      source ~/packages/StartTree/.venv/bin/activate
+      python ~/packages/StartTree/generate.py
+ fi
+

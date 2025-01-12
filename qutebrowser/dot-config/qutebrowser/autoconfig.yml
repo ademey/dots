@@ -15,4 +15,10 @@ settings:
       bottom: 5
       left: 5
       right: 5
-      top: 5
+      top: 10
+  tabs.select_on_remove:
+    global: prev
+  url.default_page:
+    global: file:///home/anne/.cache/StartTree/index.html
+  url.start_pages:
+    global: file:///home/anne/.cache/StartTree/index.html
