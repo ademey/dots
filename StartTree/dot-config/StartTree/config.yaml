@@ -1,0 +1,26 @@
+font_size: 22
+theme: pywal
+tree_1:
+  browse:
+    gmail: "https://mail.google.com/"
+    youtube: "https://www.youtube.com/"
+  social:
+    reddit: "https://www.reddit.com/"
+    unixporn: "https://www.reddit.com/r/unixporn/"
+    twitter: "https://x.com"
+tree_2:
+  sys:
+    archwiki: 
+      - "https://archlinux.org/"
+      - "arch wiki"
+    freebsd: "https://www.freebsd.org/"
+    hyprland: "https://wiki.hyprland.org/" 
+  dev:
+    github: "https://www.github.com/"
+    nextjs: "https://nextjs.org/"
+tree_3:
+  docs:
+    qute: "https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png"
+    tmux: "https://devhints.io/tmux"
+    tmux: "https://devhints.io/tmux"
+
