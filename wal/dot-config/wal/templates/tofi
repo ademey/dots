@@ -7,7 +7,7 @@ placeholder-background = {color7}
 input-color = {background}
 input-background = {foreground}
 
-# default-result-color = #FFFFFF
+default-result-color = {foreground}
 default-result-background = #00000000
 
 # alternate-result-color = #FFFFFF
