@@ -46,6 +46,10 @@ window#waybar {
   background: @yellow;
 }
 
+#battery {
+  padding: 0 10px;
+}
+
 #submap {
   background: @yellow;
   color: @background;
