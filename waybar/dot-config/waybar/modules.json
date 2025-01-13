@@ -182,5 +182,12 @@
         "tooltip-format": "{title}",
         "ignore-list": [],
         "on-click": "activate"
-    }
+    },
+     "custom/nordvpn": {
+        "interval": 5,
+        "format": "VPN {}",
+        "exec": "~/.config/waybar/modules/go-waybar-nordvpn exec",
+        "on-click": "~/.config/waybar/modules/go-waybar-nordvpn toggle",
+        "return-type": "json",
+    },
 }

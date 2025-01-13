@@ -17,6 +17,7 @@
         "memory",
         "temperature",
         "backlight",
+        "custom/nordvpn",
         "idle_inhibitor",
         "custom/sunset",
         "clock",

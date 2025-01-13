@@ -4,9 +4,12 @@ window#waybar {
 }
 
 #tray {
-  padding: 0;
+  padding: 0 10px;
 }
 
+#tray .panel {
+  border: 1px solid blue;
+}
 #workspaces {
   padding: 0;
 }
