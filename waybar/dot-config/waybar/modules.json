@@ -1,193 +1,193 @@
 {
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "󰆂",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "󰭡",
-            "9": "󰭢",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "󰆂",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "󰭡",
+      "9": "󰭢",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%d %b %I:%M}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<b>{}</b>"
+      }
     },
-    "hyprland/submap": {
-        "format": "<span style=\"italic\">{}</span>"
+    "actions": {
+      "on-click-right": "shift_down",
+      "on-click": "shift_up"
+    }
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{}% "
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ]
+  },
+  "battery": {
+    "interval": 1,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
     },
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 50
+    "format": "{icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄 ",
+    "format-alt": "{capacity}% {icon}",
+    "format-icons": [
+      "󰁻",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "bluetooth": {
+    "format-on": "󰂯",
+    "format-off": "BT-off",
+    "format-disabled": "󰂲",
+    "format-connected-battery": "{device_battery_percentage}% 󰂯",
+    "format-alt": "{device_alias} 󰂯",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+    "on-click-right": "blueman-manager"
+  },
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format-disconnected": "Error",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} 🖧 ",
+    "on-click": "kitty nmtui"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
+    "scroll-step": 1,
+    "on-click": "notify-send 'not setup...'",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "custom/wf-recorder": {
+    "format": "{icon}",
+    "interval": "once",
+    "exec": "echo ''",
+    "tooltip": "false",
+    "exec-if": "pgrep 'wf-recorder'",
+    "on-click": "exec $HOME/Dev/scripts/wl-record.sh",
+    "signal": 8
+  },
+  "custom/theme": {
+    "format": "",
+    "interval": 10,
+    "tooltip": "{0}",
+    "exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
+    "on-click": "exec \"${HOME}/.config/wal/theme.sh\""
+  },
+  "custom/sunset": {
+    "format": "{icon}",
+    "interval": 10,
+    "return-type": "json",
+    "format-icons": {
+      "on": "󰤄",
+      "off": ""
     },
-    "tray": {
-        "spacing": 10
-    },
-    "clock": {
-        "format": "{:%d %b %I:%M}",
-        "interval": 1,
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "calendar": {
-            "format": {
-                "today": "<b>{}</b>"
-            }
-        },
-        "actions": {
-            "on-click-right": "shift_down",
-            "on-click": "shift_up"
-        }
-    },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
-    },
-    "backlight": {
-        "format": "{percent}% {icon}",
-        "format-icons": [
-            "󰃞",
-            "󰃟",
-            "󰃠"
-        ]
-    },
-    "battery": {
-        "interval":1,
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon}",
-        "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% 󰂄 ",
-        "format-alt": "{capacity}% {icon}",
-        "format-icons": [
-            "󰁻",
-            "󰁼",
-            "󰁾",
-            "󰂀",
-            "󰂂",
-            "󰁹"
-        ],
-    },   
-    "bluetooth": {
-        "format-on": "󰂯",
-        "format-off": "BT-off",
-        "format-disabled": "󰂲",
-        "format-connected-battery": "{device_battery_percentage}% 󰂯",
-        "format-alt": "{device_alias} 󰂯",
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-        "on-click-right": "blueman-manager",
-    },
-    "network": {
-        "format-wifi": "",
-        "format-ethernet": "",
-        "format-disconnected": "",
-        "tooltip-format-disconnected": "Error",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet": "{ifname} 🖧 ",
-        "on-click": "kitty nmtui"
-    },
-    "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "phone-muted": "",
-            "portable": "",
-            "car": "",
-            "default": [
-                "",
-                ""
-            ]
-        },
-        "scroll-step": 1,
-        "on-click": "notify-send 'not setup...'",
-        "ignored-sinks": [
-            "Easy Effects Sink"
-        ]
-    },
-    "custom/wf-recorder": {
-        "format": "{icon}",
-        "interval": "once",
-        "exec": "echo ''",
-        "tooltip": "false",
-        "exec-if": "pgrep 'wf-recorder'",
-        "on-click": "exec $HOME/Dev/scripts/wl-record.sh",
-        "signal": 8
-    },
-    "custom/theme": {
-        "format": "",
-        "interval": 10,
-        "tooltip": "{0}",
-        "exec": "echo $(< \"${HOME}/.cache/wal/wal\") | awk -F\"/\" '{ print $NF }'",
-        "on-click": "exec \"${HOME}/.config/wal/theme.sh\""
-    },
-    "custom/sunset": {
-        "format": "{icon}",
-        "interval": 10,
-        "return-type": "json",
-        "format-icons": {
-            "on": "󰤄",
-            "off": ""
-        },
-        "tooltip": "{}",
-        "exec": "exec \"${HOME}/.config/waybar/sunset.sh\"",
-        "exec-on-event": "true",
-        "on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000"
-    },
-    "custom/expand": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/endpoint":{
-        "format": "|",
-        "tooltip": false
-    },
-    "wlr/taskbar": {
-        "format": "{icon} {title:.10}",
-        "icon-size": 16,
-        "spacing": 3,
-        "on-click-middle": "close",
-        "tooltip-format": "{title}",
-        "ignore-list": [],
-        "on-click": "activate"
-    },
-     "custom/nordvpn": {
-        "interval": 5,
-        "format": "VPN {}",
-        "exec": "~/.config/waybar/modules/go-waybar-nordvpn exec",
-        "on-click": "~/.config/waybar/modules/go-waybar-nordvpn toggle",
-        "return-type": "json",
-    },
+    "tooltip": "{}",
+    "exec": "exec \"${HOME}/.config/waybar/sunset.sh\"",
+    "exec-on-event": "true",
+    "on-click": "exec \"${HOME}/.config/waybar/toggle-sunset.sh\" -t 3000"
+  },
+  "custom/expand": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/endpoint": {
+    "format": "|",
+    "tooltip": false
+  },
+  "wlr/taskbar": {
+    "format": "{icon} {title:.10}",
+    "icon-size": 16,
+    "spacing": 3,
+    "on-click-middle": "close",
+    "tooltip-format": "{title}",
+    "ignore-list": [],
+    "on-click": "activate"
+  },
+  "custom/nordvpn": {
+    "interval": 5,
+    "format": "VPN {}",
+    "exec": "~/.config/waybar/bin/go-waybar-nordvpn exec",
+    "on-click": "~/.config/waybar/bin/go-waybar-nordvpn toggle",
+    "return-type": "json"
+  }
 }

@@ -1,0 +1,42 @@
+{
+  "layer": "top",
+  "height": 40,
+  "margin": 6,
+  "include": [
+    "~/.cache/waybar/position.json",
+    "~/.config/waybar/modules.json"
+  ],
+  "modules-left": [
+    "hyprland/submap",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "group/expand",
+    "pulseaudio",
+    "network",
+    "backlight",
+    "idle_inhibitor",
+    "custom/sunset",
+    "clock",
+    "battery",
+    "tray"
+  ],
+  "group/expand": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 600,
+      "transition-to-left": true,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "custom/expand",
+      "cpu",
+      "memory",
+      "temperature",
+      "custom/endpoint"
+    ]
+  }
+}

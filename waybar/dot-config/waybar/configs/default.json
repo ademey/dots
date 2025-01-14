@@ -1,0 +1,29 @@
+{
+  "layer": "top",
+  "height": 40,
+  "include": [
+    "~/.cache/waybar/position.json",
+    "~/.config/waybar/modules.json"
+  ],
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "temperature",
+    "backlight",
+    "custom/nordvpn",
+    "idle_inhibitor",
+    "custom/sunset",
+    "clock",
+    "tray",
+    "battery"
+  ]
+}

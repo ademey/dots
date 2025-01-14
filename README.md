@@ -92,4 +92,13 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 
 I use gnu `stow` to manage configs. This repo is placed in my home folder. Note that each application module uses `dot-config` directory, as opposed to `.config`. This is configured through the `--dotfiles` flag in `.stowrc`. 
 
+### Waybar
 
+```
+waybar/dot-config/waybar main*⍜≫ ⇡≡
+❯ find . -name "*.yml" -exec ./generate.sh {} \;
+Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/default.json
+Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/float.json
+Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/dotdot.json
+Writing: /home/anne/dotfiles/waybar/dot-config/waybar/modules.json
+```

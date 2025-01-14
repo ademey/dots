@@ -8,8 +8,11 @@ config_version: 2
 settings:
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.preferred_color_scheme:
+    global: dark
   content.geolocation:
     https://www.google.com: true
+    https://www.microcenter.com: true
     https://www.transitchicago.com: true
   fonts.default_family:
     global: JetBrainsMono Nerd Font

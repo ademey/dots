@@ -13,7 +13,7 @@ c_theme=$( cat "$HOME/.cache/waybar/theme-name" )
 c_layout=$( cat "$HOME/.cache/waybar/layout-name" )
 
 pos=$(printf "top\nbottom\nleft\nright" | tofi --prompt-text=" position: ")
-op=$( find ~/.config/waybar/configs/ -type l,f | xargs -i{} basename {} | tofi --prompt-text=" ($c_config) config: " )
+op=$( find ~/.config/waybar/configs/*.json | xargs -i{} basename {} | sed 's/.json//' | tofi --prompt-text=" ($c_config) config: " )
 op2=$( find ~/.config/waybar/themes/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_theme) theme: " )
 op3=$( find ~/.config/waybar/layouts/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_layout) layout: " )
 
@@ -26,7 +26,7 @@ if [ $op ]; then
     printf '{ "position": "%s" }' $pos > "$HOME/.cache/waybar/position.json"
     # cp "$HOME/.config/waybar/themes/$op.css" "$HOME/.cache/waybar/theme.css"
     unlink ~/.config/waybar/config
-    ln -s ~/dotfiles/waybar/dot-config/waybar/configs/$op ~/.config/waybar/config
+    ln -s ~/dotfiles/waybar/dot-config/waybar/configs/$op.json ~/.config/waybar/config
     cp "$HOME/.config/waybar/themes/$op2.css" "$HOME/.cache/waybar/theme.css"
     cp "$HOME/.config/waybar/layouts/$op3.css" "$HOME/.cache/waybar/layout.css"
     pkill waybar & hyprctl dispatch exec waybar

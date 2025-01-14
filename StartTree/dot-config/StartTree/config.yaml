@@ -1,6 +1,6 @@
 font_size: 22
 theme: pywal
-banner: "/home/anne/dotfiles/ascii/fish/"
+banner: "/home/anne/dotfiles/StartTree/dot-config/StartTree/banners"
 tree_1:
   browse:
     gmail: "https://mail.google.com/"
