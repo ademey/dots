@@ -58,3 +58,7 @@ window#waybar {
   color: @background;
   padding: 0 10px;
 }
+
+#custom-expand {
+  background: @yellow;
+}

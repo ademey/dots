@@ -14,6 +14,8 @@ settings:
     https://www.google.com: true
     https://www.microcenter.com: true
     https://www.transitchicago.com: true
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: true
   fonts.default_family:
     global: JetBrainsMono Nerd Font
   tabs.padding:

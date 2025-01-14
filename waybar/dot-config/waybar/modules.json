@@ -186,8 +186,8 @@
   "custom/nordvpn": {
     "interval": 5,
     "format": "VPN {}",
-    "exec": "~/.config/waybar/bin/go-waybar-nordvpn exec",
-    "on-click": "~/.config/waybar/bin/go-waybar-nordvpn toggle",
+    "exec": "~/.config/waybar/modules/go-waybar-nordvpn exec",
+    "on-click": "~/.config/waybar/modules/go-waybar-nordvpn toggle",
     "return-type": "json"
   }
 }
