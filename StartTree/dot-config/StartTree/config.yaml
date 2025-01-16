@@ -16,7 +16,6 @@ tree_2:
   docs:
     qute: "https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png"
     tmux: "https://devhints.io/tmux"
-    tmux: "https://devhints.io/tmux"
   sys:
     archwiki: 
       - "https://archlinux.org/"

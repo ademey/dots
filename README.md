@@ -13,26 +13,24 @@ My dot files for my Arch Linux + Hyprland setup.
 - Wallpaper: Swww
 - Editor: Nvim
 
-### Themes
+## Themes
 
-Waybar, mako and other app color themes can be quickly swapped through pywal + [some](scripts/bin/theme.sh) [bash](scripts/bin/post-theme.sh) [scripts](scripts/bin/theme-variant.sh).
+Waybar, Kitty, Qutebrowser and other app color themes can be quickly swapped through pywal + [some](scripts/bin/theme.sh) [bash](scripts/bin/post-theme.sh) [scripts](scripts/bin/theme-variant.sh).
 
 To set a theme, start by picking a background using `SUPER+ALT T`. This launches a tofi menu of all images in `~/Wallpaper`. Pywal is use the generate color schemes, but not immedietly set the wallpaper. After the [theme-post.sh](scripts/bin/theme-post.sh) configures 
 
-Custom pywal [template](wal/dot-config/wal/templates) are used to integrate with hyprland, hyprlock, hyprpaper, mako and tofi.
+Custom pywal [templates](wal/dot-config/wal/templates) are used to integrate with hyprland, hyprlock, hyprpaper, mako and tofi.
 
-I do not allow pywal to set terminal color schemes. Instead the kitty theme is set to match my current NVChad theme through the [poes.sh](scripts/bin/poes.sh) script.
+See [waybar](#waybar) for more on themeing.
 
-### Screen Shots
+## Screen Shots
 
 ![rice](images/rice.png)
 
 ![rice2](images/rice2.png)
 
 
-### Keybinds
-
-##
+## Keybinds
 
 *Launchers*
 
@@ -89,20 +87,21 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 | SUPER SHIFT | S | Send to scratchpad |
 
 
-### Stow
+## Stow
 
 I use gnu `stow` to manage configs. This repo is placed in my home folder. Note that each application module uses `dot-config` directory, as opposed to `.config`. This is configured through the `--dotfiles` flag in `.stowrc`. 
 
-### Waybar
+## Waybar
 
-```
-waybar/dot-config/waybar main*⍜≫ ⇡≡
-❯ find . -name "*.yml" -exec ./generate.sh {} \;
-Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/default.json
-Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/float.json
-Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/dotdot.json
-Writing: /home/anne/dotfiles/waybar/dot-config/waybar/modules.json
-```
+My waybar config is integrated with pywal, and adds my own customization system to configure different variations for the bar.
+
+Conceptually my waybar styling is broken in to 3 parts, a *config*, *theme* and *layout*. Different configs can be swapped to change module types and position. *Theme* provides the colors, by default imported from pywal. The *layout* handles the actual css design for the bar.
+
+# Home Page
+
+For a Qutebrowser homepage I am using [my own fork](https://github.com/ademey/StartTree) of [StartTree](https://github.com/Paul-Houser/StartTree). I modified it to load a random ascii art image on load.
+
+[dark](images/start-dark.png)
+[light](images/start-light.png)
 
 
-Waybar styling is split logically in to several parts. When using `theme-variant.sh` (SUPER ALT SHIFT + T)
