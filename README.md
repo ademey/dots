@@ -7,9 +7,10 @@ My dot files for my Arch Linux + Hyprland setup.
 - WM: Hyprland
 - Bar: Waybar
 - Terminal: Kitty
+- Browser: Qutebrowser
 - Notifications: Mako
 - File Manager: Yazi
-- Wallpaper: Swww & Pywal
+- Wallpaper: Swww
 - Editor: Nvim
 
 ### Themes
@@ -40,13 +41,13 @@ I do not allow pywal to set terminal color schemes. Instead the kitty theme is s
 | SUPER | RETURN | Launch terminal | Kitty |
 | SUPER | E | Launch file manager | Yazi |
 | SUPER ALT | E | Launch graphical file manager | Dolphin |
-| SUPER | B | Launch browser | Firefox |
+| SUPER | B | Launch browser | Quitebrowser |
 | SUPER ALT | B | Launch alternate browser | Qutebrowser |
 | SUPER | SPACE | App launcher | Tofi |
 | SUPER SHIFT | Q | Kill active | |
 | SUPER SHIFT | P | Power menu | Tofi |
 | SUPER SHIFT | X | Screenshot menu | Tofi |
-| SUPER SHIFT | E | Emoji picker | Tofi |
+| SUPER SHIFT | E | Emoji picker | Tofi | 
 | SUPER | M | Launch Spotify player | ncspot |
 | SUPER ALT | M | Launch lowfi music player | lowfi |
 | SUPER ALT | U | System update | pacman |
@@ -102,3 +103,6 @@ Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/float.json
 Writing: /home/anne/dotfiles/waybar/dot-config/waybar/configs/dotdot.json
 Writing: /home/anne/dotfiles/waybar/dot-config/waybar/modules.json
 ```
+
+
+Waybar styling is split logically in to several parts. When using `theme-variant.sh` (SUPER ALT SHIFT + T)
