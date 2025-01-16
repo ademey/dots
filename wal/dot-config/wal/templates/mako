@@ -9,8 +9,8 @@ sort=-time
 # output=DP-2
 layer=overlay
 anchor=top-right
-width=300
-height=110
+width=350
+height=140
 margin=5
 padding=10
 border-size=2
@@ -22,17 +22,18 @@ ignore-timeout=1
 
 
 [urgency=normal]
-background-color={color4}
-text-color={background}
-border-color={color1}
+background-color={background}
+text-color={foreground}
+border-color={background}
 
 
 [urgency=low]
-background-color={color3}
-text-color={background}
+background-color={background}
+text-color={foreground}
+border-color={background}
 
 [urgency=critical]
 border-color={color1}
 background-color={background}
-text-color={foreground}
+text-color={color1}
 default-timeout=0
