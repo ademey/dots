@@ -12,8 +12,12 @@ c_config=$( cat "$HOME/.cache/waybar/config-name" )
 c_theme=$( cat "$HOME/.cache/waybar/theme-name" )
 c_layout=$( cat "$HOME/.cache/waybar/layout-name" )
 
+function render() {
+  cat $@ | tofi --prompt-text=" (xxx) config: "
+}
+
 pos=$(printf "top\nbottom\nleft\nright" | tofi --prompt-text=" position: ")
-op=$( find ~/.config/waybar/configs/*.json | xargs -i{} basename {} | sed 's/.json//' | tofi --prompt-text=" ($c_config) config: " )
+op=$( find ~/.config/waybar/configs/*.json | xargs -i{} basename {} | sed 's/.json//' | render)
 op2=$( find ~/.config/waybar/themes/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_theme) theme: " )
 op3=$( find ~/.config/waybar/layouts/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_layout) layout: " )
 

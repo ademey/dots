@@ -7,9 +7,10 @@ My dot files for my Arch Linux + Hyprland setup.
 - WM: Hyprland
 - Bar: Waybar
 - Terminal: Kitty
+- Browser: Qutebrowser
 - Notifications: Mako
 - File Manager: Yazi
-- Wallpaper: Swww & Pywal
+- Wallpaper: Swww
 - Editor: Nvim
 
 ## Themes
@@ -24,7 +25,10 @@ See [waybar](#waybar) for more on themeing.
 
 ## Screen Shots
 
-![rice](images/rice.png)
+![porple](images/rice-porple.png)
+![solarized](images/rice-solarized.png)
+![confetti](images/rice-confetti.png)
+![matrixx](images/rice-matrixx.png)
 
 ![rice2](images/rice2.png)
 
@@ -38,13 +42,13 @@ See [waybar](#waybar) for more on themeing.
 | SUPER | RETURN | Launch terminal | Kitty |
 | SUPER | E | Launch file manager | Yazi |
 | SUPER ALT | E | Launch graphical file manager | Dolphin |
-| SUPER | B | Launch browser | Firefox |
+| SUPER | B | Launch browser | Quitebrowser |
 | SUPER ALT | B | Launch alternate browser | Qutebrowser |
 | SUPER | SPACE | App launcher | Tofi |
 | SUPER SHIFT | Q | Kill active | |
 | SUPER SHIFT | P | Power menu | Tofi |
 | SUPER SHIFT | X | Screenshot menu | Tofi |
-| SUPER SHIFT | E | Emoji picker | Tofi |
+| SUPER SHIFT | E | Emoji picker | Tofi | 
 | SUPER | M | Launch Spotify player | ncspot |
 | SUPER ALT | M | Launch lowfi music player | lowfi |
 | SUPER ALT | U | System update | pacman |
@@ -96,11 +100,25 @@ My waybar config is integrated with pywal, and adds my own customization system 
 
 Conceptually my waybar styling is broken in to 3 parts, a *config*, *theme* and *layout*. Different configs can be swapped to change module types and position. *Theme* provides the colors, by default imported from pywal. The *layout* handles the actual css design for the bar.
 
-# Home Page
+### Variation examples
+
+Below are all examples of using the same pywal *dracula* color scheme, with differnt config variations
+
+Layout variations *block*, *wolken* and *aard*, using the same *bench* theme.
+![blocks](images/bar-bench.png)
+![wolken](images/bar-bench.png)
+![aard](images/bar-bench.png)
+
+3 examples of the *wolken* layout, with the *funky* and *friz* themes.
+
+![funky](images/bar-funky.png)
+![friz](images/bar-friz.png)
+
+## Home Page
 
 For a Qutebrowser homepage I am using [my own fork](https://github.com/ademey/StartTree) of [StartTree](https://github.com/Paul-Houser/StartTree). I modified it to load a random ascii art image on load.
 
-[dark](images/start-dark.png)
-[light](images/start-light.png)
+![dark](images/start-dark.png)
+![light](images/start-light.png)
 
 
