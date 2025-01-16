@@ -1,3 +1,14 @@
 
 [manager]
 show_hidden = false
+
+[opener]
+theme = [ { run = 'theme.sh $1', desc="Set Theme", for = "unix" } ]
+wallpaper = [ { run = 'theme-img.sh $1', desc="Set Wallpaper", for = "unix" } ]
+
+
+
+[open]
+prepend_rules = [
+  { mime = "image/*", use = ["open", "theme", "wallpaper"] },
+]
