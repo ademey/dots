@@ -2,7 +2,7 @@ layer: top
 height: 40
 include:
   - ~/.cache/waybar/position.json
-  - ~/.config/waybar/modules.json
+  - ~/.cache/waybar/modules.json
 modules-left:
   - hyprland/workspaces
   - hyprland/submap
