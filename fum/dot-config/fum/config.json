@@ -1,0 +1,37 @@
+{
+  "players": [],
+  "use_active_player": true,
+  "debug": false,
+  "width": 45,
+  "height": 10,
+  "direction": "horizontal",
+  "layout": [
+    { "type": "cover-art", "width": 20 },
+    { "type": "empty", "size": 1 },
+    {
+      "type": "container",
+      "direction": "vertical",
+      "children": [
+        { "type": "label", "text": "◆ $title" },
+        { "type": "label", "text": "● $album" },
+        { "type": "label", "text": "▲ $artists" },
+        { "type": "empty", "size": 1 },
+        {
+          "type": "container",
+          "height": 1,
+          "flex": "center",
+          "children": [
+            { "type": "button", "text": "󰒮", "action": "prev()" },
+            { "type": "empty", "size": 3 },
+            { "type": "button", "text": "$status_icon", "action": "play_pause()" },
+            { "type": "empty", "size": 3 },
+            { "type": "button", "text": "󰒭", "action": "next()" }
+          ]
+        },
+        { "type": "empty", "size": 1 },
+        { "type": "progress", "progress": "▓", "empty": "░", "width": 15  }
+      ]
+    }
+  ]
+}
+  
