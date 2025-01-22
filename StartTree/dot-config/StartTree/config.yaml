@@ -2,9 +2,10 @@ font_size: 22
 theme: pywal
 banner: "/home/anne/dotfiles/StartTree/dot-config/StartTree/banners"
 tree_1:
-  browse:
+  general:
     gmail: "https://mail.google.com/"
     youtube: "https://www.youtube.com/"
+    wttr: "https://wttr.in/"
   social:
     reddit: "https://www.reddit.com/"
     unixporn: "https://www.reddit.com/r/unixporn/"
@@ -13,15 +14,14 @@ tree_2:
   dev:
     github: "https://www.github.com/"
     nextjs: "https://nextjs.org/"
-  docs:
-    qute: "https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png"
-    tmux: "https://devhints.io/tmux"
   sys:
     archwiki: 
       - "https://archlinux.org/"
       - "arch wiki"
     freebsd: "https://www.freebsd.org/"
     hyprland: "https://wiki.hyprland.org/" 
+    qute: "https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png"
+    tmux: "https://devhints.io/tmux"
 tree_3:
   transit:
     caliblue: "https://www.transitchicago.com/traintracker/arrivaltimes/?sid=40570"

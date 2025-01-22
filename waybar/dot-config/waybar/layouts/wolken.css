@@ -6,7 +6,7 @@ window#waybar {
 }
 
 #window {
-  background: @background;
+  background: @color0;
   padding: 0 20px;
 }
 
