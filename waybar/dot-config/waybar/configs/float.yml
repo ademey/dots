@@ -3,7 +3,7 @@ height: 40
 margin: 6
 include:
   - ~/.cache/waybar/position.json
-  - ~/.config/waybar/modules.json
+  - ~/.cache/waybar/modules.json
 modules-left:
   - hyprland/submap
   - hyprland/window

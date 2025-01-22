@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# This was used to generate json from the config yaml files
+# It is not needed now
+
 
 function tojson() {
   # exit 0

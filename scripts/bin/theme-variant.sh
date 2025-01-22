@@ -51,7 +51,7 @@ function render() {
 if [[ $use_tofi == true ]]; then
   
 position_option=$(printf "top\nbottom\nleft\nright" | tofi --prompt-text=" position: ")
-config_option=$( find ~/.config/waybar/configs/*.json | xargs -i{} basename {} | sed 's/.json//' | tofi --prompt-text=" ($_config) config: ")
+config_option=$( find ~/.config/waybar/configs/*.yml | xargs -i{} basename {} | sed 's/.yml//' | tofi --prompt-text=" ($_config) config: ")
 theme_option=$( find ~/.config/waybar/themes/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_theme) theme: " )
 layout_option=$( find ~/.config/waybar/layouts/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_layout) layout: " )
 fi
@@ -63,8 +63,11 @@ echo $theme_option > "$HOME/.cache/waybar/theme-name"
 echo $layout_option > "$HOME/.cache/waybar/layout-name"
 printf '{ "position": "%s" }' $position_option > "$HOME/.cache/waybar/position.json"
 # cp "$HOME/.config/waybar/themes/$op.css" "$HOME/.cache/waybar/theme.css"
-unlink ~/.config/waybar/config
-ln -s ~/dotfiles/waybar/dot-config/waybar/configs/$config_option.json ~/.config/waybar/config
+# unlink ~/.config/waybar/config
+# TODO, could just compile from yaml here
+# ln -s ~/dotfiles/waybar/dot-config/waybar/configs/$config_option.json ~/.config/waybar/config
+cat ~/dotfiles/waybar/dot-config/waybar/modules.yml | yq > ~/.cache/waybar/modules.json
+cat ~/dotfiles/waybar/dot-config/waybar/configs/$config_option.yml | yq > ~/.config/waybar/config
 cp "$HOME/.config/waybar/themes/$theme_option.css" "$HOME/.cache/waybar/theme.css"
 cp "$HOME/.config/waybar/layouts/$layout_option.css" "$HOME/.cache/waybar/layout.css"
 pkill waybar & hyprctl dispatch exec waybar

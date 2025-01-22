@@ -138,9 +138,9 @@ custom/sunset:
     'on': "\U000F0904"
     'off': 
   tooltip: '{}'
-  exec: 'exec "${HOME}/.config/waybar/sunset.sh"'
+  exec: 'exec "${HOME}/.config/waybar/modules/sunset.sh"'
   exec-on-event: 'true'
-  on-click: 'exec "${HOME}/.config/waybar/toggle-sunset.sh" -t 3000'
+  on-click: 'exec "${HOME}/.config/waybar/modules/toggle-sunset.sh" -t 3000'
 custom/expand:
   format: 
   tooltip: false
