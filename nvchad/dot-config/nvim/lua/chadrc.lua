@@ -6,19 +6,27 @@
 local M = {}
 
 M.base46 = {
-	theme = "bearded-arc",
+	theme = "flouromachine",
 
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+	hl_override = {
+		Comment = { italic = true },
+		["@comment"] = { italic = true },
+    ["NvDashAscii"] = { fg = "purple" },
+    ["NvDashFooter"] = { fg = "sun" },
+	},
 }
 
--- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
---}
+M.nvdash = require("configs.nvdash")
+M.ui = require("configs.ui")
+
+M.cheatsheet = {
+  theme = "simple",
+  excluded_groups = {},
+}
+
+M.colorify = {
+  enabled = true,
+  mode = "bg",
+}
 
 return M
