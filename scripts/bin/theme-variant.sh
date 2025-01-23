@@ -50,7 +50,7 @@ function render() {
 }
 if [[ $use_tofi == true ]]; then
   
-position_option=$(printf "top\nbottom\nleft\nright" | tofi --prompt-text=" position: ")
+position_option=$(printf "top\nbottom" | tofi --prompt-text=" position: ")
 config_option=$( find ~/.config/waybar/configs/*.yml | xargs -i{} basename {} | sed 's/.yml//' | tofi --prompt-text=" ($_config) config: ")
 theme_option=$( find ~/.config/waybar/themes/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_theme) theme: " )
 layout_option=$( find ~/.config/waybar/layouts/ -type l,f | xargs -i{} basename {} | sed 's/.css//' | tofi --prompt-text=" ($c_layout) layout: " )
