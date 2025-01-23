@@ -13,7 +13,8 @@ return {
 	},
 	-- setting the keybinding for LazyGit with 'keys' is recommended in
 	-- order to load the plugin when the command is run for the first time
+  -- TODO: This todo works, cool!
 	keys = {
-		{ "<leader>zg", "<cmd>LazyGit<cr>", desc = "Open lazygit" },
+		{ "<leader>gz", "<cmd>LazyGit<cr>", desc = "Open lazygit" },
 	},
 }

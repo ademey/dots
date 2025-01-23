@@ -1,23 +1,23 @@
--- This file needs to have same structure as nvconfig.lua 
+-- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :( 
+-- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
 local M = {}
 
 M.base46 = {
-	theme = "flouromachine",
+  theme = "aylin",
 
-	hl_override = {
-		Comment = { italic = true },
-		["@comment"] = { italic = true },
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
     ["NvDashAscii"] = { fg = "purple" },
     ["NvDashFooter"] = { fg = "sun" },
-	},
+  },
 }
 
-M.nvdash = require("configs.nvdash")
-M.ui = require("configs.ui")
+M.nvdash = require "configs.nvdash"
+M.ui = require "configs.ui"
 
 M.cheatsheet = {
   theme = "simple",
@@ -27,6 +27,16 @@ M.cheatsheet = {
 M.colorify = {
   enabled = true,
   mode = "bg",
+}
+
+M.mason = {
+  pkgs = {
+    "prettier",
+    "eslint_d",
+    "stylua",
+    "isort",
+    "black",
+  },
 }
 
 return M

@@ -104,6 +104,8 @@ M.mason = {
     "css-lsp",
     "prettier",
     "beautysh",
+    "isort",
+    "black",
   },
 }
 
