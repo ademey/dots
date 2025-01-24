@@ -23,3 +23,7 @@ map("n", "<leader>ex", "<cmd>NvimTreeClose<CR>", { desc = "Close file explorer" 
 map("n", "<leader>e+", "<cmd>NvimTreeResize +10<CR>", { desc = "Increase file explorer size" }) -- toggle file explorer
 map("n", "<leader>e-", "<cmd>NvimTreeResize -10<CR>", { desc = "Decrease file explorer size" }) -- toggle file explorer
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+-- Tab switching with tab
+undo("n", "<tab>")
+undo("n", "<S-tab>")

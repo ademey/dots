@@ -6,13 +6,13 @@
 local M = {}
 
 M.base46 = {
-  theme = "aylin",
+  theme = "everblush",
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
-    ["NvDashAscii"] = { fg = "purple" },
-    ["NvDashFooter"] = { fg = "sun" },
+    ["NvDashAscii"] = { fg = "sun" },
+    ["NvDashFooter"] = { fg = "grey_fg" },
   },
 }
 
@@ -34,6 +34,7 @@ M.mason = {
     "prettier",
     "eslint_d",
     "stylua",
+    "pylint",
     "isort",
     "black",
   },
