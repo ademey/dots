@@ -1,7 +1,5 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 local undo = vim.keymap.del
 
@@ -24,6 +22,6 @@ map("n", "<leader>e+", "<cmd>NvimTreeResize +10<CR>", { desc = "Increase file ex
 map("n", "<leader>e-", "<cmd>NvimTreeResize -10<CR>", { desc = "Decrease file explorer size" }) -- toggle file explorer
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
--- Tab switching with tab
+-- Remove tab switching with tab
 undo("n", "<tab>")
 undo("n", "<S-tab>")
