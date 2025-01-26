@@ -72,4 +72,3 @@ cp "$HOME/.config/waybar/themes/$theme_option.css" "$HOME/.cache/waybar/theme.cs
 cp "$HOME/.config/waybar/layouts/$layout_option.css" "$HOME/.cache/waybar/layout.css"
 pkill waybar & hyprctl dispatch exec waybar
 
-

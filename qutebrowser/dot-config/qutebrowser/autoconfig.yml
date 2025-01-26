@@ -16,6 +16,7 @@ settings:
     https://www.transitchicago.com: true
   content.javascript.clipboard:
     https://github.com: access-paste
+    https://translate.google.com: access-paste
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
   fonts.default_family:
