@@ -18,11 +18,11 @@ if status is-interactive
   end
 
   function authov
-    set CTA_KEY (pass api/cta | head -n 1)
+    set -gx CTA_KEY (pass api/cta | head -n 1)
   end
 
   function authbus
-    set BUS_KEY (pass api/bus | head -n 1)
+    set -gx BUS_KEY (pass api/bus | head -n 1)
   end
   # Commands to run in interactive sessions can go here
   starship init fish | source

@@ -3,17 +3,20 @@ theme: pywal
 banner: "/home/anne/dotfiles/StartTree/dot-config/StartTree/banners"
 tree_1:
   general:
-    gmail: "https://mail.google.com/"
+    email: "https://mail.google.com/"
     youtube: "https://www.youtube.com/"
-    wttr: "https://wttr.in/"
+    weather: "https://wttr.in/"
+    huiswerk: "https://www.coutinho.nl/"
+    woordenboek: "https://www.ensie.nl/"
+tree_2:
   social:
     reddit: "https://www.reddit.com/"
     unixporn: "https://www.reddit.com/r/unixporn/"
     twitter: "https://x.com"
-tree_2:
   dev:
     github: "https://www.github.com/"
     nextjs: "https://nextjs.org/"
+tree_3:
   sys:
     archwiki:
       - "https://archlinux.org/"
@@ -22,10 +25,3 @@ tree_2:
     hyprland: "https://wiki.hyprland.org/"
     qute: "https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png"
     tmux: "https://devhints.io/tmux"
-tree_3:
-  transit:
-    caliblue: "https://www.transitchicago.com/traintracker/arrivaltimes/?sid=40570"
-    divblue: "https://www.transitchicago.com/traintracker/arrivaltimes/?sid=40320"
-    cal@ful -> s: "https://ctabustracker.com/predictions/bystop/bustime:17042"
-    cal@wal -> n: "https://ctabustracker.com/predictions/bystop/bustime:17153"
-    ful@cal -> e: "https://ctabustracker.com/predictions/bystop/bustime:1329"
