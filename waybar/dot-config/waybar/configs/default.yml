@@ -1,5 +1,7 @@
 layer: top
 height: 40
+# output:
+# - HDMI-A-1
 include:
   - ~/.cache/waybar/position.json
   - ~/.cache/waybar/modules.json
