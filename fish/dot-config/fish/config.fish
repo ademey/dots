@@ -21,6 +21,10 @@ if status is-interactive
     set -gx CTA_KEY (pass api/cta | head -n 1)
   end
 
+  function reactov
+    set -gx REACT_APP_CTA_KEY (pass api/cta | head -n 1)
+  end
+
   function authbus
     set -gx BUS_KEY (pass api/bus | head -n 1)
   end
@@ -28,3 +32,8 @@ if status is-interactive
   starship init fish | source
   zoxide init fish | source
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+set -gx PATH $HOME/.local/bin $PATH

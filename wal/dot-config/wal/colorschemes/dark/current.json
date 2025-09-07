@@ -1,28 +1,28 @@
 {
-    "checksum": "0a41e4c1694ac4ca54d7885701569701",
-    "wallpaper": "/home/anne/Wallpaper/wallhaven-k9kopm-invert.png",
+    "checksum": "f50f08d067fc6ccdf95179500bcb89b9",
+    "wallpaper": "/home/anne/Wallpaper/glitch/2025_01_08_01_36_43_PM.jpg",
     "alpha": "100",
     "special": {
-        "background": "#0b1215",
-        "foreground": "#c2c3c4",
-        "cursor": "#c2c3c4"
+        "background": "#0c1012",
+        "foreground": "#c2c3c3",
+        "cursor": "#c2c3c3"
     },
     "colors": {
-        "color0": "#0b1215",
-        "color1": "#86802d",
-        "color2": "#24476d",
-        "color3": "#2b5781",
-        "color4": "#317993",
-        "color5": "#329598",
-        "color6": "#3b94b2",
-        "color7": "#8d9598",
-        "color8": "#59666c",
-        "color9": "#b4ae3c",
-        "color10": "#305f93",
-        "color11": "#3a73ae",
-        "color12": "#46a1c1",
-        "color13": "#4bc0c3",
-        "color14": "#6fb5cf",
-        "color15": "#c2c3c4"
+        "color0": "#0c1012",
+        "color1": "#1a484e",
+        "color2": "#2f6e8d",
+        "color3": "#1b4c52",
+        "color4": "#1e535a",
+        "color5": "#305f90",
+        "color6": "#c05643",
+        "color7": "#8d9497",
+        "color8": "#58656c",
+        "color9": "#236169",
+        "color10": "#3f9dbd",
+        "color11": "#24666e",
+        "color12": "#286f79",
+        "color13": "#4195bf",
+        "color14": "#d69084",
+        "color15": "#c2c3c3"
     }
 }
