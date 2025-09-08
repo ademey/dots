@@ -1,7 +1,13 @@
 {
-  "players": [],
+  "players": ["ncspot", "spotify"],
   "use_active_player": true,
   "debug": false,
+  "keybinds": {
+    "esc;q": "quit()",
+    "h": "prev()",
+    "l": "next()",
+    " ": "play_pause()"
+  },
   "width": 45,
   "height": 10,
   "direction": "horizontal",
@@ -12,9 +18,9 @@
       "type": "container",
       "direction": "vertical",
       "children": [
-        { "type": "label", "text": "◆ $title" },
-        { "type": "label", "text": "● $album" },
-        { "type": "label", "text": "▲ $artists" },
+        { "type": "label", "text": "◆ $title", "fg": "blue" },
+        { "type": "label", "text": "● $album", "fg": "green" },
+        { "type": "label", "text": "▲ $artists", "fg": "red" },
         { "type": "empty", "size": 1 },
         {
           "type": "container",
@@ -23,15 +29,23 @@
           "children": [
             { "type": "button", "text": "󰒮", "action": "prev()" },
             { "type": "empty", "size": 3 },
-            { "type": "button", "text": "$status_icon", "action": "play_pause()" },
+            {
+              "type": "button",
+              "text": "$status_icon",
+              "action": "play_pause()"
+            },
             { "type": "empty", "size": 3 },
             { "type": "button", "text": "󰒭", "action": "next()" }
           ]
         },
         { "type": "empty", "size": 1 },
-        { "type": "progress", "progress": "▓", "empty": "░", "width": 15  }
+        {
+          "type": "progress",
+          "progress": { "char": "▓", "fg": "cyan" },
+          "empty": { "char": "░", "bg": "reset" },
+          "size": 15
+        }
       ]
     }
   ]
 }
-  

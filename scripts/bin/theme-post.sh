@@ -7,7 +7,7 @@ image="$(< "${HOME}/.cache/wal/wal")"
 # Or provide an image path
 if [ $1 ]; then
   image=$1
-fi
+ fi
 
 # Generated through pywal templates
 ln -s "${HOME}/.cache/wal/hyprlock.conf" "${HOME}/.config/hypr/hyprlock.conf"
@@ -19,11 +19,13 @@ cp "${HOME}/.cache/wal/colors-kitty.conf" "${HOME}/.config/kitty/theme.conf"
 # hyprctl hyprpaper preload $IMG
 # hyprctl hyprpaper wallpaper ", $IMG"
 
-swww img --transition-type random $image
 pkill waybar && hyprctl dispatch exec waybar
 
-# Would be cool to do other effects
+qutebrowser :config-source
+swww img --transition-type random $image
 magick $image -blur 0x15 "${HOME}/.cache/hyprlock/background.png"
+
+# Would be cool to do other effects
 makoctl reload
 # Generates an image with the background and colors
 bash "${HOME}/bin/preview.sh"
@@ -32,4 +34,5 @@ bash "${HOME}/bin/preview.sh"
       source ~/packages/StartTree/.venv/bin/activate
       python ~/packages/StartTree/generate.py
  fi
+
 

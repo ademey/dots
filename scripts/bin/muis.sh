@@ -4,7 +4,7 @@
 # anw
 # scheldwoordenboek
 dict="muiswerk"
-render_md=1
+render_md=0
 render_opts=("lynx", "md")
 
 
@@ -13,7 +13,8 @@ while getopts "rd:" opt; do
         d)
             dict=$OPTARG
             ;;
-        r)  render_md=0
+        r)
+            render_md=0
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2

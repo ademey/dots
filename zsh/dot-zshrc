@@ -57,7 +57,7 @@ export PATH=/home/anne/bin:$PATH
 export PATH=/home/anne/.cargo/bin:$PATH
 
 GOPATH=$HOME/go
-PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin
 
 # eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"

@@ -1,4 +1,3 @@
-
 -- see if the file exists
 local function file_exists(file)
   local f = io.open(file, "rb")
