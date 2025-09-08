@@ -1,5 +1,7 @@
 layer: top
 height: 40
+# output:
+# - "eDP-1"
 include:
   - ~/.cache/waybar/position.json
   - ~/.cache/waybar/modules.json
