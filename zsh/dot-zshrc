@@ -73,3 +73,6 @@ export NVM_DIR="$HOME/.nvm"
 # if uwsm check may-start; then
 #     exec uwsm start hyprland.desktop
 # fi
+
+# bun completions
+[ -s "/home/anne/.bun/_bun" ] && source "/home/anne/.bun/_bun"
