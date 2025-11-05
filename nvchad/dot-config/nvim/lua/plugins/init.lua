@@ -16,4 +16,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = require "configs.treesitter",
   },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "configs.nvimtree",
+  },
 }

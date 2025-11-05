@@ -11,6 +11,10 @@ if status is-interactive
   alias lt='eza --tree --level=2'
   alias repos="/home/anne/bin/repos.sh ~/dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
 
+  function killport
+    fuser -k $argv[1]/tcp
+  end
+
   function fish_greeting
     set_color (random choice yellow red blue green cyan magenta);
     #echo "><_>"
