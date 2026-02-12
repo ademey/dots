@@ -41,3 +41,6 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 set -gx PATH $HOME/.local/bin $PATH
+function fix-wifi
+    nmcli connection down REGUS 2>/dev/null; nmcli connection up REGUS
+end

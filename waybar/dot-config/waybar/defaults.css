@@ -80,6 +80,15 @@ window#waybar {
   color: @red;
 }
 
+#custom-wf-recorder {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
 #battery {
   padding: 0px 5px;
   transition: all 0.3s ease;

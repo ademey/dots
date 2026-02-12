@@ -18,6 +18,7 @@ modules-right:
   - custom/sunset
   - clock
   - battery
+  - custom/wf-recorder
   - tray
 group/expand:
   orientation: horizontal

@@ -122,7 +122,7 @@ custom/wf-recorder:
   exec: echo ''
   tooltip: 'false'
   exec-if: pgrep 'wf-recorder'
-  on-click: exec $HOME/Dev/scripts/wl-record.sh
+  on-click: exec hypr-record.sh -s
   signal: 8
 custom/theme:
   format: 

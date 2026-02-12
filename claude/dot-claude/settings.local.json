@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(stow --help:*)",
+      "Bash(nmcli device:*)",
+      "Bash(nmcli radio:*)",
+      "Bash(ip link:*)",
+      "Bash(iw dev:*)",
+      "Bash(nmcli:*)",
+      "Bash(sort:*)",
+      "Bash(iw reg:*)",
+      "Bash(iw phy:*)",
+      "Bash(iwlist:*)",
+      "Bash(journalctl:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

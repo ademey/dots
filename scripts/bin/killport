@@ -1,0 +1,31 @@
+#!/bin/bash
+# Kill process listening on a given port
+
+if [ -z "$1" ]; then
+    echo "Usage: killport <port>"
+    echo "Example: killport 3000"
+    exit 1
+fi
+
+PORT=$1
+
+# Check if anything is listening on the port
+if ! ss -ltn "sport = :$PORT" | grep -q ":$PORT"; then
+    echo "No process listening on port $PORT"
+    exit 0
+fi
+
+# Show what we're about to kill
+echo "Processes on port $PORT:"
+ss -ltnp "sport = :$PORT"
+echo
+
+# Kill the process
+fuser -k ${PORT}/tcp 2>/dev/null
+
+if [ $? -eq 0 ]; then
+    echo "✓ Killed process on port $PORT"
+else
+    echo "✗ Failed to kill process on port $PORT (may need sudo)"
+    exit 1
+fi

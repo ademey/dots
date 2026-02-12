@@ -22,6 +22,7 @@
     "custom/sunset",
     "clock",
     "battery",
+    "custom/wf-recorder",
     "tray"
   ],
   "group/expand": {
