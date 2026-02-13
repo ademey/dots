@@ -13,7 +13,8 @@
       "Bash(iw reg:*)",
       "Bash(iw phy:*)",
       "Bash(iwlist:*)",
-      "Bash(journalctl:*)"
+      "Bash(journalctl:*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "deny": [],
     "ask": []

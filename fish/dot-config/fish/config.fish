@@ -7,9 +7,9 @@ if status is-interactive
   alias cat='bat'
 
   alias ls='eza --all --icons --git --group-directories-first'
-  alias ll='eza --all --long --icons --git --group-directories-first --show-symlinks'
+  alias ll='eza --all --long --icons --git --group-directories-first'
   alias lt='eza --tree --level=2'
-  alias repos="/home/anne/bin/repos.sh ~/dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
+  alias repos="~/bin/repos.sh ~/dotfiles/ ~/Notes/ ~/.password-store/ ~/Dev/portal/"
 
   function killport
     fuser -k $argv[1]/tcp
@@ -34,7 +34,7 @@ if status is-interactive
   end
   # Commands to run in interactive sessions can go here
   starship init fish | source
-  zoxide init fish | source
+  command -q zoxide; and zoxide init fish | source
 end
 
 # bun
